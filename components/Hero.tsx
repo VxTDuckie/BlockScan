@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import CustomButton from './CustomButton';
-import Navbar from './Navbar';
 
 const Hero = () => {
     const handleScroll = () => {

@@ -1,11 +1,10 @@
 "use client"
 import { Hero } from "@/components"
-import { useState } from "react"
-import { Navbar } from "@/components"
+
 
 export default function Page() {
 
-    const [img, setImg] = useState<string>('img1')
+    
 
     return (
         <main className="bg-cover overflow-hidden bg-black">            
