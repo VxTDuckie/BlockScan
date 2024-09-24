@@ -17,8 +17,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "JBiz",
-  description: "Trace the money flow like an expert",
+  title: "BlackScan",
+  description: "An effective scanner for you.",
 };
 
 export default function RootLayout({
