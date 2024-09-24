@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "BlackScan",
+  title: "BlockScan",
   description: "An effective scanner for you.",
 };
 
