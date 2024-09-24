@@ -27,7 +27,7 @@ const Hero = () => {
                             placeholder="Enter wallet address"
                             className="rounded p-2 w-64 border-2 border-white shadow-weak-ass-glow"
                         />
-                        <CustomButton 
+                        <CustomButton
                             icon={<img src='images/magnifying-glass.png' alt='icon' className='w-5 h-5 flex' />}
                             title="Search"
                             containerStyles="bg-primary-red text-white rounded-full px-4 py-5 shadow-glow-red"
