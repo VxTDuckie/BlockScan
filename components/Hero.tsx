@@ -2,6 +2,7 @@
 import React from 'react';
 import CustomButton from './CustomButton';
 
+
 const Hero = () => {
     const handleScroll = () => {
         // Add your scroll logic here
@@ -20,12 +21,27 @@ const Hero = () => {
                         Built all-in-one, JBiz helps you get used to cryptocurrency.
                     </p>
 
-                    {/* Email input section */}
-                    <div className="flex items-center space-x-4 mt-10">
+                   
+                    <div className="flex items-center space-x-4 mt-12">
+                        <div>
+                            <label className='white rounded p-3 w-64 border-2 border-white shadow-weak-ass-glow'>Upload a contract
+                                <input
+                                    type="file"
+                                    placeholder="Enter wallet address"
+                                    className="rounded p-2 w-64 border-2 border-white shadow-weak-ass-glow " 
+                                    style={{display:'none'}}
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <p className='text-2xl white font-light lg:px-3'>or</p>
+                        </div>
+
+                        <div className='flex gap-4'>
                         <input
-                            type="email"
-                            placeholder="Enter wallet address"
-                            className="rounded p-2 w-64 border-2 border-white shadow-weak-ass-glow"
+                            type="text"
+                            placeholder="Search a contract"
+                            className="rounded p-2 w-64 border-2 border-white shadow-weak-ass-glow bg-black white"
                         />
                         <CustomButton
                             icon={<img src='images/magnifying-glass.png' alt='icon' className='w-5 h-5 flex' />}
@@ -33,7 +49,10 @@ const Hero = () => {
                             containerStyles="bg-primary-red text-white rounded-full px-4 py-5 shadow-glow-red"
                             handleClick={handleScroll} 
                         />
+                        </div>
+
                     </div>
+
                 </div>
             </div>
 

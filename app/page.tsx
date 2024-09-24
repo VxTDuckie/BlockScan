@@ -1,13 +1,14 @@
 "use client"
 import { Hero } from "@/components"
+import CustomCursor from "@/components/CustomCursor"
 
-
-export default function Page() {
+export default function page() {
 
     
 
     return (
-        <main className="bg-cover overflow-hidden bg-black">            
+        <main className="bg-cover overflow-hidden bg-black">        
+            <CustomCursor />    
             <Hero/>
             <section>
                 <div className="lg:py-5">    

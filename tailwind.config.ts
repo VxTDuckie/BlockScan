@@ -13,7 +13,7 @@ module.exports = {
       },
       colors: {
         "black-100": "#2B2C35",
-        "primary-red": "#E72106",
+        "primary-red": "#e73606",
         "primary-blue": {
           DEFAULT: "#2B59FF",
           100: "#F5F8FF",

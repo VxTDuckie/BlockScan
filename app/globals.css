@@ -225,5 +225,26 @@
   background-color: rgba(13, 13, 13, 0.6); /* Adjust color and opacity */
   transition: background-color 0.3s ease; /* Smooth transition */
 }
+.cursorFollower {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 0, 0, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+.white {
+  color: white;
+}
+input::placeholder {
+  color: white; /* Change placeholder text color to white */
+  opacity: 1; /* Optional: Change opacity to fully opaque */
+}
+
+
+
+
 
 /* END: search manufacturer styles */
