@@ -222,8 +222,13 @@
 }
 /* styles.css or a similar CSS file */
 .custom-transparent-bg {
-  background-color: rgba(13, 13, 13, 0.6); /* Adjust color and opacity */
+  background-color: rgba(13, 13, 13, 0.7); /* Adjust color and opacity */
   transition: background-color 0.3s ease; /* Smooth transition */
+
+}
+.blurEffect {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
 }
 .cursorFollower {
   position: absolute;

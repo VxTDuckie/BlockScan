@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <nav
       className={`sticky top-0 px-4 md:px-8 lg:px-12 xl:px-36 duration-300 ${
-        isScrolled ? "custom-transparent-bg" : "bg-transparent"
+        isScrolled ? "custom-transparent-bg" : "bg-transparent "
       } z-50`}
     >
       <div className="max-w-screen-xl mx-auto p-4 flex justify-between items-center">
