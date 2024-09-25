@@ -27,6 +27,7 @@ const Hero = () => {
                             <label className='white rounded p-3 w-64 border-2 border-white shadow-weak-ass-glow'>Upload a contract
                                 <input
                                     type="file"
+                                    accept='.sol'
                                     placeholder="Enter wallet address"
                                     className="rounded p-2 w-64 border-2 border-white shadow-weak-ass-glow " 
                                     style={{display:'none'}}
