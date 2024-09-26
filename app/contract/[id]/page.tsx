@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { CustomButton } from '@/components/Index';
+import {CustomButton } from '@/components';
 
 const Page = () => {
   const [tokenAddress, setTokenAddress] = useState('');
