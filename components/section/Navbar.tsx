@@ -23,18 +23,18 @@ const Navbar = () => {
   return (
     <nav
       className={`sticky top-0 px-4 md:px-8 lg:px-12 xl:px-36 duration-300 ${
-        isScrolled ? "custom-transparent-bg" : "bg-transparent "
+        isScrolled ? "custom-transparent-bg" : "bg-black "
       } z-50`}
     >
-      <div className="max-w-screen-xl mx-auto p-4 flex justify-between items-center">
+      <div className="max-w-screen-xl mx-44 p-1 flex justify-between items-center">
         <Link href={"/"} className="flex items-center gap-4 p-1.5">
-          <img src="images/logo.png" alt="logo" className="h-8 w-8" />
+          <img src="/images/logo.png" alt="logo" className="h-12 w-12" />
           <p className="text-primary-red font-bold text-lg">BlockScan</p>
         </Link>
         <div className="relative w-48 md:w-72  ">
           {isScrolled && (
           <input
-            type="email"
+            type="text"
             placeholder="Search a contract"
             className={`rounded-lg p-1.5 pl-10 pr-2 w-full outline-none text-[14px] border-2 border-white bg-transparent text-white`}
           />
@@ -42,7 +42,7 @@ const Navbar = () => {
         {isScrolled && (
           <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white">
             <img
-              src="images/magnifying-glass.png"
+              src="/images/magnifying-glass.png"
               alt="search-bar"
               className="w-5 h-5"
             />

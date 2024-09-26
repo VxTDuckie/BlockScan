@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState, useRef } from 'react';
 import styles from './CustomCursor.module.css';
 
@@ -25,7 +26,7 @@ const CustomCursor = () => {
       setFollowerPosition((prev) => {
         const target = mousePositionRef.current; // Get the last known cursor position
         const deltaX = target.x - prev.x - 10; // Difference in x position
-        const deltaY = target.y - prev.y - 80; // Difference in y position
+        const deltaY = target.y - prev.y - 10; // Difference in y position
 
         // Calculate new position with easing effect
         const newX = prev.x + deltaX * pullingEffect.current; // Easing towards cursor

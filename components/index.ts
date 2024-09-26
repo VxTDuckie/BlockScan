@@ -1,10 +1,12 @@
-import Hero from './Hero';
+import Hero from './section/Hero';
 import CustomButton from './CustomButton';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Navbar from './section/Navbar';
+import Footer from './section/Footer';
+import CustomCursor from './CustomCursor';
 export {
     Hero,
     CustomButton,
+    CustomCursor,
     Navbar,
-    Footer
+    Footer,
 }
