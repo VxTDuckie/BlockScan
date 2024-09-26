@@ -1,13 +1,8 @@
 "use client";
 import React from 'react';
-import CustomButton from '../CustomButton';
 import Link from 'next/link';
 
 const Hero = () => {
-    const handleScroll = () => {
-        // Add your scroll logic here
-    };
-
     return (
         <div className="flex flex-col xl:flex-row max-w-screen-xl mx-auto py-8 lg:py-12 gap-8 mb-16 xl:mb-28 min-h-[600px] xl:h-[900px] items-center px-4 xl:px-0">
             

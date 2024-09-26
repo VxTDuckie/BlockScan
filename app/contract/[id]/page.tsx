@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import {CustomButton } from '@/components';
 
 const Page = () => {
-  const [tokenAddress, setTokenAddress] = useState('');
-
   const fakeResults = [
     { check: 'No vulnerable withdrawal functions found', status: '/images/check-2.png', bg: 'bg-primary-red'},
     { check: 'No reentrancy risk found', status: '/images/check-2.png', bg: 'bg-primary-red'},
