@@ -6,4 +6,7 @@ export interface CustomButtonProps {
     handleClick?:
     MouseEventHandler<HTMLButtonElement>;
     icon?: ReactNode;
+    href?:{};
+    download?: string;
+    style?:{}
 }
