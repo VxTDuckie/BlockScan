@@ -1,5 +1,4 @@
 import React from 'react';
-import { CustomButton } from '@/components/index';
 
 const PdfViewer: React.FC = () => {
   const pdfUrl = '/pdf-reference.pdf'; // The path to your PDF in the public folder
