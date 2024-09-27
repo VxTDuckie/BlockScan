@@ -6,7 +6,7 @@ import { SafetyCheck } from '@/components/index';
 const ContractScanResult = () => {
   const handleRedirectToPdf = () => {
     // Replace the URL below with the actual URL of your PDF
-    const pdfUrl = 'http://localhost:3000/contract/scanresult';
+    const pdfUrl = 'https://block-scan-woad.vercel.app/contract/scanresult';
     // Open the PDF in a new tab
     window.open(pdfUrl, '_blank');
   };
