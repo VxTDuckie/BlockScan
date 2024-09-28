@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Hero = () => {
     return (
-        <div className="flex flex-col xl:flex-row max-w-screen-xl mx-auto py-8 lg:py-12 gap-8 mb-16 xl:mb-28 min-h-[600px] xl:h-[900px] items-center px-4 xl:px-0">
+        <div className="flex flex-col xl:flex-row max-w-screen-xl mx-auto py-8 lg:py-12 gap-8 mb-16 xl:mb-28 min-h-[600px] xl:h-[850px] items-center px-4 xl:px-0">
             
             {/* Text content */}
             <div className="flex-1 xl:flex-[2] flex items-center justify-center px-4 xl:px-8">

@@ -14,9 +14,9 @@ const ContractScanResult = () => {
     const radarLabels = ['Contract', 'Social', 'Holder', 'Liquidity', 'Governance'];
     const radarScores = [90, 80, 70, 85, 75]; 
     return (
-    <section className='bg-white__bg'>
+    <section className='bg-white__bg pb-20'>
         <div className='max-w-6xl mx-auto lg:py-8'>
-          <div className='flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-8'>
+          <div className='flex  flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-8'>
           <div className="flex items-center flex-grow">
               <img src="/images/ddcoin.png" alt="coin logo" width={96} height={96} className="mr-4" />
               <div>
@@ -48,11 +48,12 @@ const ContractScanResult = () => {
           <hr className='my-8 border-slate-200' />
           
           <div className='flex flex-col lg:flex-row gap-8'>
-            <SafetyCheck/> 
+            <div className='flex-[5] lg:w-1/3'>
+            <SafetyCheck/>
+            </div> 
             <div className='flex-[4] lg:w-1/3'>
               <RadarChart labels={radarLabels} scores={radarScores} /> {/* Passing the dynamic data */}
               <DonutChart/>
-              <p className='text-center lg:text-left'>Additional information or charts can go here</p>
             </div>
           </div>
         </div>

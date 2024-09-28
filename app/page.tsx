@@ -1,6 +1,6 @@
 "use client";
 
-import {Hero, Video, YTRefSection, RiliabilitySection } from '@/components/index';
+import {Hero, Video, YTRefSection, RiliabilitySection, FAQ } from '@/components/index';
 
 
 export default function Page() {
@@ -9,6 +9,7 @@ export default function Page() {
             <Hero/>
             <Video/>
             <RiliabilitySection/>
+            <FAQ/>
             <YTRefSection/>
         </main>
     )

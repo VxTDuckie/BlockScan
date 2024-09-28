@@ -16,7 +16,7 @@ const SafetyCheck = () => {
     return (
 
     <main>
-                    <div className='flex-[6]'>
+              <div>
               <ul className='space-y-4'>
                 {fakeResults.map((result, index) => (
                   <li key={index} className='p-4 lg:p-6 rounded-lg bg-white border border-slate-200'>

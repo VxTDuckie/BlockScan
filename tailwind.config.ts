@@ -30,7 +30,8 @@ module.exports = {
         "subsection__grey": "#1a1a1a",
         "grey__border": "#3d3d3d",
         "light__grey": "#f5f5f5",
-        "white__bg": "#f4f5f7"
+        "white__bg": "#f4f5f7",
+        "footer": "#121212",
 
       },
       backgroundImage: {

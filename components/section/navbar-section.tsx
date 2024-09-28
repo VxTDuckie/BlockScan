@@ -1,12 +1,22 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
 import Link from "next/link";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const router = useRouter();
+  const [inputValue, setInputValue] = useState('');
+
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      router.push('/contract/0x576e2bed8f7b46d34016198911cdf9886f78bea7'); // Redirect to 'new-page' when Enter is pressed
+    }
+  };
 
   const handleScroll = () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 10) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
@@ -17,7 +27,7 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-    };
+    };  
   }, []);
 
   return (
@@ -36,6 +46,9 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search a contract"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={handleKeyPress}
             className={`rounded-lg p-1.5 pl-10 pr-2 w-full outline-none text-[14px] border-2 border-white bg-transparent text-white`}
           />
         )}

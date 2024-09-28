@@ -1,6 +1,18 @@
+"use client"
+import { useState } from 'react'
 import React from 'react'
-
+import { useRouter } from 'next/navigation'
 const SmartScanning = () => {
+  const router = useRouter();
+  const [inputValue, setInputValue] = useState('');
+
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      router.push('/contract/0x3a5d1c8f2e3b45a670ef9b67321d9fabc8e53f8c');
+    }
+  };
+
   return (
     <section className='max-w-6xl mx-auto'>
     <div className='flex flex-col lg:flex-row justify-between mb-8'>
@@ -21,6 +33,9 @@ const SmartScanning = () => {
       <input
         type="text"
         placeholder="Search a contract"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        onKeyDown={handleKeyPress}
         className="w-full lg:w-auto flex-grow rounded p-2 border-2 border-white shadow-weak-ass-glow bg-black white"
       />
       <label className='text-center white rounded p-2 border-2 border-white shadow-weak-ass-glow cursor-pointer'>

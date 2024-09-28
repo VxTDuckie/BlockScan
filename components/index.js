@@ -12,6 +12,7 @@ import PdfViewer from './section/report-display-section';
 import SmartScanning from './section/smart-scanning-section';
 import DonutChart from './chart/DonutChart';
 import RadarChart from './chart/RadarChart';
+import FAQ from './section/frequently-asked-question-section';
 
 
 export {
@@ -27,5 +28,6 @@ export {
     Video,
     PdfViewer,
     SmartScanning,
-    DonutChart, RadarChart
+    DonutChart, RadarChart,
+    FAQ
 }
