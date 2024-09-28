@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      router.push('/contract/0x576e2bed8f7b46d34016198911cdf9886f78bea7'); // Redirect to 'new-page' when Enter is pressed
+      router.push(`/contract/${inputValue}`); // Redirect to 'new-page' when Enter is pressed
     }
   };
 

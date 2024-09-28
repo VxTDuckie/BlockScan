@@ -18,7 +18,7 @@ const ContractScanResult = () => {
         <div className='max-w-6xl mx-auto lg:py-8'>
           <div className='flex  flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-8'>
           <div className="flex items-center flex-grow">
-              <img src="/images/ddcoin.png" alt="coin logo" width={96} height={96} className="mr-4" />
+              <img src="/images/didi-logo.png" alt="coin logo" width={96} height={96} className="mr-4" />
               <div>
                 <div className="flex items-baseline gap-3 pb-2">
                   <h2 className="font-bold text-2xl text-primary-red">DiDi Coin</h2>

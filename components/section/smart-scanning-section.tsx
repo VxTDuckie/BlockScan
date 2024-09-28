@@ -9,7 +9,7 @@ const SmartScanning = () => {
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      router.push('/contract/0x3a5d1c8f2e3b45a670ef9b67321d9fabc8e53f8c');
+      router.push(`/contract/${inputValue}`);
     }
   };
 
