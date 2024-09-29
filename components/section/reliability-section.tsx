@@ -1,6 +1,5 @@
 import React from 'react';
 import  {motion} from "framer-motion";
-import { duration } from 'html2canvas/dist/types/css/property-descriptors/duration';
 
 const fadeUp = {
     hidden: {opacity: 0, y: 50},
@@ -21,7 +20,7 @@ const ReliabilitySection = () => {
                 whileInView='reveal'
                 transition={{ staggerChildren: 0.2 }}
                 >
-                    
+
                     <motion.div 
                     className="flex items-center mb-12"
                     transition={{duration: 0.5, delay:0.2}}
