@@ -14,7 +14,7 @@ const ContractScanResult = () => {
 
   // Hàm để rút gọn địa chỉ
   const shortenAddress = (address: string) => {
-    return `${address.slice(0, 6)}...${address.slice(-4)}`; // Khai báo kiểu string cho tham số address
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
 
   const handleRedirectToPdf = () => {
@@ -70,25 +70,33 @@ const ContractScanResult = () => {
                 </p>
                 <CopyButton textToCopy={fullAddress} />
               </div>
+
+              {/* Thêm dòng Release Date và Project Age */}
+              <div className="flex items-center text-gray-500 text-sm mt-2">
+                <p>Deployed – Wed, 2 Oct 2024 • Project age 6h</p> {/* Dòng này tựa như hình bạn đã đưa */}
+              </div>
             </div>
           </div>
 
           {/* Điều chỉnh phân bố các ô */}
           <div className="flex flex-row gap-4">
             <div className="flex flex-col gap-4">
-              <p className="border-2 p-3 rounded-lg bg-primary-red text-white font-bold text-center">
-                Medium Risk: 1
+              <p className="border-2 p-3 rounded-lg bg-white text-black font-bold text-center">
+                Medium Risk: <span style={{ color: '#FF9D00' }}>3</span> {/* Màu vàng */}
               </p>
-              <p className="border-2 p-3 rounded-lg bg-primary-red text-white font-bold text-center">
-                High Risk: 1
+
+              <p className="border-2 p-3 rounded-lg bg-white text-black font-bold text-center">
+                High Risk: <span style={{ color: '#FF0000' }}>2</span> {/* Màu đỏ */}
               </p>
             </div>
+
             <div className="flex flex-col gap-4">
-              <p className="border-2 p-3 rounded-lg bg-white text-primary-red font-bold text-center">
-                Safety score: 93/100
+              <p className="border-2 p-3 rounded-lg bg-red-600 text-white font-bold text-center">
+                Safety score: 93/100 {/* Màu nền đỏ và chữ trắng */}
               </p>
-              <p className="border-2 p-3 rounded-lg bg-primary-red text-white font-bold text-center">
-                Attention required: 1
+
+              <p className="border-2 p-3 rounded-lg bg-white text-black font-bold text-center">
+                Attention Required: <span style={{ color: '#3aff00' }}>8</span> {/* Màu xanh */}
               </p>
             </div>
           </div>
