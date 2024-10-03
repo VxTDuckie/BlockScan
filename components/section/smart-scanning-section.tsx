@@ -36,9 +36,9 @@ const SmartScanning = () => {
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={handleKeyPress}
-        className="w-full lg:w-auto flex-grow rounded p-2 border-2 border-white shadow-weak-ass-glow bg-black white"
+        className="w-full lg:w-auto flex-grow rounded p-2 border-2 border-white shadow-weak-ass-glow bg-black white transition-all duration-300 ease-in-out transform hover:scale-y-110"
       />
-      <label className='text-center white rounded p-2 border-2 border-white shadow-weak-ass-glow cursor-pointer'>
+      <label className='text-center white rounded p-2 border-2 border-white shadow-weak-ass-glow cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-110'>
         Upload
         <input type="file" accept='.sol' className='hidden' />
       </label>

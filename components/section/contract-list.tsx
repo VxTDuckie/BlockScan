@@ -42,7 +42,7 @@ const ContractList = () => {
                                 
                                 <Link href='/contract/didicoin'>
                                     <div className="flex items-center">
-                                        <img src={contract.logo} alt="Token Logo" className="w-24 h-24 rounded-full" />
+                                        <img src={contract.logo} alt="Token Logo" className="w-12 h-12 rounded-full" />
                                         <div className="pl-4 flex flex-col">
 
 

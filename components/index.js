@@ -6,9 +6,9 @@ import CustomButton from './dynamicEffect/CustomButton';
 import RiliabilitySection from './section/reliability-section';
 import YTRefSection from './section/youtube-reference-section';
 import ContractScanResult from './section/contract-scan-result-section';
-import SafetyCheck from './section/safety-check-section';
+import SafetyCheck from './section/safety-check-section'; 
 import Video from './section/full-screen-video';
-import PdfViewer from './section/report-display-section';
+import PdfViewer from './section/pdf-display-section';
 import SmartScanning from './section/smart-scanning-section';
 import DonutChart from './chart/DonutChart';
 import RadarChart from './chart/RadarChart';
@@ -29,5 +29,5 @@ export {
     PdfViewer,
     SmartScanning,
     DonutChart, RadarChart,
-    FAQ
-}
+    FAQ,
+};

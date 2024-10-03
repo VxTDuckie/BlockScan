@@ -39,7 +39,7 @@ const Navbar = () => {
       <div className="max-w-screen-xl mx-44 p-1 flex justify-between items-center">
         <Link href={"/"} className="flex items-center gap-4 p-1.5">
           <img src="/images/logo.png" alt="logo" className="h-12 w-12" />
-          <p className="text-primary-red font-bold text-lg">BlockScan</p>
+          <p className="text-primary-red font-bold text-3xl">BlockScan</p>
         </Link>
         <div className="relative w-48 md:w-72  ">
           {isScrolled && (
