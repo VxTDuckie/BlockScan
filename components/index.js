@@ -1,8 +1,9 @@
+"use client"
 import Hero from './section/hero-section';
 import Navbar from './section/navbar-section';
 import Footer from './section/footer-section';
-import CustomCursor from './dynamicEffect/CustomCursor';
-import CustomButton from './dynamicEffect/CustomButton';
+import CustomCursor from './feature/CustomCursor';
+import CustomButton from './feature/CustomButton';
 import RiliabilitySection from './section/reliability-section';
 import YTRefSection from './section/youtube-reference-section';
 import ContractScanResult from './section/contract-scan-result-section';
@@ -13,7 +14,7 @@ import SmartScanning from './section/smart-scanning-section';
 import DonutChart from './chart/DonutChart';
 import RadarChart from './chart/RadarChart';
 import FAQ from './section/frequently-asked-question-section';
-
+import { useScanning } from './feature/useScanning';
 
 export {
     Hero,
@@ -30,4 +31,5 @@ export {
     SmartScanning,
     DonutChart, RadarChart,
     FAQ,
+    useScanning,
 };

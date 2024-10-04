@@ -66,24 +66,24 @@ const SafetyCheck = () => {
         <ul className='space-y-4'>
           {isChosen
             ? fakeResultsOne.map((result, index) => (
-                <li key={index} className='p-4 lg:p-6 rounded-lg bg-white shadow-md'>
+                <li key={index} className='p-4 lg:p-6 rounded-xl bg-white shadow-md'>
                   <div className='flex items-center'>
                     <img
                       src={result.status}
                       alt='checking symbol'
-                      className={`p-2 rounded-lg mr-4 ${result.bg}`}
+                      className={`p-2 rounded-xl mr-4 ${result.bg}`}
                     />
                     <p className='font-bold text-lg lg:text-xl'>{result.check}</p>
                   </div>
                 </li>
               ))
             : fakeResultsTwo.map((result, index) => (
-                <li key={index} className='p-4 lg:p-6 rounded-lg bg-white shadow-md'>
+                <li key={index} className='p-4 lg:p-6 rounded-xl bg-white shadow-md'>
                   <div className='flex items-center'>
                     <img
                       src={result.status}
                       alt='checking symbol'
-                      className={`p-2 rounded-lg mr-4 ${result.bg}`}
+                      className={`p-2 rounded-xl mr-4 ${result.bg}`}
                     />
                     <p className='font-bold text-lg lg:text-xl'>{result.check}</p>
                   </div>

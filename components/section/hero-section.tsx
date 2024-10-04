@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import splitString from '@/app/utils/splitText';
 import  {motion} from "framer-motion";
-
+import { useScanning } from '@/components/index';
 
 
 
@@ -22,6 +22,10 @@ const Hero = () => {
     const splitHeading1 = splitString(heading1);
     const splitHeading2 = splitString(heading2);
     const splitSubtitle = splitString(subtitle);
+    const {isScanning, startScanning} = useScanning();
+    const handleFileUpload = () => {
+        startScanning('');
+    }
 
 
     return (
@@ -68,17 +72,19 @@ const Hero = () => {
                    
                     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 xl:space-x-6 mt-8 xl:mt-14">
                         
-                        <label className='justify-center white rounded-lg text-base sm:text-lg xl:text-[20px] font-normal p-3 xl:p-4 w-full sm:w-auto border-2 border-white shadow-weak-ass-glow hover:bg-white hover:text-black transition-colors duration-300 '>
+                        <label className='justify-center white rounded-xl text-base sm:text-lg xl:text-[20px] font-normal p-3 xl:p-4 w-full sm:w-auto border-2 border-white shadow-weak-ass-glow hover:bg-white hover:text-black transition-colors duration-300 '>
                             Upload a contract
                             <input
                                 type="file"
-                                accept='.sol'
+                                accept=''
                                 className="hidden" 
+                                onChange={handleFileUpload}
                             />
+                
                         </label>
                         <p className='text-xl sm:text-2xl xl:text-3xl white font-light px-2 xl:px-4'>or </p>
                         <Link href='/contract'>
-                            <p className='border-2 p-3 xl:p-4 rounded-lg text-base sm:text-lg xl:text-[20px] font-normal white px-3 xl:px-4 shadow-weak-ass-glow hover:bg-white hover:text-black transition-colors duration-300 w-full sm:w-auto text-center'>
+                            <p className='border-2 p-3 xl:p-4 rounded-xl text-base sm:text-lg xl:text-[20px] font-normal white px-3 xl:px-4 shadow-weak-ass-glow hover:bg-white hover:text-black transition-colors duration-300 w-full sm:w-auto text-center'>
                                 Explore more in Contract list
                             </p>
                         </Link>
@@ -96,7 +102,23 @@ const Hero = () => {
                     className="h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[660px] w-full xl:w-auto rounded-lg object-cover object-center"
                 />   
             </div>
-
+            {isScanning && (
+    <>
+      <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" aria-hidden="true" />
+      <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className="bg-white rounded-xl p-12 max-w-[500px] mx-auto">
+          <p className="text-4xl font-semibold mb-4">Hold up!</p>
+          <p className="flex items-center gap-2 text-2xl">
+            <svg className="animate-spin h-10 w-10 text-primary-red" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Contract is being scanned
+          </p>
+        </div>
+      </div>
+    </>
+  )}
         </div>
     );
 };

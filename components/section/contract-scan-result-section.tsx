@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomButton from '../dynamicEffect/CustomButton';
+import {CustomButton} from '@/components/index';
 import RadarChart from '@/components/chart/RadarChart';
 import DonutChart from '@/components/chart/DonutChart'
 import { SafetyCheck } from '@/components/index';
@@ -28,8 +28,8 @@ const ContractScanResult = () => {
             <img src="/images/didi-logo.png" alt="coin logo" width={96} height={96} className="mr-4" />
             <div>
               <div className="flex items-baseline gap-1 pb-1">
-                <h2 className="font-bold text-2xl text-primary-red">DiDi Coin</h2>
-                <span className="font-normal text-xl text-gray-500">DC</span>
+                <h2 className="font-bold text-2xl text-primary-red mr-2">DiDi Coin</h2>
+                <span className="font-bold text-xl text-gray-500">DC</span>
               </div>
               <div className="flex items-center gap-1">
                 <p className="font-normal text-sm text-gray-500 break-all underline">
@@ -48,21 +48,21 @@ const ContractScanResult = () => {
           {/* Điều chỉnh phân bố các ô */}
           <div className="flex flex-row gap-4">
             <div className="flex flex-col gap-4">
-              <p className="border-2 p-3 rounded-lg bg-white text-black font-bold text-center">
+              <p className="border-2 p-3 rounded-xl bg-white text-black font-bold text-center">
                 Medium Risk: <span style={{ color: '#FF9D00' }}>3</span> {/* Màu vàng */}
               </p>
 
-              <p className="border-2 p-3 rounded-lg bg-white text-black font-bold text-center">
+              <p className="border-2 p-3 rounded-xl bg-white text-black font-bold text-center">
                 High Risk: <span style={{ color: '#FF0000' }}>2</span> {/* Màu đỏ */}
               </p>
             </div>
 
             <div className="flex flex-col gap-4">
-              <p className="border-2 p-3 rounded-lg bg-red-600 text-white font-bold text-center">
+              <p className="border-2 p-3 rounded-xl bg-red-600 text-white font-bold text-center">
                 Safety score: 93/100 {/* Màu nền đỏ và chữ trắng */}
               </p>
 
-              <p className="border-2 p-3 rounded-lg bg-white text-black font-bold text-center">
+              <p className="border-2 p-3 rounded-xl bg-white text-black font-bold text-center">
                 Attention Required: <span style={{ color: '#3aff00' }}>8</span> {/* Màu xanh */}
               </p>
             </div>
