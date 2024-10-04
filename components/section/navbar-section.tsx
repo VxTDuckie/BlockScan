@@ -1,12 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useRouter } from 'next/navigation';
 import Link from "next/link";
 import { useScanning } from "../feature/useScanning";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const router = useRouter();
   const [inputValue, setInputValue] = useState('');
   const {isScanning, handleKeyPress} = useScanning();
 

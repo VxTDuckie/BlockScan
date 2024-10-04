@@ -1,7 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import SmartScanning from './smart-scanning-section';
-import Link from 'next/link';
 import { useScanning } from '@/components/index';
 
 const ContractList = () => {
