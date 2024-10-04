@@ -1,7 +1,7 @@
 .cursorFollower {
     position: absolute;
-    width: 28px; /* Size of the circle */
-    height: 28px; /* Size of the circle */
+    width: 20px; /* Size of the circle */
+    height: 20px; /* Size of the circle */
     background-color: rgba(231, 54, 6, 0.8); /* Color of the circle */
     border-radius: 50%; /* Make it a circle */
     transition: transform 0.2s ease-out; /* Smooth transition effect */
