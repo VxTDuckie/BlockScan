@@ -31,11 +31,11 @@ const SmartScanning = () => {
     <div className='flex flex-col lg:flex-row items-center gap-4 mb-8 mt-16'>
       <input
         type="text"
-        placeholder="Search a contract"
+        placeholder="Enter contract address"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={(e) => handleKeyPress(e, inputValue)}
-        className="w-full lg:w-auto flex-grow rounded-xl p-2 border-2 border-white shadow-weak-ass-glow bg-black white transition-all duration-300 ease-in-out transform hover:scale-y-110"
+        className="w-full lg:w-auto flex-grow rounded-xl p-2 pl-4 border-2 border-white shadow-weak-ass-glow bg-black white transition-all duration-300 ease-in-out transform hover:scale-y-110"
       />
       <label className='text-center white rounded-xl p-2 border-2 border-white shadow-weak-ass-glow cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-110'>
         Upload
