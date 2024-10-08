@@ -1,9 +1,13 @@
 "use client"
 import React, { useState } from 'react';
+import {motion} from 'framer-motion';
 
 const SafetyCheck = () => {
   const [isChosen, setIsChosen] = useState<boolean>(true); // State to switch between sections
-
+  const fadeUp = {
+    hidden: {opacity: 0, y: 50},
+    reveal: {opacity: 1, y: 0},
+  }
   const fakeResultsOne = [
     { check: 'No vulnerable withdrawal functions found', status: '/images/check-2.png', bg: 'bg-primary-red'},
     { check: 'No reentrancy risk found', status: '/images/check-2.png', bg: 'bg-primary-red'},
@@ -63,7 +67,8 @@ const SafetyCheck = () => {
         
 
       <div>
-        <ul className='space-y-4'>
+        <ul className='space-y-4'
+        >
           {isChosen
             ? fakeResultsOne.map((result, index) => (
                 <li key={index} className='p-4 lg:p-6 rounded-xl bg-white shadow-md'>

@@ -6,6 +6,8 @@ import { SafetyCheck } from '@/components/index';
 import CopyButton from '@/components/button/copy-button'; // Đảm bảo đường dẫn đúng
 
 const ContractScanResult = () => {
+
+  
   const handleRedirectToPdf = () => {
     // Replace the URL below with the actual URL of your PDF
     const pdfUrl = '/contract/scanresult';
@@ -23,7 +25,7 @@ const ContractScanResult = () => {
     return (
     <section className='bg-white__bg pb-20'>
         <div className='max-w-6xl mx-auto lg:py-8'>
-        <div className='flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-8'>
+        <div className='flex flex-col lg:flex-row items-start lg:items-center justify-between mb-12 gap-8 shadow-md bg-white p-5 rounded-xl'>
           <div className="flex items-center flex-grow">
             <img src="/images/didi-logo.png" alt="coin logo" width={96} height={96} className="mr-4" />
             <div>
@@ -75,11 +77,11 @@ const ContractScanResult = () => {
             />
           </div>
           
-          <hr className='my-8 border-slate-200' />
+          {/*<hr className='mb-12 border-2 border-hard-red mx-[400px] rounded-full' />*/}
           
           <div className='flex flex-col lg:flex-row gap-8'>
             <div className='flex-[5] lg:w-1/3'>
-            <SafetyCheck/>
+              <SafetyCheck/>
             </div> 
             <div className='flex-[4] lg:w-1/3'>
               <RadarChart labels={radarLabels} scores={radarScores} /> {/* Passing the dynamic data */}

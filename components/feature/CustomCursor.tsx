@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState, useRef } from 'react';
-import styles from './CustomCursor.module.css';
+import styles from './Feature.module.css';
 
 const CustomCursor = () => {
   const [followerPosition, setFollowerPosition] = useState({ x: 0, y: 0 });
@@ -71,7 +71,7 @@ const CustomCursor = () => {
     <div
       className={styles.cursorFollower}
       style={{
-        transform: `translate3d(${followerPosition.x}px, ${followerPosition.y}px, 0) scale(${isHoveringButton ? 1.5 : 1})`, // Scale the cursor if hovering over a button
+        transform: `translate3d(${followerPosition.x}px, ${followerPosition.y}px, 0) scale(${isHoveringButton ? 2 : 1})`, // Scale the cursor if hovering over a button
         transition: 'transform 0.2s ease-out', // Smooth transition when scaling
       }}
     ></div>

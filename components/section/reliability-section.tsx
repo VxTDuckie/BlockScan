@@ -55,7 +55,7 @@ const ReliabilitySection = () => {
                         loop
                         muted 
                         src="/videos/video-5.mp4"
-                        className="h-full w-full xl:h-4/4 xl:w-4/4 rounded-lg object-cover"
+                        className="h-full w-full xl:h-4/4 xl:w-4/4 rounded-xl object-cover"
                     />
                 </div>   
             </section>

@@ -10,6 +10,10 @@ const ContractList = () => {
         { logo: '/images/ethereum-logo.png', name: 'Ethereum', company: 'ETH', liquidity: '$ 50M', governance: 'Renounced' },
         { logo: '/images/bitcoin-logo.png', name: 'Binance Coin', company: 'BNB', liquidity: '$ 30M', governance: 'Active' },
         { logo: '/images/solana-logo.png', name: 'Solana', company: 'SOL', liquidity: '$ 20M', governance: 'Renounced' },
+        { logo: '/images/didi-logo.png', name: 'DiDi Coin', company: 'DC', liquidity: '$ 15M', governance: 'Active' },
+        { logo: '/images/ethereum-logo.png', name: 'Ethereum', company: 'ETH', liquidity: '$ 50M', governance: 'Renounced' },
+        { logo: '/images/bitcoin-logo.png', name: 'Binance Coin', company: 'BNB', liquidity: '$ 30M', governance: 'Active' },
+        { logo: '/images/solana-logo.png', name: 'Solana', company: 'SOL', liquidity: '$ 20M', governance: 'Renounced' },
     ];
 
     // Generate random numbers for each contract
@@ -32,8 +36,8 @@ const ContractList = () => {
     return (
         <main>
             <SmartScanning />
-            <section className="h-[800px] bg-white__bg py-24">
-                <table className="w-[70%] mx-auto border-collapse bg-white rounded-[15px] shadow-md">
+            <section className="h-[auto] bg-white__bg py-24">
+                <table className="w-[61%] mx-[auto] border-collapse bg-white rounded-[15px] shadow-md">
                     <thead>
                         <tr className="text-[26px] font-bold text-primary-red border-b border-gray-200">
                             <th className="p-4 text-left" style={{ width: '60%' }}>TOKEN INFO</th>

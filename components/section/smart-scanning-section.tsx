@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import React from 'react'
 import { useScanning } from '@/components/feature/useScanning'
+import styles from '@/components/feature/Feature.module.css'
 
 
 const SmartScanning = () => {
@@ -13,7 +14,7 @@ const SmartScanning = () => {
 
 
   return (
-    <section className='max-w-6xl mx-auto'>
+    <div className='max-w-6xl mx-auto'>
     <div className='flex flex-col lg:flex-row justify-between mb-8'>
       <div>
         <h1 className='text-white text-4xl lg:text-6xl mt-4 lg:mt-8 mb-4 font-bold text-shadow-weak-ass-glow' style={{ filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))' }}>
@@ -60,7 +61,7 @@ const SmartScanning = () => {
       </div>
     </>
   )}
-  </section>
+  </div>
   
   )
 }
