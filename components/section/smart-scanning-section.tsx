@@ -2,7 +2,6 @@
 import { useState } from 'react'
 import React from 'react'
 import { useScanning } from '@/components/feature/useScanning'
-import styles from '@/components/feature/Feature.module.css'
 
 
 const SmartScanning = () => {
