@@ -1,4 +1,4 @@
-import Particles, { initParticlesEngine } from "@tsparticles/react";
+import Particles, { initParticlesEngine, setInit } from "@tsparticles/react";
 import { useEffect, useMemo } from "react";
 // import { loadAll } from "@/tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
 // import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
@@ -60,10 +60,10 @@ const ParticlesComponent = (props) => {
       },
       particles: {
         color: {
-          value: "#e73606",
+          value: "#9333ea",
         },
         links: {
-          color: "#e73606",
+          color: "#9333ea",
           distance: 150,
           enable: true,
           opacity: 0.3,
