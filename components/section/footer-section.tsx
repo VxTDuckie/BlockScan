@@ -58,7 +58,7 @@ export default function Footer() {
 
         {/* Footer Bottom Section */}
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-subtitle__grey text-xs sm:text-sm text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} BlockScan. All rights reserved.</p>
+          <p>&copy; 2024 BlockScan. All rights reserved.</p>
         </div>
       </div>
     </footer>

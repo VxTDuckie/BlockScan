@@ -21,14 +21,14 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`sticky top-0 px-4 sm:px-6 lg:px-8 duration-300 ${
+    <div className={`sticky top-0 duration-300 ${
       isScrolled ? "custom-transparent-bg" : "bg-black"
     } z-50`}>  
-      <nav className="max-w-7xl mx-auto">
+      <nav className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <Link href={"/"} className="flex items-center gap-2 sm:gap-4">
             <img src="/images/logo.png" alt="logo" className="h-8 w-8 sm:h-12 sm:w-12" />
-            <p className="text-primary-red font-bold text-xl sm:text-3xl">BlockScan</p>
+            <p className="text-primary-red font-semibold text-xl sm:text-2xl">BlockScan</p>
           </Link>
           
           <div className="hidden sm:block relative w-48 md:w-72">

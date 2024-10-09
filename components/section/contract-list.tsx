@@ -35,9 +35,9 @@ const ContractList = () => {
     return (
         <main className="overflow-x-hidden">
             <SmartScanning />
-            <section className="bg-white__bg py-8 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-                <div className="max-w-7xl mx-auto overflow-x-auto">
-                    <table className="w-full border-collapse bg-white rounded-lg shadow-md">
+            <section className="bg-white__bg py-8 sm:py-16 md:py-24 ">
+                <div className="max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto overflow-x-auto">
+                    <table className="w-full border-collapse bg-white rounded-xl shadow-md">
                         <thead>
                             <tr className="text-lg sm:text-xl md:text-2xl font-bold text-primary-red border-b border-gray-200">
                                 <th className="p-2 sm:p-4 text-left">TOKEN INFO</th>

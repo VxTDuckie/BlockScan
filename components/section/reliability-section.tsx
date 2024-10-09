@@ -8,12 +8,12 @@ const fadeUp = {
 const ReliabilitySection = () => {
   return (
     <main>
-        <h1 className="text-white text-center header mt-8 xl:mt-[200px] text-2xl sm:text-3xl xl:text-6xl px-4" 
+        <h1 className="text-white text-center header mt-8 xl:mt-[200px] text-2xl sm:text-5xl xl:text-6xl px-4 leading-[52px]" 
                 style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'}}>
                 Secure and Reliable Blockchain Solution
             </h1>
             <p className="text-white text-center py-2 xl:py-4 xl:text-2xl px-4 text-sm sm:text-base">Get the lowest fees, fastest transactions, powerful APIs, and more</p>
-            <section className="max-w-screen-xl mx-auto flex flex-col xl:flex-row items-center justify-between mt-10 xl:mt-20 mb-24 xl:mb-28 px-4 gap-12" >
+            <section className="max-w-7xl mx-auto flex flex-col xl:flex-row items-center justify-between mt-10 xl:mt-20 mb-24 xl:mb-28 gap-12  px-4 sm:px-6 lg:px-8" >
                 <motion.div 
                 className="flex flex-col justify-center xl:flex-1 mb-10 xl:mb-0"
                 initial='hidden'

@@ -24,7 +24,7 @@ const ContractScanResult = () => {
     const radarScores = [90, 80, 70, 85, 75]; 
     return (
     <section className='bg-white__bg pb-20'>
-        <div className='max-w-6xl mx-auto lg:py-8'>
+        <div className='max-w-7xl mx-auto lg:py-8 px-4 sm:px-6 lg:px-8'>
         <div className='flex flex-col lg:flex-row items-start lg:items-center justify-between mb-12 gap-8 shadow-md bg-white p-5 rounded-xl'>
           <div className="flex items-center flex-grow">
             <img src="/images/didi-logo.png" alt="coin logo" width={96} height={96} className="mr-4" />

@@ -29,10 +29,10 @@ const Hero = () => {
 
 
     return (
-        <div className="flex flex-col xl:flex-row max-w-screen-xl mx-auto py-8 lg:py-12 gap-8 mb-16 xl:mb-28 min-h-[600px] xl:h-[850px] items-center px-4 xl:px-0">
+        <div className="flex flex-col xl:flex-row max-w-7xl mx-auto gap-8 mb-16 xl:mb-28 min-h-[600px] xl:h-[800px] items-center px-4 sm:px-6 lg:px-8">
             
             {/* Text content */}
-            <div className="flex-1 xl:flex-[2] flex items-center justify-center px-4 xl:px-8">
+            <div className="flex-1 xl:flex-[2] flex items-center justify-center">
                 <div>
                     <motion.h1 
                     className="hero__title text-primary-red text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-relaxed xl:leading-relaxed mb-4 xl:mb-6"
@@ -71,7 +71,6 @@ const Hero = () => {
 
                    
                     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 xl:space-x-6 mt-8 xl:mt-14">
-                        
                         <label className='justify-center white rounded-xl text-base sm:text-lg xl:text-[20px] font-normal p-3 xl:p-4 w-full sm:w-auto border-2 border-white shadow-weak-ass-glow hover:bg-white hover:text-black transition-colors duration-300 '>
                             Upload a contract
                             <input
@@ -93,13 +92,13 @@ const Hero = () => {
             </div>
 
             {/* Video content */}
-            <div className="flex-1 px-4 xl:px-8 flex items-center justify-center xl:justify-end mt-8 xl:mt-0">
+            <div className="flex-1  flex items-center justify-center xl:justify-end mt-8 xl:mt-0">
                 <video 
                     autoPlay 
                     loop 
                     muted 
                     src="/videos/video-6.mp4" 
-                    className="h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[660px] w-full xl:w-auto rounded-lg object-cover object-center"
+                    className="h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[700px] w-full xl:w-auto rounded-lg object-cover object-center"
                 />   
             </div>
             {isScanning && (
