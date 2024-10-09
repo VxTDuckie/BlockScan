@@ -1,8 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useScanning } from "../feature/useScanning";
-import ScanningNotification from "@/components/section/scanning-notification";
+import { useScanning, ScanningNotification} from "@/components/index";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);

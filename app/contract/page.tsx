@@ -1,12 +1,13 @@
 "use client";
 import React from 'react';
-import ContractList from '@/components/section/contract-list';
+import {ContractList, SmartScanning} from '@/components/index';
 
 
 
 const Page = () => {
   return (
     <main className='bg-black min-h-screen '>
+      <SmartScanning/>
       <ContractList/>
     </main>
   );

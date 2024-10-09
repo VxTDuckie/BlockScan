@@ -1,9 +1,5 @@
 import React from 'react';
-import {CustomButton} from '@/components/index';
-import RadarChart from '@/components/chart/RadarChart';
-import DonutChart from '@/components/chart/DonutChart'
-import { SafetyCheck } from '@/components/index';
-import CopyButton from '@/components/button/copy-button'; // Đảm bảo đường dẫn đúng
+import {CustomButton, SafetyCheck, RadarChart, DonutChart, CopyButton} from '@/components/index';
 
 const ContractScanResult = () => {
 

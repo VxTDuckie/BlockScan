@@ -1,8 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import SmartScanning from './smart-scanning-section';
-import { useScanning } from '@/components/index';
-import ScanningNotification from './scanning-notification';
+import { useScanning, ScanningNotification } from '@/components/index';
 
 const ContractList = () => {
     // Dummy contract data
@@ -35,7 +33,7 @@ const ContractList = () => {
 
     return (
         <main className="overflow-x-hidden">
-            <SmartScanning />
+            
             <section className="bg-white__bg py-8 sm:py-16 md:py-24 ">
                 <div className="max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto overflow-x-auto">
                     <table className="w-full border-collapse bg-white rounded-xl shadow-md">

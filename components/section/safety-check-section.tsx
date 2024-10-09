@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HandleSafetyCheck from '@/components/section/handle-safety-check';
+import {HandleSafetyCheck} from '@/components/index';
 
 const SafetyCheck: React.FC = () => {
   // State quản lý tab đang được chọn (Token Detector hoặc General Detector)

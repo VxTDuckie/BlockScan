@@ -1,8 +1,8 @@
 "use client"
 import { useState } from 'react'
 import React from 'react'
-import { useScanning } from '@/components/feature/useScanning'
-import ScanningNotification from './scanning-notification'
+import { useScanning, ScanningNotification } from '@/components/index'
+
 
 const SmartScanning = () => {
   const [inputValue, setInputValue] = useState('');

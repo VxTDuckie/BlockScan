@@ -1,10 +1,8 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-import splitString from '@/app/utils/splitText';
 import  {motion} from "framer-motion";
-import { useScanning } from '@/components/index';
-import ScanningNotification from './scanning-notification';
+import { useScanning,ScanningNotification, splitString } from '@/components/index';
 
 
 
