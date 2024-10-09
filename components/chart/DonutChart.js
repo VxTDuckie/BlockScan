@@ -13,9 +13,9 @@ const DonutChart = () => {
         label: 'Token Liquidity',
         data: [35, 35, 15, 15],
         backgroundColor: [
+          '#4b1304',
           '#e73606',
           '#e07355',
-          '#dba89a',
           '#e6cac3',
         ],
         borderColor: '#FFFFFF',

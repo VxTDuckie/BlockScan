@@ -15,7 +15,7 @@ const RadarChart = ({ labels, scores }) => {
         backgroundColor: 'rgba(231, 54, 6, 0.2)',
         borderColor: 'rgba(231, 54, 6, 1)',
         borderWidth: 2,
-        pointBackgroundColor: 'black',
+        pointBackgroundColor: '#4b1304',
         pointBorderColor: 'rgba(255, 255, 255, 1)',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgb(231, 54, 6)',
