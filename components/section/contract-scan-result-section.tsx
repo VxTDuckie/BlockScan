@@ -48,27 +48,30 @@ const ContractScanResult = () => {
           </div>
 
           {/* Điều chỉnh phân bố các ô */}
-          <div className="flex flex-row gap-4">
-            <div className="flex flex-col gap-4">
-              <p className="border-2 p-3 rounded-xl bg-white text-black font-bold text-center">
-                Medium Risk: <span style={{ color: '#FF9D00' }}>3</span> {/* Màu vàng */}
-              </p>
+          <div className="flex flex-row justify-between gap-4">
+              {/* Left Column */}
+              <div className="flex flex-col gap-3 w-3/7">
+                <p className="border-2 p-3 rounded-xl bg-white text-black font-bold text-center h-[50px] flex items-center justify-center">
+                  Medium Risk: <span className='text-yellow-500 ml-1'>3</span> {/* Màu vàng */}
+                </p>
 
-              <p className="border-2 p-3 rounded-xl bg-white text-black font-bold text-center">
-                High Risk: <span style={{ color: '#FF0000' }}>2</span> {/* Màu đỏ */}
-              </p>
+                <p className="border-2  rounded-xl bg-white text-black font-bold text-center h-[50px] flex items-center justify-center">
+                  High Risk: <span className='text-red-600 ml-1'>2</span> {/* Màu đỏ */}
+                </p>
+              </div>
+
+              {/* Right Column */}
+              <div className="flex flex-col gap-3 w-4/7">
+                <p className="border-2 p-3 rounded-xl bg-red-600 text-white font-bold text-center h-[50px] flex items-center justify-center">
+                  Safety score: 93/100 {/* Màu nền đỏ và chữ trắng */}
+                </p>
+
+                <p className="border-2 p-3 rounded-xl bg-white text-black font-bold text-center h-[50px] flex items-center justify-center">
+                  Attention Required: <span className='text-green-600 ml-1'>8</span> {/* Màu xanh */}
+                </p>
+              </div>
             </div>
 
-            <div className="flex flex-col gap-4">
-              <p className="border-2 p-3 rounded-xl bg-red-600 text-white font-bold text-center">
-                Safety score: 93/100 {/* Màu nền đỏ và chữ trắng */}
-              </p>
-
-              <p className="border-2 p-3 rounded-xl bg-white text-black font-bold text-center">
-                Attention Required: <span style={{ color: '#3aff00' }}>8</span> {/* Màu xanh */}
-              </p>
-            </div>
-          </div>
             <CustomButton
               icon={<img src='/images/download-2.png' alt='icon' className='w-5 h-5' />}
               title="Export"

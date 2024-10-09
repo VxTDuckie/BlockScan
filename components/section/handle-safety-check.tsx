@@ -119,7 +119,7 @@ const renderDetailsGeneral = (risk: string) => {
 };
 
   return (
-    <ul className='space-y-4'>
+    <ul className='space-y-4 mx-3'>
           {isTokenDetector
             ? fakeResultsOne.map((result, index) => (
                 <li key={index} className='p-4 lg:p-6 rounded-xl bg-white shadow-md'>

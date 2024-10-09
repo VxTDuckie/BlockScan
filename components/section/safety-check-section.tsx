@@ -9,7 +9,7 @@ const SafetyCheck: React.FC = () => {
   return (
     <main>
       {/* Nút chọn giữa hai tab: Token Detector và General Detector */}
-      <div className='flex space-x-4 mb-4 bg'>
+      <div className='flex space-x-4 mb-4 justify-center sm:justify-start'>
         <div className=''>
           <button
             onClick={() => setIsChosen(true)}
