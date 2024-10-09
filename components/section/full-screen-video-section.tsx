@@ -3,7 +3,7 @@ import React from 'react'
 const Video = () => {
   return (
     <section className="xl:px-0">
-    <div className="w-full lg:py-5">    
+    <div className="w-full lg:p-5">    
       <video 
         autoPlay 
         loop

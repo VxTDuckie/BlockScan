@@ -1,3 +1,5 @@
+import { keyframes } from "framer-motion";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: ["class"],
@@ -9,16 +11,26 @@ module.exports = {
 	mode: "jit",
 	theme: {
 	  extend: {
+		keyframes:{
+			fadeUp: {
+				'0%': { opacity: '0', transform: 'translateY(20px)' },
+          	'100%': { opacity: '1', transform: 'translateY(0)' },
+			}
+
+		},
 		fontFamily: {
 		  inter: ["Inter", "sans-serif"],
 		},
 		colors: {
 		  'black-100': '#2B2C35',
 		  'primary-red': '#e73606',
+		  'secondary-red': '#FF7F50',
 		  'hard-red': '#4b1304',
+		  'secondary-blue': '#06B6D4',
 		  'primary-blue': {
 			'100': '#F5F8FF',
 			DEFAULT: '#2B59FF',
+			
 		  },
 		  'secondary-orange': '#f79761',
 		  'light-white': {
@@ -80,7 +92,8 @@ module.exports = {
 		},
 		boxShadow: {
 		  'weak-ass-glow': '0 0 15px 5px rgba(100, 100, 100, 0.5)',
-		  'glow-red': '0 0 15px 5px rgba(231, 33, 6, 0.2)',
+		  'glow-red': '0 0 15px 5px rgba(231, 33, 6, 0.3)',
+		  'glow-slight-red': '0 0 15px 5px rgba(255, 166, 0, 0.3)',
 		  glow: '0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6)',
 		},
 		borderRadius: {
@@ -88,6 +101,9 @@ module.exports = {
 		  md: 'calc(var(--radius) - 2px)',
 		  sm: 'calc(var(--radius) - 4px)',
 		},
+		animation: {
+			fadeUp: 'fadeUp 2s ease-in-out',
+		}
 	  },
 	  plugins: [],
 	},

@@ -35,7 +35,7 @@ export default function FAQ() {
   }
 
   return (
-    <div className="bg-black text-white h-[800px] flex items-center justify-center mb-20">
+    <div className=" text-white h-[800px] flex items-center justify-center mb-20">
       <div className="max-w-7xl w-full  px-4 sm:px-6 lg:px-8">
         <h2 className="text-6xl font-bold mb-16 text-center" style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'}}>Frequently Asked Questions</h2>
         <div className="space-y-10">

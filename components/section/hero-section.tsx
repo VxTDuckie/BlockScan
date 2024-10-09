@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import  {motion} from "framer-motion";
 import { useScanning,ScanningNotification, splitString } from '@/components/index';
-
+import ParticlesComponent from '@/components/utils/particles';
 
 
 
@@ -29,17 +29,20 @@ const Hero = () => {
 
     return (
         <div className="flex flex-col xl:flex-row max-w-7xl mx-auto gap-8 mb-16 xl:mb-28 min-h-[600px] xl:h-[800px] items-center px-4 sm:px-6 lg:px-8">
+        <ParticlesComponent id='particles'/>
             
             {/* Text content */}
             <div className="flex-1 xl:flex-[2] flex items-center justify-center">
                 <div>
                     <motion.h1 
-                    className="hero__title text-primary-red text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-relaxed xl:leading-relaxed mb-4 xl:mb-6"
+                    className="hero__title text-4xl sm:text-5xl lg:text-6xl xl:text-6xl leading-relaxed xl:leading-relaxed mb-4 xl:mb-6"
                     initial="hidden"
                     whileInView="reveal"
                     transition={{staggerChildren: 0.03}}
                     >
-                        <span style={{filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.5))',}}>{splitHeading1.map(char =>
+                        <span
+                        className='bg-gradient-to-r from-purple-600 via-pink-500 to-primary-red text-white animate-fadeUp px-2'
+                        style={{filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.5))',}}>{splitHeading1.map(char =>
                             <motion.span key={char} transition={{duration: 0.5}} variants={charVariants}>
                                 {char}
                             </motion.span>
@@ -53,7 +56,7 @@ const Hero = () => {
                         </span>
                     </motion.h1>
                     <motion.p 
-                        className="hero__subtitle text-white text-lg sm:text-xl lg:text-2xl mb-8 xl:mb-14"
+                        className="hero__subtitle text-white text-lg sm:text-xl lg:text-2xl mb-8 xl:mb-16"
                         initial='hidden'
                         whileInView='reveal'
                         transition={{
@@ -70,11 +73,13 @@ const Hero = () => {
 
                    
                     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 xl:space-x-6 mt-8 xl:mt-14">
-                        <label className='justify-center white rounded-xl text-base sm:text-lg xl:text-[20px] font-normal p-3 xl:p-4 w-full sm:w-auto border-2 border-white shadow-weak-ass-glow hover:bg-white hover:text-black transition-colors duration-300 '>
+                        <label className='justify-center white rounded-xl text-base sm:text-lg xl:text-[20px] font-normal p-3 xl:p-4 w-full sm:w-auto hover:bg-white hover:text-black
+                        bg-gradient-to-r from-primary-red to-secondary-red shadow-glow-slight-red 
+                        hover:bg-gradient-to-r  hover:from-hard-red hover:to-primary-red transition-colors duration-300'>
                             Upload a contract
                             <input
                                 type="file"
-                                accept=''
+                                accept='.sol'
                                 className="hidden" 
                                 onChange={handleFileUpload}
                             />
@@ -82,7 +87,8 @@ const Hero = () => {
                         </label>
                         <p className='text-xl sm:text-2xl xl:text-3xl white font-light px-2 xl:px-4'>or </p>
                         <Link href='/contract'>
-                            <p className='border-2 p-3 xl:p-4 rounded-xl text-base sm:text-lg xl:text-[20px] font-normal white px-3 xl:px-4 shadow-weak-ass-glow hover:bg-white hover:text-black transition-colors duration-300 w-full sm:w-auto text-center'>
+                            <p className='border-2 border-white p-3 xl:p-[14px] rounded-xl text-base sm:text-lg xl:text-[20px] font-normal px-3 xl:px-4 hover:bg-white
+                             text-white hover:text-pink-500 transition-colors duration-300 w-full sm:w-auto text-center'>
                                 Explore more in Contract list
                             </p>
                         </Link>

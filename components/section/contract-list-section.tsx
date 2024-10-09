@@ -39,9 +39,9 @@ const ContractList = () => {
                     <table className="w-full border-collapse bg-white rounded-xl shadow-md">
                         <thead>
                             <tr className="text-lg sm:text-xl md:text-2xl font-bold text-primary-red border-b border-gray-200">
-                                <th className="p-2 sm:p-4 text-left">TOKEN INFO</th>
-                                <th className="p-2 sm:p-4 text-center">LIQUIDITY</th>
-                                <th className="p-2 sm:p-4 text-center">GOVERNANCE</th>
+                                <th className="p-2 sm:p-4 text-left text-primary-red">TOKEN INFO</th>
+                                <th className="p-2 sm:p-4 text-center text-pink-500">LIQUIDITY</th>
+                                <th className="p-2 sm:p-4 text-center text-purple-600">GOVERNANCE</th>
                             </tr>
                         </thead>
                         <tbody>

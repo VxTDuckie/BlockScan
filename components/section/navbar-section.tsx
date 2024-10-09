@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center py-4">
           <Link href={"/"} className="flex items-center gap-2 sm:gap-4">
             <img src="/images/logo.png" alt="logo" className="h-8 w-8 sm:h-12 sm:w-12" />
-            <p className="text-primary-red font-semibold text-xl sm:text-2xl">BlockScan</p>
+            <p className="bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 text-transparent bg-clip-text font-semibold text-xl sm:text-2xl">BlockScan</p>
           </Link>
           
           <div className="hidden sm:block relative w-48 md:w-72">

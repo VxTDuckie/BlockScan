@@ -263,6 +263,10 @@ input::placeholder {
   pointer-events: none;
   z-index: 1000;
 }
-
+#particles {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+}
 
 /* END: search manufacturer styles */

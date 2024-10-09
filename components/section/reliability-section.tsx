@@ -7,8 +7,8 @@ const fadeUp = {
 }
 const ReliabilitySection = () => {
   return (
-    <main>
-        <h1 className="text-white text-center header mt-8 xl:mt-[200px] text-2xl sm:text-5xl xl:text-6xl px-4 leading-[52px]" 
+    <main className=''>
+        <h1 className="text-white text-center header xl:pt-[200px] text-2xl sm:text-5xl xl:text-6xl px-4 leading-[52px]" 
                 style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'}}>
                 Secure and Reliable Blockchain Solution
             </h1>
@@ -33,7 +33,7 @@ const ReliabilitySection = () => {
                     className="flex items-center mb-12"
                     transition={{duration: 0.5, delay:0.4}}
                     variants={fadeUp}>
-                        <p className="font-bold text-primary-red text-5xl sm:text-6xl xl:text-8xl text-shadow-glow-red" style={{ filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.5))' }}>+1,500</p>
+                        <p className="font-bold text-pink-500 text-5xl sm:text-6xl xl:text-8xl text-shadow-glow-red" style={{ filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.5))' }}>+1,500</p>
                         <p className="text-white text-xl sm:text-2xl xl:text-[27px] font-semibold ml-4">unique tokens tracked.</p>
                     </motion.div>
 
@@ -42,7 +42,7 @@ const ReliabilitySection = () => {
                     className="flex items-center mb-12"
                     transition={{duration: 0.5, delay:0.6}}
                     variants={fadeUp}>
-                        <p className="font-bold text-primary-red text-5xl sm:text-6xl xl:text-8xl text-shadow-glow-red" style={{ filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.5))' }}>+3,000</p>
+                        <p className="font-bold text-purple-600 text-5xl sm:text-6xl xl:text-8xl text-shadow-glow-red" style={{ filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.5))' }}>+3,000</p>
                         <p className="text-white text-xl sm:text-2xl xl:text-[27px] font-semibold ml-4">smart contracts analyzed.</p>
                     </motion.div>
 

@@ -9,7 +9,7 @@ export default function Footer() {
             {/* Column 1: Logo and Brand Name */}
             <div className="space-y-4 text-center">
               <img src="/images/logo.png" alt="BlockScan Logo" className="w-20 sm:w-24 h-auto mx-auto" />
-              <h4 className="text-primary-red font-bold text-3xl sm:text-4xl">BlockScan</h4>
+              <h4 className="bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 text-transparent bg-clip-text font-bold text-3xl sm:text-4xl">BlockScan</h4>
             </div>
 
             {/* Column 2: Address Information */}
