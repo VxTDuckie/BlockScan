@@ -13,7 +13,7 @@ const SafetyCheck: React.FC = () => {
         <div className=''>
           <button
             onClick={() => setIsChosen(true)}
-            className={`px-6 py-3 text-hard-red font-semibold transition-all duration-300 ease-in-out transform 
+            className={`px-6 py-3 text-hard-red text-xl font-semibold transition-all duration-300 ease-in-out transform 
               ${isChosen ? 'border-b-4 border-primary-red text-opacity-100 ' : 
               'text-opacity-70 border-b-2 border-transparent hover:border-primary-red hover:text-opacity-100 hover:scale-105'}`}
           >
@@ -21,7 +21,7 @@ const SafetyCheck: React.FC = () => {
           </button>
           <button
             onClick={() => setIsChosen(false)}
-            className={`px-6 py-3 text-hard-red font-semibold transition-all duration-300 ease-in-out transform 
+            className={`px-6 py-3 text-hard-red text-xl font-semibold transition-all duration-300 ease-in-out transform 
               ${!isChosen ? 'border-b-4 border-primary-red text-opacity-100' : 
               'text-opacity-70 border-b-2 border-transparent hover:border-primary-red hover:text-opacity-100 hover:scale-105'}`}
           >

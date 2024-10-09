@@ -72,19 +72,19 @@ const DonutChart = () => {
 
   return (
     <div
-      className="w-full p-6"
+      className="w-full p-6 mb-7"
       style={{
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
         borderRadius: '12px',
         backgroundColor: '#fff',
       }}
     >
-      <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Outfit" }}>
+      <h2 className="bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 text-transparent bg-clip-text text-2xl font-bold mb-4" style={{ fontFamily: "Outfit" }}>
         Token Liquidity Analysis
       </h2>
 
       <div
-        className="rounded-lg p-6 w-full"
+        className="rounded-xl p-6 w-full"
         style={{
           backgroundColor: 'rgba(240, 240, 240, 0.5)',
           borderRadius: '12px',

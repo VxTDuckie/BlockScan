@@ -1,5 +1,5 @@
 import React from 'react';
-import {CustomButton, SafetyCheck, RadarChart, DonutChart, CopyButton} from '@/components/index';
+import {CustomButton, SafetyCheck, RadarChart, DonutChart, CopyButton, TokenBasicInfo} from '@/components/index';
 
 const ContractScanResult = () => {
 
@@ -58,7 +58,7 @@ const ContractScanResult = () => {
 
               {/* Right Column */}
               <div className="flex flex-col gap-3 w-4/7">
-                <p className="border-2 p-3 rounded-xl bg-red-600 text-white font-bold text-center h-[50px] flex items-center justify-center">
+                <p className="border-2 p-3 rounded-xl bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 text-white font-bold text-center h-[50px] flex items-center justify-center">
                   Safety score: 93/100 {/* Màu nền đỏ và chữ trắng */}
                 </p>
 
@@ -84,7 +84,9 @@ const ContractScanResult = () => {
             </div> 
             <div className='flex-[4] lg:w-1/3'>
               <RadarChart labels={radarLabels} scores={radarScores} /> {/* Passing the dynamic data */}
+              <TokenBasicInfo/>
               <DonutChart/>
+              
             </div>
           </div>
         </div>

@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/contract/scanResult/display-scanned-result.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/contract/scanResult/display-scanned-result.js", "components/feature/useScanning.js"],
   "exclude": ["node_modules"]
 }

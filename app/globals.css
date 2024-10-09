@@ -244,6 +244,8 @@
 .white {
   color: white;
 }
+
+
 input::placeholder {
   color: white; /* Change placeholder text color to white */
   opacity: 1; /* Optional: Change opacity to fully opaque */
@@ -267,6 +269,8 @@ input::placeholder {
   z-index: -1;
   position: absolute;
   top: 0;
+  height: 100px;
 }
+
 
 /* END: search manufacturer styles */

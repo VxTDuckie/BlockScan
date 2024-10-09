@@ -130,7 +130,7 @@ const renderDetailsGeneral = (risk: string) => {
                         alt='checking symbol'
                         className={`p-2 rounded-xl mr-4 ${result.bg}`}
                       />
-                      <p className='font-bold text-lg lg:text-xl'>{result.check}</p>
+                      <p className='font-bold text-lg lg:text-xl text-black'>{result.check}</p>
                     </div>
                     {result.risk && (
                       <button onClick={() => toggleExpandToken(index)}>

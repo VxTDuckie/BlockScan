@@ -20,6 +20,7 @@ import HandleSafetyCheck from './section/handle-safety-check';
 import ContractList from './section/contract-list-section';
 import ScanningNotification from './section/scanning-notification';
 import splitString from './utils/split-string'
+import TokenBasicInfo from './section/token-basic-info';
 
 export {
     Hero,
@@ -41,6 +42,6 @@ export {
     HandleSafetyCheck,
     ContractList,
     ScanningNotification,
-    splitString
-    
+    splitString,
+    TokenBasicInfo
 };

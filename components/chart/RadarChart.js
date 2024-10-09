@@ -67,16 +67,16 @@ const RadarChart = ({ labels, scores }) => {
       }}
     >
       <div className='flex justify-between items-center mb-4'>
-        <h2 className="text-2xl font-bold" style={{ fontFamily: "Outfit" }}>
+        <h2 className="bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 text-transparent bg-clip-text text-2xl font-bold" style={{ fontFamily: "Outfit" }}>
           Score Breakdown
         </h2>
         <p className="text-lg font-bold text-subtitle__grey">
-          Total Score: <span className='text-primary-red'>93/100</span>
+          Total Score: <span className='bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 text-transparent bg-clip-text'>93/100</span>
         </p>
       </div>
 
       <div
-        className="rounded-lg p-6 w-full"
+        className="rounded-xl p-6 w-full"
         style={{
           backgroundColor: 'rgba(240, 240, 240, 0.5)',
           borderRadius: '12px',
