@@ -74,7 +74,7 @@ const renderDetailsToken = (risk: string) => {
       return (
         <div className="p-4 bg-gray-100 rounded-lg">
           <p className="text-yellow-500 font-bold">Token Detector - Medium Risk:</p>
-          <p className="text-yellow-500">A private wallet owns a significant percentage of this token's total supply.</p>
+          <p className="text-yellow-500">A private wallet owns a significant percentage of this token&rsquo;s total supply.</p>
         </div>
       );
     case 'attention':
