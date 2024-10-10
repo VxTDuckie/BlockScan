@@ -43,7 +43,7 @@ const Hero = () => {
                         <span
                         className=' text-primary-red '
                         style={{filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.8))',}}>{splitHeading1.map(char =>
-                            <motion.span key={char} transition={{duration: 0.5}} variants={charVariants}>
+                            <motion.span key={char} transition={{duration: 0.5}} variants={charVariants} >
                                 {char}
                             </motion.span>
                         )}</span>

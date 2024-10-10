@@ -13,7 +13,7 @@ module.exports = {
 	  extend: {
 		keyframes:{
 			fadeUp: {
-				'0%': { opacity: '0', transform: 'translateY(20px)' },
+				'0%': { opacity: '0', transform: 'translateY(50px)' },
           	'100%': { opacity: '1', transform: 'translateY(0)' },
 			}
 
@@ -104,7 +104,7 @@ module.exports = {
 		  sm: 'calc(var(--radius) - 4px)',
 		},
 		animation: {
-			fadeUp: 'fadeUp 2s ease-in-out',
+			fadeUp: 'fadeUp 1s ease-in-out',
 		}
 	  },
 	  plugins: [],
