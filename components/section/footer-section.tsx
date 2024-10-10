@@ -2,7 +2,7 @@ import { Github, Twitter, Facebook, Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-footer text-white border-t border-subsection__grey w-full"> {/* Đảm bảo chiều rộng full */}
+    <footer className="bg-footer text-white border-t border-subsection__grey w-full relative"> {/* Đảm bảo chiều rộng full */}
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-12 py-12"> 
         {/* Grid with 4 columns */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full justify-items-center"> {/* justify-items-center giúp căn giữa */}

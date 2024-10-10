@@ -91,7 +91,7 @@ module.exports = {
 		  'hero-bg': "url('/hero-bg.png')", // Use double quotes inside url()
 		},
 		boxShadow: {
-		  'weak-ass-glow': '0 0 15px 5px rgba(100, 100, 100, 0.5)',
+		  'weak-ass-glow': '0 0 15px 5px rgba(180, 180, 180, 0.5)',
 		  'glow-red': '0 0 15px 5px rgba(231, 33, 6, 0.6)',
 		  'glow-slight-red': '0 0 15px 5px rgba(255, 166, 0, 0.3)',
 		  'glow-purple': '0 0 15px 5px rgba(147, 51, 234, 0.6)',

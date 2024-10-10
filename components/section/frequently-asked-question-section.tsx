@@ -39,21 +39,21 @@ export default function FAQ() {
         <h2 className="text-6xl font-bold mb-16 text-center" style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'}}>Frequently Asked Questions</h2>
         <div className="space-y-10">
           {faqData.map((item, index) => (
-            <div key={index} className="rounded-xl">
+            <div key={index} className="rounded-xl bg-[rgba(255,255,255, 0.05)]">
               <button
-                className=" rounded-xl flex justify-between items-center w-full text-left p-6 focus:outline-none hover:bg-white hover:text-primary-red transition-colors"
+                className=" rounded-xl flex justify-between items-center w-full text-left p-6 focus:outline-none hover:bg-white hover:shadow-weak-ass-glow hover:text-primary-red transition-all duration-200"
                 onClick={() => toggleQuestion(index)}
                 aria-expanded={openIndex === index}
               >
-                <span className="text-2xl font-semibold pr-4">{item.question}</span>
+                <span className="text-[26px] font-semibold pr-4">{item.question}</span>
                 {openIndex === index ? (
-                  <ChevronUp className="flex-shrink-0 h-8 w-8 text-primary-red" />
+                  <ChevronUp className="flex-shrink-0 h-8 w-8 white" />
                 ) : (
-                  <ChevronDown className="flex-shrink-0 h-8 w-8 text-primary-red" />
+                  <ChevronDown className="flex-shrink-0 h-8 w-8 white" />
                 )}
               </button>
               {openIndex === index && (
-                <div className="p-6 text-lg text-subtitle__grey bg-black">
+                <div className="p-6 text-[20px] text-subtitle__grey bg-transparent rounded-b-xl">
                   <p>{item.answer}</p>
                 </div>
               )}

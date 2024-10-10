@@ -28,13 +28,13 @@ const Hero = () => {
 
 
     return (
-        <div className="flex flex-col xl:flex-row max-w-7xl mx-auto gap-8 mb-16 xl:mb-28 min-h-[600px] xl:h-[800px] items-center px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col xl:flex-row max-w-7xl mx-auto gap-8 mb-16 xl:mb-28 min-h-[600px] xl:h-[800px] items-center px-4 sm:px-6 xl:px-0">
         <ParticlesComponent id='particles'/>
             {/* Text content */}
             <div className="flex-1 xl:flex-[2] flex items-center justify-center ">
                 <div>
                     <motion.h1 
-                    className="hero__title text-4xl sm:text-5xl lg:text-6xl xl:text-6xl leading-relaxed xl:leading-relaxed mb-4 xl:mb-6 animate-fadeUp"
+                    className="hero__title text-4xl sm:text-5xl lg:text-6xl xl:text-[64px] leading-relaxed xl:leading-relaxed mb-4 xl:mb-6 animate-fadeUp"
                     initial="hidden"
                     whileInView="reveal"
                     transition={{staggerChildren: 0.03}}

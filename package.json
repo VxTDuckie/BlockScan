@@ -30,6 +30,7 @@
     "react": "^18",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
+    "react-tsparticles": "^2.12.2",
     "solc": "^0.8.27",
     "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",
