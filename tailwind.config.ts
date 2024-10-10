@@ -18,6 +18,13 @@ module.exports = {
 			}
 
 		},
+		minWidth: {
+			'custom': '700px',  // Adds a custom min-width of 500px
+
+		  },
+		  screens: {
+			'smp': '890px', // Custom breakpoint at 480px
+		  },
 		fontFamily: {
 		  inter: ["Inter", "sans-serif"],
 		},

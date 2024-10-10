@@ -4,7 +4,7 @@ import {Hero, Video, YTRefSection, RiliabilitySection, FAQ } from '@/components/
 
 export default function Page() {
     return (
-        <main className="bg-cover overflow-hidden" >         
+        <main className="bg-cover overflow-x-hidden" >         
             <Hero/>
             <Video/>
             <RiliabilitySection/>

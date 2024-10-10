@@ -295,6 +295,7 @@ background: linear-gradient(45deg,#9333ea, #e70606);
   transform: translate(-50%, -50%); /* Center the dot */
   z-index: 0; /* Place it behind the text */
   filter: blur(250px);
+  overflow: hidden;
 }
 
 /* END: search manufacturer styles */

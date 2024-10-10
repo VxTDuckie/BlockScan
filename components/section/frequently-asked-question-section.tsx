@@ -36,7 +36,7 @@ export default function FAQ() {
   return (
     <div className=" text-white h-[900px] flex items-center justify-center pb-[150px] bg-black">
       <div className="max-w-7xl w-full  px-4 sm:px-6 lg:px-8 relative">
-        <h2 className="text-6xl font-bold mb-16 text-center" style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'}}>Frequently Asked Questions</h2>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-16 text-center" style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'}}>Frequently Asked Questions</h2>
         <div className="space-y-10">
           {faqData.map((item, index) => (
             <div key={index} className="rounded-xl bg-[rgba(255,255,255, 0.05)]">
@@ -45,7 +45,7 @@ export default function FAQ() {
                 onClick={() => toggleQuestion(index)}
                 aria-expanded={openIndex === index}
               >
-                <span className="text-[26px] font-semibold pr-4">{item.question}</span>
+                <span className="text-[18px] sm:text-[22px] lg:text-[24px] xl:text-[26px] font-semibold pr-4">{item.question}</span>
                 {openIndex === index ? (
                   <ChevronUp className="flex-shrink-0 h-8 w-8 white" />
                 ) : (
