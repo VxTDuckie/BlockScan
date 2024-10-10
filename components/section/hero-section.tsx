@@ -30,7 +30,6 @@ const Hero = () => {
     return (
         <div className="flex flex-col xl:flex-row max-w-7xl mx-auto gap-8 mb-16 xl:mb-28 min-h-[600px] xl:h-[800px] items-center px-4 sm:px-6 lg:px-8">
         <ParticlesComponent id='particles'/>
-            
             {/* Text content */}
             <div className="flex-1 xl:flex-[2] flex items-center justify-center ">
                 <div>
@@ -43,7 +42,7 @@ const Hero = () => {
                     >
                         <span
                         className=' text-primary-red '
-                        style={{filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.5))',}}>{splitHeading1.map(char =>
+                        style={{filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.8))',}}>{splitHeading1.map(char =>
                             <motion.span key={char} transition={{duration: 0.5}} variants={charVariants}>
                                 {char}
                             </motion.span>
@@ -74,8 +73,8 @@ const Hero = () => {
 
                    
                     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 xl:space-x-6 mt-8 xl:mt-14">
-                        <label className='justify-center white rounded-xl text-base sm:text-lg xl:text-[20px] font-normal p-3 xl:p-4 w-full sm:w-auto hover:bg-white hover:text-black
-                        bg-gradient-to-r from-primary-red to-secondary-red shadow-glow-slight-red 
+                        <label className='justify-center text-black rounded-xl text-base sm:text-lg xl:text-[20px] font-normal p-3 xl:p-4 w-full sm:w-auto hover:bg-white hover:text-white
+                        bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 shadow-glow-red 
                         hover:bg-gradient-to-r  hover:from-hard-red hover:to-primary-red transition-colors duration-300'>
                             Upload a contract
                             <input

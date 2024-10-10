@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <div className={`sticky top-0 duration-300 ${
-      isScrolled ? "custom-transparent-bg" : "bg-black"
+      isScrolled ? "custom-transparent-bg" : "bg-[rgba(1,1,1,0.5)]"
     } z-50`}>  
       <nav className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">

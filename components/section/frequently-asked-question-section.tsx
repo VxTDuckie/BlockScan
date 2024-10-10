@@ -1,5 +1,4 @@
 "use client"
-
 import { useState } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
@@ -35,14 +34,14 @@ export default function FAQ() {
   }
 
   return (
-    <div className=" text-white h-[800px] flex items-center justify-center mb-20">
-      <div className="max-w-7xl w-full  px-4 sm:px-6 lg:px-8">
+    <div className=" text-white h-[900px] flex items-center justify-center pb-[150px] bg-black">
+      <div className="max-w-7xl w-full  px-4 sm:px-6 lg:px-8 relative">
         <h2 className="text-6xl font-bold mb-16 text-center" style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'}}>Frequently Asked Questions</h2>
         <div className="space-y-10">
           {faqData.map((item, index) => (
-            <div key={index} className="rounded-xl overflow-hidden">
+            <div key={index} className="rounded-xl">
               <button
-                className="flex justify-between items-center w-full text-left p-6 focus:outline-none hover:bg-white hover:text-primary-red transition-colors"
+                className=" rounded-xl flex justify-between items-center w-full text-left p-6 focus:outline-none hover:bg-white hover:text-primary-red transition-colors"
                 onClick={() => toggleQuestion(index)}
                 aria-expanded={openIndex === index}
               >

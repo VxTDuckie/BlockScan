@@ -11,6 +11,9 @@
   box-sizing: border-box;
   font-family: "Outfit", sans-serif;
 }
+body {
+  overflow-x: hidden
+}
 
 /* START: General styles */
 .max-width {
@@ -267,10 +270,31 @@ input::placeholder {
 }
 #particles {
   z-index: -1;
-  position: absolute;
-  top: 0;
-  height: 100px;
+  position: relative;
 }
-
+.dot {
+  position: absolute;
+  top: 3110px;
+  left: 0%;
+  width: 800px; /* Adjust size of the dot */
+  height: 800px;
+background: linear-gradient(45deg,#9333ea, #e70606);  
+  border-radius: 50%; /* Make it a circle */
+  transform: translate(-50%, -50%); /* Center the dot */
+  z-index: 0; /* Place it behind the text */
+  filter: blur(250px);
+}
+.dot2 {
+  position: absolute;
+  top: 3900px;
+  left: 100%;
+  width: 800px; /* Adjust size of the dot */
+  height: 800px;
+  background: linear-gradient(45deg,#e70606, #e70606);  
+  border-radius: 50%; /* Make it a circle */
+  transform: translate(-50%, -50%); /* Center the dot */
+  z-index: 0; /* Place it behind the text */
+  filter: blur(250px);
+}
 
 /* END: search manufacturer styles */
