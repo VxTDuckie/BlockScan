@@ -8,8 +8,8 @@ const fadeUp = {
 const ReliabilitySection = () => {
   return (
     <main className='bg-black overflow-hidden'>
-        <div className='dot hidden sm:flex'></div>
-        <div className='dot2 hidden sm:flex'></div>
+        <div className='dot hidden lg:flex'></div>
+        <div className='dot2 hidden lg:flex'></div>
 
         
             <h2 className="white text-center pt-[50px]  font-bold xl:pt-[200px] text-[30px] sm:text-5xl xl:text-6xl px-4 leading-[52px]" 
@@ -19,7 +19,7 @@ const ReliabilitySection = () => {
             <p className="text-white text-center py-2 xl:pb-[100px] xl:text-2xl px-4 text-[16px] sm:text-base">Get the lowest fees, fastest transactions, powerful APIs, and more</p>
             <section className="max-w-7xl mx-auto flex flex-col smp:flex-row items-between justify-between mt-10 sm:pb-[170px] gap-12  px-4 sm:px-6 lg:px-8 z-50" >
                 <motion.div 
-                className="flex flex-col mb-10 xl:mb-0"
+                className="flex flex-col justify-center  xl:mb-0"
                 initial='hidden'
                 whileInView='reveal'
                 transition={{ staggerChildren: 0.2 }}
