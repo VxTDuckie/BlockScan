@@ -18,13 +18,14 @@ const DonutChart = () => {
           '#f9a8d4',
           '#fbcfe8',
         ],
-        borderColor: '#FFFFFF',
-        borderWidth: 2,
+        borderColor: '#f7f8f7',
+        borderWidth: 8,
+        borderRadius: 16,
         hoverBackgroundColor: [
-          '#f79761',
-          '#FF7F50',
-          '#e73606',
-          '#4b1304',
+          '#6b13bb',
+          '#b4226a',
+          '#a96a8c',
+          '#bf87a7',
         ],
       },
     ],
@@ -46,10 +47,11 @@ const DonutChart = () => {
                 fillStyle: dataset.backgroundColor[i],
                 strokeStyle: undefined,
                 lineWidth: 0,
+                borderRadius: 3,
               };
             });
           },
-          boxWidth: 20,
+          boxWidth: 15,
           padding: 20,
           font: {
             family: 'Outfit',

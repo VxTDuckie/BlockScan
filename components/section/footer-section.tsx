@@ -1,4 +1,4 @@
-import { Github, Twitter, Facebook, Mail, Phone } from 'lucide-react';
+import { Github, Twitter, Facebook, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -15,10 +15,15 @@ export default function Footer() {
 
           {/* Column 2: Address Information */}
           <div className="space-y-4 text-center"> {/* text-center để căn giữa text */}
-            <h4 className="text-lg font-semibold">Hồ Chí Minh City</h4>
-            <p className="text-[15px]">
-              A35 Bạch Đằng, Quận Tân Bình
-            </p>
+            <h4 className="text-lg font-semibold">Location</h4>
+            <div className='flex gap-2'>
+            <MapPin/>
+            <span className="text-[15px] white">
+              A35 Bạch Đằng, Quận Tân Bình, HCMC
+            </span>
+            </div>
+
+
           </div>
 
           {/* Column 3: Contact Information */}
