@@ -69,7 +69,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className={styles.cursorFollower}
+      className={`${styles.cursorFollower}  ${isHoveringButton ? styles.invert  : styles.noInvert}`}
       style={{
         transform: `translate3d(${followerPosition.x}px, ${followerPosition.y}px, 0) scale(${isHoveringButton ? 2 : 1})`, // Scale the cursor if hovering over a button
         transition: 'transform 0.2s ease-out', // Smooth transition when scaling

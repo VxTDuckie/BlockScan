@@ -2,7 +2,7 @@
     position: absolute;
     width: 20px; /* Size of the circle */
     height: 20px; /* Size of the circle */
-    background-color: rgba(231, 54, 6, 0.8); /* Color of the circle */
+    background-color: rgba(231, 54, 6, 0.8); /* Color of the circle 231, 54, 6*/
     border-radius: 50%; /* Make it a circle */
     transition: transform 0.2s ease-out; /* Smooth transition effect */
     pointer-events: none;
@@ -12,6 +12,19 @@
     position: sticky;
     top: 100px; /* Adjust this value to stick the element lower */
     z-index: 10; /* Optional, ensures it's above other elements */
+  }
+
+  .invert {
+    backdrop-filter: invert(100%); /* Your target purple color */
+    mix-blend-mode: hue;
+    transition: backdrop-filter 0.3s ease; /* Add transition for smooth effect */
+
+  }
+
+  .noInvert {
+    backdrop-filter: invert(0);
+    transition: backdrop-filter 0.3s ease; /* Add transition for smooth effect */
+
   }
   
   

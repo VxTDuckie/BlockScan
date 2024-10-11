@@ -86,12 +86,14 @@ const Hero = () => {
                 
                         </label>
                         <p className='text-xl sm:text-2xl xl:text-3xl white font-light px-2 xl:px-4'>or </p>
-                        <Link href='/contract'>
+                        <button>
+                            <Link href='/contract'>
                             <p className='border-2 border-white p-3 xl:p-[14px] rounded-xl text-base sm:text-lg xl:text-[20px] font-normal px-3 xl:px-4 hover:bg-white
                              text-white hover:text-pink-500 transition-colors duration-300 w-full sm:w-auto text-center'>
                                 Explore more in Contract list
                             </p>
-                        </Link>
+                            </Link>
+                        </button>
                     </div>
                 </div>
             </div>
