@@ -41,20 +41,29 @@ export default function Footer() {
             <h4 className="text-lg font-semibold">Follow Us</h4>
             <div className="flex justify-center space-x-4"> {/* justify-center để căn giữa các biểu tượng */}
               {/* GitHub Link */}
+              <button>
               <a href="https://github.com/Levironexe" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-red transition-colors">
                 <Github className="w-7 h-7" />
                 <span className="sr-only">GitHub</span>
               </a>
+              </button>
+              
               {/* Twitter Link */}
+              <button>
               <a href="https://x.com/yourmom" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-red transition-colors">
                 <Twitter className="w-7 h-7" />
                 <span className="sr-only">Twitter</span>
               </a>
+              </button>
+              
               {/* Facebook Link */}
+              <button>
               <a href="https://www.facebook.com/profile.php?id=61566144360040" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-red transition-colors">
                 <Facebook className="w-7 h-7" />
                 <span className="sr-only">Facebook</span>
               </a>
+              </button>
+
             </div>
           </div>
         </div>
