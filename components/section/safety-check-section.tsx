@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import {HandleSafetyCheck} from '@/components/index';
 
+
+//Component for displaying contract safety check results
 const SafetyCheck: React.FC = () => {
   // State quản lý tab đang được chọn (Token Detector hoặc General Detector)
   const [isChosen, setIsChosen] = useState(true); 

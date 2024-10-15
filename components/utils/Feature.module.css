@@ -16,7 +16,8 @@
 
   .invert {
     backdrop-filter: invert(100%); /* Your target purple color */
-    mix-blend-mode: hue;
+    mix-blend-mode: huey
+    ;
     transition: backdrop-filter 0.3s ease; /* Add transition for smooth effect */
 
   }

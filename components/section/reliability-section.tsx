@@ -1,22 +1,28 @@
 import React from 'react';
-import  {motion} from "framer-motion";
+import  {motion} from "framer-motion"; // Animation library
 
+// Animation configuration for fading up elements
 const fadeUp = {
     hidden: {opacity: 0, y: 50},
     reveal: {opacity: 1, y: 0},
 }
+
+//section used in home page for advertising the company reputation
 const ReliabilitySection = () => {
   return (
     <main className='bg-black overflow-hidden'>
+        {/* Decorative background elements */}
         <div className='dot hidden lg:flex'></div>
         <div className='dot2 hidden lg:flex'></div>
 
-        
+            {/* Title section */}
             <h2 className="white text-center pt-[50px]  font-bold xl:pt-[200px] text-[30px] sm:text-5xl xl:text-6xl px-4 leading-[52px]" 
                 style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6))'}}>
                 Secure and Reliable Blockchain Solution
             </h2>
+            {/* Subtitle section */}
             <p className="text-white text-center py-2 xl:pb-[100px] xl:text-2xl px-4 text-[16px] sm:text-base">Get the lowest fees, fastest transactions, powerful APIs, and more</p>
+            {/* Section for media content */}
             <section className="max-w-7xl mx-auto flex flex-col smp:flex-row items-between justify-between mt-10 sm:pb-[170px] gap-12  px-4 sm:px-6 lg:px-8 z-50" >
                 <motion.div 
                 className="flex flex-col justify-center  xl:mb-0"

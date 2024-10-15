@@ -2,30 +2,31 @@ import React from 'react'
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 interface HandleSafetyCheckProps {
-    isTokenDetector: boolean; // Boolean prop
-  }
+  isTokenDetector: boolean; // Boolean prop to indicate if the Token Detector is active
+}
 
+//Component that is passed boolean argument to display safety check results.
+const HandleSafetyCheck : React.FC<HandleSafetyCheckProps> = ({ isTokenDetector }) => {
+  // State to store the indexes of expanded sections for Token Detector
+  const [openIndexesToken, setOpenIndexesToken] = useState<number[]>([]);
 
-const HandleSafetyCheck : React.FC<HandleSafetyCheckProps> = ({isTokenDetector})=> {
-    const [openIndexesToken, setOpenIndexesToken] = useState<number[]>([]); 
-  
-// State lưu trữ các chỉ số mở rộng cho General Detector
-const [openIndexesGeneral, setOpenIndexesGeneral] = useState<number[]>([]); 
+  // State to store the indexes of expanded sections for General Detector
+  const [openIndexesGeneral, setOpenIndexesGeneral] = useState<number[]>([]);
 
-// Dữ liệu giả cho tab Token Detector
-const fakeResultsOne = [
-  { check: 'Inaccurate Supply', status: '/images/shield-x-solid-24.png', bg: 'bg-black', risk: 'high' },
-  { check: 'Dump Risk', status: '/images/error-solid-24.png', bg: 'bg-black', risk: 'medium' },
-  { check: 'Whitelisting', status: '/images/error-alt-solid-24.png', bg: 'bg-black', risk: 'attention' },
-  { check: 'No vulnerable withdrawal functions found', status: '/images/check-2.png', bg: 'bg-primary-red' },
-  { check: 'No reentrancy risk found', status: '/images/check-2.png', bg: 'bg-primary-red' },
-  { check: 'No locks detected', status: '/images/check-2.png', bg: 'bg-primary-red' },
-  { check: 'Verified source code found', status: '/images/check-2.png', bg: 'bg-primary-red' },
-  { check: 'No mintable risks found', status: '/images/check-2.png', bg: 'bg-primary-red' },
-  { check: 'No blacklisted functions found', status: '/images/check-2.png', bg: 'bg-primary-red' },
-  { check: 'No proxy contract detected', status: '/images/check-2.png', bg: 'bg-primary-red' },
-  { check: 'Liquidity locked', status: '/images/check-2.png', bg: 'bg-primary-red' },
-];
+  // Mock data for Token Detector tab, simulating various checks and their statuses
+  const fakeResultsOne = [
+      { check: 'Inaccurate Supply', status: '/images/shield-x-solid-24.png', bg: 'bg-black', risk: 'high' },
+      { check: 'Dump Risk', status: '/images/error-solid-24.png', bg: 'bg-black', risk: 'medium' },
+      { check: 'Whitelisting', status: '/images/error-alt-solid-24.png', bg: 'bg-black', risk: 'attention' },
+      { check: 'No vulnerable withdrawal functions found', status: '/images/check-2.png', bg: 'bg-primary-red' },
+      { check: 'No reentrancy risk found', status: '/images/check-2.png', bg: 'bg-primary-red' },
+      { check: 'No locks detected', status: '/images/check-2.png', bg: 'bg-primary-red' },
+      { check: 'Verified source code found', status: '/images/check-2.png', bg: 'bg-primary-red' },
+      { check: 'No mintable risks found', status: '/images/check-2.png', bg: 'bg-primary-red' },
+      { check: 'No blacklisted functions found', status: '/images/check-2.png', bg: 'bg-primary-red' },
+      { check: 'No proxy contract detected', status: '/images/check-2.png', bg: 'bg-primary-red' },
+      { check: 'Liquidity locked', status: '/images/check-2.png', bg: 'bg-primary-red' },
+  ];
 
 // Dữ liệu giả cho tab General Detector
 const fakeResultsTwo = [

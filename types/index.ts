@@ -8,5 +8,5 @@ export interface CustomButtonProps {
     icon?: ReactNode;
     href?:{};
     download?: string;
-    style?:{}
+    style?:{};
 }

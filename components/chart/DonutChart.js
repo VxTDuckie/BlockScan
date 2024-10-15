@@ -7,7 +7,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DonutChart = () => {
   const data = {
-    labels: ['Unlocked', 'Brunt', 'Locked', 'Owner'],
+    labels: ['Unlocked', 'Brunt', 'Locked', 'Owner'], //set properties for the chart and nodes
     datasets: [
       {
         label: 'Token Liquidity',
@@ -20,7 +20,7 @@ const DonutChart = () => {
         ],
         borderColor: '#f7f8f7',
         borderWidth: 8,
-        borderRadius: 16,
+        borderRadius: 14,
         hoverBackgroundColor: [
           '#6b13bb',
           '#b4226a',

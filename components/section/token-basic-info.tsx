@@ -1,10 +1,11 @@
 import React from 'react'
 import {CopyButton} from '@/components/index'
 
+// Component for displaying basic token information
 const tokenBasicInfo = () => {
-    const tokenAddress = '0x576e2bed8f7b46d34016198911cdf9886f78bea7'; // Địa chỉ đầy đủ
-    const contractCreator = '0xa99c602037f8e85a44bbe88f3c0ee3af60345b9b'; // Địa chỉ đầy đủ
-    const contractOwner = '0x000000000000000000000000000000000000dead'; // Địa chỉ đầy đủ
+    const tokenAddress = '0x576e2bed8f7b46d34016198911cdf9886f78bea7'; // Full address
+    const contractCreator = '0xa99c602037f8e85a44bbe88f3c0ee3af60345b9b'; // Full address
+    const contractOwner = '0x000000000000000000000000000000000000dead'; // Full address
 
     const shortenAddress = (address: string) => {
       return `${address.slice(0, 6)}...${address.slice(-4)}`;

@@ -1,12 +1,14 @@
-"use client"
-import { useState } from 'react'
-import { ChevronDown, ChevronUp } from 'lucide-react'
+"use client" // Ensures that this code is executed on the client side.
+import { useState } from 'react' // Importing the useState hook from React.
+import { ChevronDown, ChevronUp } from 'lucide-react' // Importing icons for the expand and collapse functionality.
 
+// Defining the type for FAQ items, consisting of a question and an answer.
 type FAQItem = {
   question: string
   answer: string
 }
 
+// Array of FAQ data to be rendered, containing questions and answers.
 const faqData: FAQItem[] = [
   {
     question: "What is BlockScan?",
@@ -26,32 +28,43 @@ const faqData: FAQItem[] = [
   }
 ]
 
+// Main FAQ component function.
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [openIndex, setOpenIndex] = useState<number | null>(null) // State to manage the index of the open question.
 
+  // Function to toggle the visibility of the answer for a question.
   const toggleQuestion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
+    setOpenIndex(openIndex === index ? null : index) // If the question is already open, close it; otherwise, open it.
   }
 
   return (
-    <div className=" text-white h-[900px] flex items-center justify-center pb-[150px] bg-black">
+    // Container for the FAQ section with styling.
+    <div className="text-white h-[900px] flex items-center justify-center pb-[150px] bg-black">
       <div className="max-w-7xl w-full  px-4 sm:px-6 lg:px-8 relative">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-16 text-center" style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'}}>Frequently Asked Questions</h2>
+        {/* Heading for the FAQ section */}
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-16 text-center" style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'}}>
+          Frequently Asked Questions
+        </h2>
+
+        {/* Mapping through the FAQ data and rendering each question/answer */}
         <div className="space-y-10">
           {faqData.map((item, index) => (
             <div key={index} className="rounded-xl bg-[rgba(255,255,255, 0.05)]">
               <button
-                className=" rounded-xl flex justify-between items-center w-full text-left p-6 focus:outline-none hover:bg-white hover:shadow-weak-ass-glow hover:text-primary-red transition-all duration-200"
-                onClick={() => toggleQuestion(index)}
-                aria-expanded={openIndex === index}
+                className="rounded-xl flex justify-between items-center w-full text-left p-6 focus:outline-none hover:bg-white hover:shadow-weak-ass-glow hover:text-primary-red transition-all duration-200"
+                onClick={() => toggleQuestion(index)} // Toggle the corresponding question on click.
+                aria-expanded={openIndex === index} // Accessibility feature indicating if the question is expanded.
               >
+                {/* Display the question text */}
                 <span className="text-[18px] sm:text-[22px] lg:text-[24px] xl:text-[26px] font-semibold pr-4">{item.question}</span>
+                {/* Toggle the chevron icon based on whether the question is open */}
                 {openIndex === index ? (
                   <ChevronUp className="flex-shrink-0 h-8 w-8 white" />
                 ) : (
                   <ChevronDown className="flex-shrink-0 h-8 w-8 white" />
                 )}
               </button>
+              {/* Display the answer if the question is open */}
               {openIndex === index && (
                 <div className="p-6 text-[20px] text-subtitle__grey bg-transparent rounded-b-xl">
                   <p>{item.answer}</p>

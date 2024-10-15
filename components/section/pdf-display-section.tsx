@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+//Component to display contract report in pdf format and allow users to download
 const PdfViewer: React.FC = () => {
   const pdfUrl = '/pdf-reference.pdf'; // The path to your PDF in the public folder
 

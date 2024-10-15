@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Component for displaying YouTube video references
 const YTRefSection = () => {
   return (
       <div className="w-full flex flex-col items-center justify-center px-4 pb-16 xl:py-16 bg-black">

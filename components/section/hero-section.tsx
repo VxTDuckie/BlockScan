@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import  {motion} from "framer-motion";
-import { useScanning,ScanningNotification, splitString } from '@/components/index';
+import { useScanning,ScanningNotification, splitString, UploadForm } from '@/components/index';
 import ParticlesComponent from '@/components/utils/particles';
 
 
@@ -73,18 +73,10 @@ const Hero = () => {
 
                    
                     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 xl:space-x-6 mt-8 xl:mt-14">
-                        <label className='justify-center text-black rounded-xl text-base sm:text-lg xl:text-[20px] font-normal p-3 xl:p-4 w-full sm:w-auto hover:bg-white hover:text-white
+                        <UploadForm style=' justify-center text-black rounded-xl text-base sm:text-lg xl:text-[20px] font-normal p-3 xl:p-4 w-full sm:w-auto hover:bg-white hover:text-white
                         bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 shadow-glow-red 
-                        hover:bg-gradient-to-r  hover:from-hard-red hover:to-primary-red transition-colors duration-300'>
-                            Upload a contract
-                            <input
-                                type="file"
-                                accept='.sol'
-                                className="hidden" 
-                                onChange={handleFileUpload}
-                            />
-                
-                        </label>
+                        hover:bg-gradient-to-r  hover:from-hard-red hover:to-primary-red transition-colors duration-300'
+                        title="Upload a solidity file"/>
                         <p className='text-xl sm:text-2xl xl:text-3xl white font-light px-2 xl:px-4'>or </p>
                         <button>
                             <Link href='/contract'>

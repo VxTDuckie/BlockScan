@@ -21,6 +21,8 @@ import ContractList from './section/contract-list-section';
 import ScanningNotification from './section/scanning-notification';
 import splitString from './utils/split-string'
 import TokenBasicInfo from './section/token-basic-info';
+import UploadForm from './button/upload-form';
+
 
 export {
     Hero,
@@ -43,5 +45,6 @@ export {
     ContractList,
     ScanningNotification,
     splitString,
-    TokenBasicInfo
-};
+    TokenBasicInfo,
+    UploadForm
+}
