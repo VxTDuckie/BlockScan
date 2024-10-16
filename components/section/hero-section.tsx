@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import  {motion} from "framer-motion";
-import { useScanning,ScanningNotification, splitString, UploadForm } from '@/components/index';
+import {splitString, UploadForm } from '@/components/index';
 import ParticlesComponent from '@/components/utils/particles';
 
 

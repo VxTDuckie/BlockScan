@@ -37,7 +37,6 @@ const UploadForm = ({style, title}: UploadFormProps) => {
 
   // Handle File Selection
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
 
     const selectedFile = event.target.files?.[0] || null;
     setContractFile(selectedFile);
@@ -93,15 +92,14 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   }
   // Validate file selection
   const formData = new FormData();
-  formData.append('projectName', projectName); // Add project name
-
-
+  formData.append('contractFile', contractFile!); // Add the contract file
+  formData.append('projectName', projectName); // Add the project name  
   try {
     const submit = await axios.post('http://localhost:5000/contract-analyze', 
       formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
-    if (submit.status = 200) {
+    if (submit.status === 200) {
       startScanning('')
     }
   } catch (error: any) {
@@ -192,7 +190,7 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
                       
                     ) : (
                       <div className="flex justify-between items-center">
-                        <p className='flex items-center text-[18px]'>{contractFile.name}<span className='ml-4 text-purple-600 flex gap-2'>{message && <p>{message}</p>} <FileCheck></FileCheck></span></p>
+                        <p className='flex items-center text-[18px]'>{contractFile.name}<span className='ml-4 text-purple-600 flex gap-2'>{message && <span>{message}</span>} <FileCheck></FileCheck></span></p>
                         
                         <button onClick={removeFile}>
                           <X className="h-4 w-4" />
