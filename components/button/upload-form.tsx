@@ -31,8 +31,8 @@ const UploadForm = ({style, title}: UploadFormProps) => {
   // Toggle Upload Modal Visibility
   const handleUploadButton = () => setOpenUpload(true);
   const closeUploadButton = () => {
-    setOpenUpload(false),
-    removeFile
+    setOpenUpload(false);
+    removeFile();
   };
 
   // Handle File Selection
