@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // For HTTP requests
-import { AxiosError } from 'axios';
 import CustomButton from '../utils/CustomButton';
 import { X, Upload } from 'lucide-react';
 import { useScanning, ScanningNotification } from '../index';
@@ -33,7 +32,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
   const handleUploadButton = () => setOpenUpload(true);
   const closeUploadButton = () => {
     setOpenUpload(false),
-    removeFile()
+    removeFile
   };
 
   // Handle File Selection
@@ -107,7 +106,7 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     if (submit.status === 200) {
       startScanning('')
     }
-  } catch (error) {
+  } catch {
       setMessage("Please select a .sol file"); // Show backend message
   }
 };
