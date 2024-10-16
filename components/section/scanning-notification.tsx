@@ -3,9 +3,9 @@ import React from 'react';
 // Component for displaying a scanning notification
 const ScanningNotification: React.FC = () => {
   return (
-    <div>
+    <div className='z-50'>
       {/* Background overlay for the modal */}
-      <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" aria-hidden="true" />
+      <div className="z-50 fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" aria-hidden="true" />
 
       {/* Modal content centered on the screen */}
       <div className="fixed inset-0 flex items-center justify-center z-50">

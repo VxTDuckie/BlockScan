@@ -22,9 +22,7 @@ const Hero = () => {
     const splitHeading2 = splitString(heading2);
     const splitSubtitle = splitString(subtitle);
     const {isScanning, startScanning} = useScanning();
-    const handleFileUpload = () => {
-        startScanning('');
-    }
+
 
 
     return (

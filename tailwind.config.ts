@@ -11,13 +11,7 @@ module.exports = {
 	mode: "jit",
 	theme: {
 	  extend: {
-		keyframes:{
-			fadeUp: {
-				'0%': { opacity: '0', transform: 'translateY(50px)' },
-          	'100%': { opacity: '1', transform: 'translateY(0)' },
-			}
 
-		},
 		minWidth: {
 			'custom': '700px',  // Adds a custom min-width of 500px
 
@@ -110,9 +104,7 @@ module.exports = {
 		  md: 'calc(var(--radius) - 2px)',
 		  sm: 'calc(var(--radius) - 4px)',
 		},
-		animation: {
-			fadeUp: 'fadeUp 1s ease-in-out',
-		}
+
 	  },
 	  plugins: [],
 	},
