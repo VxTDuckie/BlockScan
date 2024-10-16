@@ -5,7 +5,6 @@ import { X, Upload } from 'lucide-react';
 import { useScanning, ScanningNotification } from '../index';
 import {FileCheck} from 'lucide-react'
 import  {motion} from "framer-motion"; // Animation library
-import { scales } from 'chart.js';
 
 interface UploadFormProps {
     style?:string

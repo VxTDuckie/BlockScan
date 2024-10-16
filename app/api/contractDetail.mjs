@@ -1,15 +1,18 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-const ProjectNameSchema = new mongoose.Schema(
+// Define the schema
+const projectSchema = new mongoose.Schema(
   {
-  "Project Name": String
-},
-{
-  collection: "ProjectName",
-}
+    projectName: { type: String, required: true }, // Use camelCase field names
+  },
+  {
+    collection: 'ProjectName', // Name of the MongoDB collection
+  }
+);
 
-)
-mongoose.model("ProjectName", ProjectNameSchema);
+// Create and export the model
+export default projectSchema = mongoose.model('ProjectName', projectSchema);
+
 // Schema for individual vulnerabilities
 {/*const VulnerabilitySchema = new mongoose.Schema({
   severity: { type: String, enum: ['informational', 'low', 'medium', 'high'], required: true },
