@@ -11,7 +11,8 @@ const projectSchema = new mongoose.Schema(
 );
 
 // Create and export the model
-export default projectSchema = mongoose.model('ProjectName', projectSchema);
+const ProjectNameModel = mongoose.model('ProjectName', projectSchema);
+export default ProjectNameModel;
 
 // Schema for individual vulnerabilities
 {/*const VulnerabilitySchema = new mongoose.Schema({

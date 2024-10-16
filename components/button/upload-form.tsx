@@ -22,7 +22,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
   const [messageName, setMessageName] = useState<string>('');  
   const {isScanning, startScanning} = useScanning(); // Destructuring scanning state and key press handler from custom hook
   const [openUpload, setOpenUpload] = useState(false);
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  const API_URL = process.env.NEXT_PUBLIC_LOCAL;
 
   const handleProjectNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectName(event.target.value); // Update project name
@@ -50,6 +50,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
     formData.append('contractFile', selectedFile);
 
     try {
+      console.log(API_URL);
       const upload = await axios.post(`${API_URL}/contract-upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
@@ -96,9 +97,9 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   }
   // Validate file selection
   const formData = new FormData();
-  formData.append('contractFile', contractFile!); // Add the contract file
   formData.append('projectName', projectName); // Add the project name  
   try {
+    console.log(API_URL);
     const submit = await axios.post(`${API_URL}/contract-analyze`, 
       formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
@@ -107,7 +108,7 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       startScanning('')
     }
   } catch {
-      setMessage("Please select a .sol file"); // Show backend message
+      setMessage("Something went wrong"); // Show backend message
   }
 };
 

@@ -50,7 +50,7 @@ app.post('/contract-upload', upload.single('contractFile'), (req, res) => {
 });
 
 // Route: Contract Analyze and Save Project Name
-app.post('/contract-analyze', upload.none(), async (req, res) => {
+app.post('/contract-analyze', upload.single('projectName'), async (req, res) => {
   try {
     const { projectName } = req.body; // Get project name from form data
 
