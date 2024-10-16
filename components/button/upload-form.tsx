@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // For HTTP requests
+import { AxiosError } from 'axios';
 import CustomButton from '../utils/CustomButton';
 import { X, Upload } from 'lucide-react';
 import { useScanning, ScanningNotification } from '../index';
@@ -58,14 +59,18 @@ const UploadForm = ({style, title}: UploadFormProps) => {
       if (upload.status === 200) {
         setMessage("Your file is ready!");
       }
-    } catch (error: any) {
-      // Handle error response
-      if (error.response) {
-        setMessage("Please select a .sol file"); // Show backend message
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          setMessage('Please select a .sol file');
+        } else {
+          setMessage('An error occurred. Failed to upload.');
+        }
       } else {
-        setMessage('An error occurred. Failed to upload.');
+        setMessage('An unexpected error occurred.');
       }
     }
+    
   };
 
   // Remove Selected File
@@ -102,10 +107,8 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     if (submit.status === 200) {
       startScanning('')
     }
-  } catch (error: any) {
-    if (error.response) {
+  } catch (error) {
       setMessage("Please select a .sol file"); // Show backend message
-    } 
   }
 };
 
