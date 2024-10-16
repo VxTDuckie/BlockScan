@@ -7,7 +7,7 @@ import { useScanning, ScanningNotification, UploadForm } from '@/components/inde
 //component that handles address searching feature and uploading file
 const SmartScanning = () => {
   const [inputValue, setInputValue] = useState('');
-  const { isScanning, handleKeyPress, startScanning } = useScanning();
+  const { isScanning, handleKeyPress} = useScanning();
 
 
   return (

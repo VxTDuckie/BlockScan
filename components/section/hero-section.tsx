@@ -21,7 +21,6 @@ const Hero = () => {
     const splitHeading1 = splitString(heading1);
     const splitHeading2 = splitString(heading2);
     const splitSubtitle = splitString(subtitle);
-    const {isScanning, startScanning} = useScanning();
 
 
 
@@ -98,7 +97,6 @@ const Hero = () => {
                     className="h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[700px] w-full xl:w-auto rounded-lg object-cover object-center"
                 />   
             </div>
-            {isScanning && <ScanningNotification/>}
         </div>
     );
 };
