@@ -99,7 +99,7 @@ const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
   formData.append('contractFile', contractFile!); // Add the contract file
   formData.append('projectName', projectName); // Add the project name  
   try {
-    const submit = await axios.post('http://localhost:5000/contract-analyze', 
+    const submit = await axios.post(`${API_URL}/contract-analyze`, 
       formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
