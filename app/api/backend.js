@@ -75,5 +75,4 @@ app.post('/contract-upload', upload.single('contractFile'), (req, res) => {
       console.error('Error:', error);
       res.status(500).json({ status: 'error', message: 'Failed to save project.' });
     }
-
   });
