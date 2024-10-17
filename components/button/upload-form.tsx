@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // For HTTP requests
+import axios, {AxiosError} from 'axios'; // For HTTP requests
 import CustomButton from '../utils/CustomButton';
 import { X, Upload } from 'lucide-react';
 import { useScanning, ScanningNotification } from '../index';
@@ -112,13 +112,17 @@ const UploadForm = ({style, title}: UploadFormProps) => {
       } else {
         setMessage(`Unexpected response: ${response.statusText}`);
       }
-    } catch (error: any) {
-      console.error('Error during submission:', error);
-      if (error.response) {
-        // If the backend sent an error response
-        setMessage(`Error: ${error.response.data.message || 'Something went wrong.'}`);
+    } catch (error: unknown) { // Use `unknown` type for better safety
+      if (axios.isAxiosError(error)) {
+        const axiosError = error as AxiosError;
+        console.error('Axios error:', axiosError);
+        // Handle backend error messages
+        setMessage(
+          `Error: Something went wrong.}`
+        );
       } else {
-        // If the error is network-related or something else
+        // Handle non-Axios errors (e.g., network issues)
+        console.error('Unknown error:', error);
         setMessage('Unable to connect to the backend. Please try again.');
       }
     }
