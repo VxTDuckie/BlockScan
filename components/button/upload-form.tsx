@@ -95,36 +95,23 @@ const UploadForm = ({style, title}: UploadFormProps) => {
       return;
     }
   
-    const formData = new FormData();
-    formData.append('projectName', projectName); // Add the project name
-    formData.append('contractFile', contractFile); // Add the contract file
   
     try {
       console.log(`API URL: ${API_URL}`);
   
-      const response = await axios.post(`${API_URL}/contract-analyze`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+      const response = await axios.post(`${API_URL}/contract-analyze`, {projectName,}, {
+        headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.status === 200) {
         setMessage('Upload successful! The scan has started.');
         startScanning(''); // Call the scanning function
       } else {
-        setMessage(`Unexpected response: ${response.statusText}`);
-      }
-    } catch (error: unknown) { // Use `unknown` type for better safety
-      if (axios.isAxiosError(error)) {
-        const axiosError = error as AxiosError;
-        console.error('Axios error:', axiosError);
-        // Handle backend error messages
         setMessage(
-          `Error: Something went wrong.}`
-        );
-      } else {
-        // Handle non-Axios errors (e.g., network issues)
-        console.error('Unknown error:', error);
-        setMessage('Unable to connect to the backend. Please try again.');
-      }
+          `Error: Something went wrong.`      )}
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage('Failed to connect to server.');
     }
   };
   

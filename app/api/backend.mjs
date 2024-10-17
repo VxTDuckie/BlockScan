@@ -4,17 +4,16 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import path from 'path';
 import multer from 'multer'; // Use multer for file uploads
-import ContractNameDB from './schema.mjs'; // Import your Mongoose model
+import ProjectNameModel from './schema.mjs'; // Import your Mongoose model
 
 const app = express(); // Initialize Express app
 
 // Middleware setup
 app.use(express.json()); // Parse JSON requests
-app.use(cors({ origin: '*' })); // Enable CORS to allow requests from any origin
+app.use(cors({ origin: '*' })); // Enable CORS for all origins
 
 // MongoDB connection
-const mongoUrl = 
-  'mongodb+srv://leviron:123456Bom@blockscan.gooou.mongodb.net/BlockScanDB?retryWrites=true&w=majority&appName=BlockScan';
+const mongoUrl = 'mongodb+srv://leviron:123456Bom@blockscan.gooou.mongodb.net/BlockScanDB?retryWrites=true&w=majority&appName=BlockScan';
 mongoose
   .connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
@@ -39,7 +38,9 @@ app.post('/contract-upload', upload.single('contractFile'), (req, res) => {
     const fileExtension = path.extname(contractFile.originalname).toLowerCase(); // Check extension
 
     if (fileExtension !== '.sol') {
-      return res.status(400).json({ status: 'error', message: 'Invalid file type. Only .sol files allowed.' });
+      return res
+        .status(400)
+        .json({ status: 'error', message: 'Invalid file type. Only .sol files allowed.' });
     }
 
     res.status(200).json({ status: 'ok', message: 'File uploaded successfully.' });
@@ -50,9 +51,9 @@ app.post('/contract-upload', upload.single('contractFile'), (req, res) => {
 });
 
 // Route: Contract Analyze and Save Project Name
-app.post('/contract-analyze',upload.single('projectName'), async (req, res) => {
+app.post('/contract-analyze', async (req, res) => {
   try {
-    const { projectName } = req.body; // Access project name from the request body
+    const { projectName } = req.body; // Access project name from request body
 
     if (!projectName) {
       return res.status(400).json({ status: 'error', message: 'Project name is required.' });
@@ -61,7 +62,7 @@ app.post('/contract-analyze',upload.single('projectName'), async (req, res) => {
     console.log(`Project Name: ${projectName}`);
 
     // Save project name to the database
-    await ContractNameDB.create({ projectName });
+    await ProjectNameModel.create({ projectName });
 
     res.status(200).json({ status: 'ok', message: 'Project name saved successfully.' });
   } catch (error) {
