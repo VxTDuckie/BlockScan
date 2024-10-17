@@ -8,17 +8,19 @@ import ProjectNameModel from './schema.mjs'; // Import your Mongoose model
 
 const app = express(); // Initialize Express app
 
-// Configure CORS to allow your frontend
+// Middleware setup
+app.use(cors(corsOptions));
+
+app.use(express.json()); // Parse JSON bodies
+
+// Handle OPTIONS request (Preflight request)
+app.options('*', cors(corsOptions)); // For all routes
 const corsOptions = {
   origin: 'https://blockscan-swin.vercel.app', // Your Vercel frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // Allow credentials if needed (optional)
+  credentials: true, // Optional: allow cookies or authentication
 };
-
-app.use(cors(corsOptions)); // Use CORS with the options
-app.use(express.json()); // Parse JSON requests
-
 // MongoDB connection
 const mongoUrl = "mongodb+srv://leviron:123456Bom@blockscan.gooou.mongodb.net/BlockScanDB?retryWrites=true&w=majority&appName=BlockScan";
 mongoose
