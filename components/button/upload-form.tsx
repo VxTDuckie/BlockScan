@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios, {AxiosError} from 'axios'; // For HTTP requests
+import axios from 'axios'; // For HTTP requests
 import CustomButton from '../utils/CustomButton';
 import { X, Upload } from 'lucide-react';
 import { useScanning, ScanningNotification } from '../index';
