@@ -8,17 +8,12 @@ import ProjectNameModel from './schema.mjs'; // Import your Mongoose model
 
 const app = express(); // Initialize Express app
 
-// Allow specific origins (replace with your Vercel frontend URL)
-const allowedOrigins = ['https://blockscan-swin.vercel.app'];
-
+// Configure CORS to allow your frontend
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: 'https://blockscan-swin.vercel.app', // Your Vercel frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, // Allow credentials if needed (optional)
 };
 
 app.use(cors(corsOptions)); // Use CORS with the options
