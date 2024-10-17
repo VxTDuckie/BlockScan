@@ -25,8 +25,8 @@ const Navbar: React.FC = () => {
 
     return (
         <div className={`sticky top-0 duration-300 ${
-            isScrolled ? "bg-[rgba(1,1,1,0.5)] backdrop-blur-sm " : "bg-transparent"
-        } z-50`}>
+            isScrolled ? "bg-[rgba(5,4,4,0.5)] backdrop-blur-sm " : "bg-transparent"
+        } z-40`}>
             {/* Navbar container with conditional styling based on scroll state */}
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center py-4">

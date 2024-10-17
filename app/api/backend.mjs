@@ -14,7 +14,7 @@ app.use(cors()); // Enable CORS
 
 // MongoDB connection
 const mongoUrl =
-  'mongodb+srv://leviron:123456Bom@blockscan.gooou.mongodb.net/?retryWrites=true&w=majority&appName=BlockScan';
+  'mongodb+srv://leviron:123456Bom@blockscan.gooou.mongodb.net/BlockScanDB?retryWrites=true&w=majority&appName=BlockScan';
 mongoose
   .connect(mongoUrl, { useNewUrlParser: true })
   .then(() => console.log('Connected to database'))

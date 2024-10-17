@@ -22,7 +22,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
   const [messageName, setMessageName] = useState<string>('');  
   const {isScanning, startScanning} = useScanning(); // Destructuring scanning state and key press handler from custom hook
   const [openUpload, setOpenUpload] = useState(false);
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
   const handleProjectNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectName(event.target.value); // Update project name
@@ -50,7 +50,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
     formData.append('contractFile', selectedFile);
 
     try {
-      console.log(API_URL);
+      console.log(`${API_URL}/contract-upload`);
       const upload = await axios.post(`${API_URL}/contract-upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
