@@ -13,7 +13,7 @@ app.use(express.json()); // Parse JSON requests
 app.use(cors({ origin: '*' })); // Enable CORS for all origins
 
 // MongoDB connection
-const mongoUrl = process.env.NEXT_PUBLIC_MONGODB;
+const mongoUrl = "mongodb+srv://leviron:123456Bom@blockscan.gooou.mongodb.net/BlockScanDB?retryWrites=true&w=majority&appName=BlockScan";
 mongoose
   .connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
