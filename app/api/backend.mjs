@@ -7,20 +7,20 @@ import multer from 'multer'; // Use multer for file uploads
 import ProjectNameModel from './schema.mjs'; // Import your Mongoose model
 
 const app = express(); // Initialize Express app
-
-// Middleware setup
-app.use(cors(corsOptions));
-
 app.use(express.json()); // Parse JSON bodies
 
+
+
 // Handle OPTIONS request (Preflight request)
-app.options('*', cors(corsOptions)); // For all routes
 const corsOptions = {
   origin: 'https://blockscan-swin.vercel.app', // Your Vercel frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true, // Optional: allow cookies or authentication
 };
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // For all routes
+
 // MongoDB connection
 const mongoUrl = "mongodb+srv://leviron:123456Bom@blockscan.gooou.mongodb.net/BlockScanDB?retryWrites=true&w=majority&appName=BlockScan";
 mongoose
