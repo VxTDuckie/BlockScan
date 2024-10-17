@@ -22,8 +22,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
   const [messageName, setMessageName] = useState<string>('');  
   const {isScanning, startScanning} = useScanning(); // Destructuring scanning state and key press handler from custom hook
   const [openUpload, setOpenUpload] = useState(false);
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const handleProjectNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectName(event.target.value); // Update project name
   };
@@ -80,37 +79,51 @@ const UploadForm = ({style, title}: UploadFormProps) => {
   };
 
   // Handle Form Submission and File Upload
-const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault(); // Prevent page refresh
-
-
-  // Validate project name
-  if (!projectName.trim()) {
-    setMessageName('Please enter a project name before uploading.');
-    return;
-  } else {
-    setMessageName('');
-  }
-  if (!contractFile) {
-    setMessage('Please select a file to upload.');
-    return;
-  }
-  // Validate file selection
-  const formData = new FormData();
-  formData.append('projectName', projectName); // Add the project name  
-  try {
-    console.log(API_URL);
-    const submit = await axios.post(`${API_URL}/contract-analyze`, 
-      formData, {
-      headers: { 'Content-Type': 'multipart/form-data' },
-    });
-    if (submit.status === 200) {
-      startScanning('')
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); // Prevent page refresh
+  
+    // Validate project name
+    if (!projectName.trim()) {
+      setMessageName('Please enter a project name before uploading.');
+      return;
+    } 
+    setMessageName(''); // Clear any previous error messages
+  
+    // Validate file selection
+    if (!contractFile) {
+      setMessage('Please select a file to upload.');
+      return;
     }
-  } catch {
-      setMessage("Something went wrong"); // Show backend message
-  }
-};
+  
+    const formData = new FormData();
+    formData.append('projectName', projectName); // Add the project name
+    formData.append('contractFile', contractFile); // Add the contract file
+  
+    try {
+      console.log(`API URL: ${API_URL}`);
+  
+      const response = await axios.post(`${API_URL}/contract-analyze`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+  
+      if (response.status === 200) {
+        setMessage('Upload successful! The scan has started.');
+        startScanning(''); // Call the scanning function
+      } else {
+        setMessage(`Unexpected response: ${response.statusText}`);
+      }
+    } catch (error: any) {
+      console.error('Error during submission:', error);
+      if (error.response) {
+        // If the backend sent an error response
+        setMessage(`Error: ${error.response.data.message || 'Something went wrong.'}`);
+      } else {
+        // If the error is network-related or something else
+        setMessage('Unable to connect to the backend. Please try again.');
+      }
+    }
+  };
+  
 
 
   return (

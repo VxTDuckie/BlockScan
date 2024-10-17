@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import path from 'path';
 import multer from 'multer'; // Use multer for file uploads
-import ContractNameDB from './contractDetail.mjs'; // Import your Mongoose model
+import ContractNameDB from './schema.mjs'; // Import your Mongoose model
 
 const app = express(); // Initialize Express app
 
@@ -50,7 +50,7 @@ app.post('/contract-upload', upload.single('contractFile'), (req, res) => {
 });
 
 // Route: Contract Analyze and Save Project Name
-app.post('/contract-analyze', async (req, res) => {
+app.post('/contract-analyze',upload.single('projectName'), async (req, res) => {
   try {
     const { projectName } = req.body; // Access project name from the request body
 

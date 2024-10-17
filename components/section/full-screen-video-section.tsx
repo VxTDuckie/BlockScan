@@ -4,7 +4,7 @@ import React from 'react' // Importing React to create a functional component.
 const Video = () => {
   return (
     // Section for video display, hidden on smaller screens (lg:hidden).
-    <section className="hidden lg:flex xl:px-0 z-50 relative">
+    <section className="hidden lg:flex xl:px-0 z-10 relative">
       <div className="w-full">
         {/* Video element that plays automatically, loops, and is muted */}
         <video 

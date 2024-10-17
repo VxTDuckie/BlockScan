@@ -45,4 +45,3 @@ const ScanResultSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }, // Timestamp of the scan
 });*/}
 
-
