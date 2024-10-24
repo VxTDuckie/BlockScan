@@ -6,7 +6,7 @@ import { SmartScanning, ContractScanResult } from '@/components/index';
 
 const Page = () => {
   return (
-    <main className='bg-black min-h-screen '>
+    <main className='bg-black'>
       <SmartScanning/>
       <ContractScanResult/>  
     </main>

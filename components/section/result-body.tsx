@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {HandleSafetyCheck} from '@/components/index';
+import {Vulnerability, Overview} from '@/components/index';
 
 
 //Component for displaying contract safety check results
@@ -19,7 +19,7 @@ const SafetyCheck: React.FC = () => {
               ${isChosen ? 'border-b-4 border-primary-red text-opacity-100 ' : 
               'text-opacity-70 border-b-2 border-transparent hover:border-primary-red hover:text-opacity-100 hover:scale-105'}`}
           >
-            <span>Token Detector</span>
+            <span>Overview</span>
           </button>
           <button
             onClick={() => setIsChosen(false)}
@@ -27,13 +27,13 @@ const SafetyCheck: React.FC = () => {
               ${!isChosen ? 'border-b-4 border-primary-red text-opacity-100' : 
               'text-opacity-70 border-b-2 border-transparent hover:border-primary-red hover:text-opacity-100 hover:scale-105'}`}
           >
-            <span>General Detector</span>
+            <span>Vulnerabilities</span>
           </button>
         </div>
       </div>
       
       <div>
-        <HandleSafetyCheck isTokenDetector={isChosen}/>
+        {isChosen ? <Overview/> : <Vulnerability/>} 
       </div>
     </main>
   );

@@ -20,7 +20,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
   const [contractFile, setContractFile] = useState<File | null>(null);
   const [message, setMessage] = useState<string>('');  
   const [messageName, setMessageName] = useState<string>('');  
-  const {isScanning, startScanning} = useScanning(); // Destructuring scanning state and key press handler from custom hook
+  const {isScanning, startScanning, setIsScanning} = useScanning(); // Destructuring scanning state and key press handler from custom hook
   const [openUpload, setOpenUpload] = useState(false);
   const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const handleProjectNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,43 +34,6 @@ const UploadForm = ({style, title}: UploadFormProps) => {
     removeFile();
   };
 
-  // Handle File Selection
-  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-
-    const selectedFile = event.target.files?.[0] || null;
-    setContractFile(selectedFile);
-
-    if (!selectedFile) {
-      setMessage('Please select a file to upload.');
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('contractFile', selectedFile);
-
-    try {
-      console.log(`${API_URL}/contract-upload`);
-      const upload = await axios.post(`${API_URL}/contract-upload`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
-
-      // Handle success response
-      if (upload.status === 200) {
-        setMessage("Your file is ready!");
-      }
-    } catch (error: unknown) {
-      if (axios.isAxiosError(error)) {
-        if (error.response) {
-          setMessage('Please select a .sol file');
-        } else {
-          setMessage('An error occurred. Failed to upload.');
-        }
-      } else {
-        setMessage('An unexpected error occurred.');
-      }
-    }
-    
-  };
 
   // Remove Selected File
   const removeFile = () => {
@@ -78,43 +41,100 @@ const UploadForm = ({style, title}: UploadFormProps) => {
     setMessage('')
   };
 
-  // Handle Form Submission and File Upload
+  const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0] || null;
+    
+    if (!selectedFile) {
+      setMessage('Please select a file to upload.');
+      setContractFile(null);
+      return;
+    }
+
+    // Validate file extension
+    if (!selectedFile.name.toLowerCase().endsWith('.sol')) {
+      setMessage('Please select a .sol file');
+      setContractFile(null);
+      return;
+    }
+
+    // Validate file size (10MB)
+    if (selectedFile.size > 10 * 1024 * 1024) {
+      setMessage('File size must be less than 10MB');
+      setContractFile(null);
+      return;
+    }
+
+    setContractFile(selectedFile);
+    setMessage('File selected successfully');
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Prevent page refresh
-  
-    // Validate project name
+    event.preventDefault();
+    
     if (!projectName.trim()) {
       setMessageName('Please enter a project name before uploading.');
       return;
-    } 
-    setMessageName(''); // Clear any previous error messages
-  
-    // Validate file selection
+    }
+    setMessageName('');
+
     if (!contractFile) {
       setMessage('Please select a file to upload.');
       return;
     }
-  
-  
+
     try {
-      console.log(`API URL: ${API_URL}`);
-  
-      const response = await axios.post(`${API_URL}/contract-analyze`, {projectName,}, {
-        headers: { 'Content-Type': 'application/json' },
+      setIsScanning(true);
+      // First upload the file
+      const formData = new FormData();
+      formData.append('contractFile', contractFile);
+
+      const uploadResponse = await axios.post(`${API_URL}/contract-upload`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
-  
-      if (response.status === 200) {
+
+      if (uploadResponse.data.status !== 'success') {
+        throw new Error(uploadResponse.data.message || 'File upload failed');
+      }
+
+      // Then start analysis
+      const analyzeResponse = await axios.post(`${API_URL}/contract-analyze`, {
+        projectName,
+        filename: uploadResponse.data.data.filename
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (analyzeResponse.data.status === 'success') {
         setMessage('Upload successful! The scan has started.');
-        startScanning(''); // Call the scanning function
-      } else {
-        setMessage(
-          `Error: Something went wrong.`      )}
+        startScanning(analyzeResponse.data.data);
+        
+        // Clear form
+        setProjectName('');
+        setContractFile(null);
+        if (event.target instanceof HTMLFormElement) {
+          event.target.reset();
+        }
+        closeUploadButton();
+      }
     } catch (error) {
       console.error('Error:', error);
-      setMessage('Failed to connect to server.');
+      if (axios.isAxiosError(error)) {
+        if (error.code === 'ERR_NETWORK') {
+          setMessage('Cannot connect to server. Please make sure the server is running.');
+        } else if (error.response) {
+          setMessage(error.response.data.message || 'An error occurred during processing');
+        } else {
+          setMessage('Network error occurred. Please try again.');
+        }
+      } else {
+        setMessage('An unexpected error occurred.');
+      }
     }
   };
-  
 
 
   return (
@@ -197,7 +217,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
                       
                     ) : (
                       <div className="flex justify-between items-center">
-                        <p className='flex items-center text-[18px]'>{contractFile.name}<span className='ml-4 text-purple-600 flex gap-2'>{message && <span>{message}</span>} <FileCheck></FileCheck></span></p>
+                        <p className='flex items-center text-[18px]'>{contractFile.name}<span className='ml-4 text-purple-600 flex gap-2'>{message && <span>{message}<FileCheck></FileCheck></span>} </span></p>
                         
                         <button onClick={removeFile}>
                           <X className="h-4 w-4" />
@@ -248,7 +268,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
           </motion.div>
         </div>
       )}
-                  {isScanning && <ScanningNotification/>}
+      {isScanning && <ScanningNotification/>}
 
     </div>
     

@@ -7,7 +7,7 @@ import CustomButton from './utils/CustomButton';
 import RiliabilitySection from './section/reliability-section';
 import YTRefSection from './section/youtube-reference-section';
 import ContractScanResult from './section/contract-scan-result-section';
-import SafetyCheck from './section/safety-check-section'; 
+import ResultBody from './section/result-body'; 
 import Video from './section/full-screen-video-section';
 import PdfViewer from './section/pdf-display-section';
 import SmartScanning from './section/smart-scanning-section';
@@ -16,13 +16,13 @@ import RadarChart from './chart/RadarChart';
 import FAQ from './section/frequently-asked-question-section';
 import {useScanning} from './utils/useScanning';
 import CopyButton from './button/copy-button';
-import HandleSafetyCheck from './section/handle-safety-check';
+import Vulnerability from './section/vulnerability';
 import ContractList from './section/contract-list-section';
 import ScanningNotification from './section/scanning-notification';
 import splitString from './utils/split-string'
 import TokenBasicInfo from './section/token-basic-info';
 import UploadForm from './button/upload-form';
-
+import { Overview } from './section/overview';
 
 export {
     Hero,
@@ -33,7 +33,7 @@ export {
     ContractScanResult,
     RiliabilitySection,
     YTRefSection,
-    SafetyCheck,
+    ResultBody,
     Video,
     PdfViewer,
     SmartScanning,
@@ -41,10 +41,11 @@ export {
     FAQ,
     useScanning,
     CopyButton,
-    HandleSafetyCheck,
+    Vulnerability,
     ContractList,
     ScanningNotification,
     splitString,
     TokenBasicInfo,
-    UploadForm
+    UploadForm,
+    Overview
 }

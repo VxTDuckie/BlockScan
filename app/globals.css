@@ -297,5 +297,19 @@ background: linear-gradient(45deg,#9333ea, #e70606);
   filter: blur(250px);
   overflow: hidden;
 }
+/* Add these styles to your CSS */
+@keyframes progressAnimation {
+  0% {
+    stroke-dasharray: 0 126;
+  }
+}
 
+.circle-progress {
+  animation: progressAnimation 1s ease-out forwards;
+}
+
+.progress-wrapper {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
 /* END: search manufacturer styles */

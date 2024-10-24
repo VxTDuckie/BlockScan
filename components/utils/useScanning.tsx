@@ -12,7 +12,7 @@ export const useScanning = () => {
       setIsScanning(false);
       // After the scanning is done, navigate to the contract page
       router.push(`/contract/${inputValue || defaultContract}`);
-    }, 800); // Simulate a 3-second scan
+    }, 800); 
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>, inputValue: string) => {
@@ -21,5 +21,5 @@ export const useScanning = () => {
     }
   };
 
-  return { isScanning, startScanning, handleKeyPress };
+  return { isScanning, startScanning, handleKeyPress, setIsScanning };
 };

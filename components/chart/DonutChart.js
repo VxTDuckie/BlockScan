@@ -5,27 +5,30 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const DonutChart = () => {
+
+const DonutChart =  ({Optimization, Informational, Low, Medium, High}) => {
   const data = {
-    labels: ['Unlocked', 'Brunt', 'Locked', 'Owner'], //set properties for the chart and nodes
+    labels: ['Optimization', 'Informational', 'Low', 'Medium', 'High'], //set properties for the chart and nodes
     datasets: [
       {
-        label: 'Token Liquidity',
-        data: [35, 35, 15, 15],
+        label: 'Issues',
+        data: [Optimization, Informational, Low, Medium, High],
         backgroundColor: [
-          '#9333ea',
-          '#ec4899',
-          '#f9a8d4',
-          '#fbcfe8',
+          '#3b82f6',    // blue-500
+          '#6b7280',    // gray-500
+          '#22c55e',   // green-500
+          '#eab308',  // yellow-500
+          '#dc2626'      // red-600
         ],
         borderColor: '#f7f8f7',
         borderWidth: 8,
         borderRadius: 14,
         hoverBackgroundColor: [
-          '#6b13bb',
-          '#b4226a',
-          '#a96a8c',
-          '#bf87a7',
+          '#2563eb',    // blue-600
+          '#4b5563',    // gray-600
+          '#16a34a',   // green-600
+          '#ca8a04',  // yellow-600
+          '#b91c1c'      // red-700
         ],
       },
     ],
@@ -43,7 +46,7 @@ const DonutChart = () => {
             return chart.data.labels.map((label, i) => {
               const value = dataset.data[i];
               return {
-                text: `${label}: ${value}%`, // Use backticks for template literals
+                text: `${label}: ${value}`, // Use backticks for template literals
                 fillStyle: dataset.backgroundColor[i],
                 strokeStyle: undefined,
                 lineWidth: 0,
@@ -75,20 +78,12 @@ const DonutChart = () => {
   return (
     <div
       className="w-full p-6 mb-7"
-      style={{
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-        borderRadius: '12px',
-        backgroundColor: '#fff',
-      }}
     >
-      <h2 className="bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 text-transparent bg-clip-text text-2xl font-bold mb-4" style={{ fontFamily: "Outfit" }}>
-        Token Liquidity Analysis
-      </h2>
+
 
       <div
-        className="rounded-xl p-6 w-full"
+        className="rounded-xl p-6 w-full bg-gray-50"
         style={{
-          backgroundColor: 'rgba(240, 240, 240, 0.5)',
           borderRadius: '12px',
           display: 'flex',
           flexDirection: 'column',
@@ -96,19 +91,8 @@ const DonutChart = () => {
           justifyContent: 'center',
         }}
       >
-        <div className="text-center mb-4" style={{ fontFamily: 'Outfit', fontSize: '24px' }}>
-          <span className="font-bold" style={{ fontWeight: 'bold' }}>Total Liquidity:</span>{' '}
-          <span style={{ fontWeight: 'normal' }}>$1.5M</span>
-        </div>
 
-        <div
-          style={{
-            width: '100%',
-            borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-            marginTop: '10px',
-            marginBottom: '20px',
-          }}
-        ></div>
+
 
         <div style={{ width: '100%', height: '300px' }}> {/* Set height to ensure chart fits */}
           <Doughnut data={data} options={options} />
