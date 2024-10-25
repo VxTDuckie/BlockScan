@@ -7,7 +7,7 @@ import { useScanning, ScanningNotification } from '@/components/index'; // Custo
 const Navbar: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false); // State to track if the user has scrolled
     const [inputValue, setInputValue] = useState(''); // State to hold the value of the search input
-    const { isScanning, handleKeyPress } = useScanning(); // Destructuring scanning state and key press handler from custom hook
+    const { isScanning } = useScanning(); // Destructuring scanning state and key press handler from custom hook
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // Function to handle scroll events, setting isScrolled based on scroll position
@@ -39,26 +39,7 @@ const Navbar: React.FC = () => {
                     </Link>
 
                     <div className="hidden sm:block relative w-48 md:w-72">
-                        {/* Search bar, displayed only when scrolled */}
-                        {isScrolled && (
-                            <input
-                                type="text"
-                                placeholder="Search a contract"
-                                value={inputValue}
-                                onChange={(e) => setInputValue(e.target.value)}
-                                onKeyDown={(e) => handleKeyPress(e, inputValue)}
-                                className="rounded-full p-1.5 pl-10 pr-2 w-full outline-none text-[14px] border-2 border-white bg-transparent text-white"
-                            />
-                        )}
-                        {isScrolled && (
-                            <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white">
-                                <img
-                                    src="/images/magnifying-glass.png"
-                                    alt="search-bar"
-                                    className="w-5 h-5"
-                                />
-                            </span>
-                        )}
+
                     </div>
                     <button 
             className="sm:hidden text-white"
@@ -72,14 +53,6 @@ const Navbar: React.FC = () => {
 
         {isMenuOpen && (
           <div className="sm:hidden mt-4 pb-4">
-            <input
-              type="text"
-              placeholder="Search a contract"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              onKeyDown={(e) => handleKeyPress(e, inputValue)}
-              className="rounded-full p-1.5 pl-10 pr-2 w-full outline-none text-[14px] border-2 border-white bg-transparent text-white"
-            />
             <span className="absolute left-7 top-[6.2rem] transform -translate-y-1/2 text-white">
               <img
                 src="/images/magnifying-glass.png"

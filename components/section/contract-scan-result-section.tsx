@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { CustomButton, ResultBody} from '@/components/index';
+import { CustomButton, ResultBody, useScanning} from '@/components/index';
 import { createClient } from '@supabase/supabase-js';
-
 
 interface AnalysisMetrics {
   id: string;
@@ -10,6 +9,7 @@ interface AnalysisMetrics {
   total_contracts: number;
   source_lines: number;
   assembly_lines: number;
+  scan_duration: number;
   optimization_issues: number;
   informational_issues: number;
   low_issues: number;
@@ -73,7 +73,6 @@ const ContractScanResult = () => {
   const [metrics, setMetrics] = useState<AnalysisMetrics | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
   useEffect(() => {
     const fetchResults = async () => {
       try {
@@ -108,7 +107,7 @@ const ContractScanResult = () => {
     
     const maxScore = 100;
     const deductions = {
-      high: 5,    // Deduct 15 points per high issue
+      high: 6,    // Deduct 15 points per high issue
       medium: 2,  // Deduct 10 points per medium issue
       low: 1       // Deduct 5 points per low issue
     };
@@ -200,7 +199,9 @@ const ContractScanResult = () => {
       </div>
       <div>
         <p className='text-gray-500 text-sm'>Scan duration</p>
-        <p className='font-bold text-xl'>8 secs</p>
+        <p className='font-bold text-xl'>
+          <span className='mr-1'>{metrics.scan_duration}</span>
+          <span>secs</span></p>
       </div>
     </div>
 
@@ -223,7 +224,7 @@ const ContractScanResult = () => {
       <div>
         <p className='text-gray-500 text-sm'>Issues Count</p>
         <p className='font-bold text-xl'>
-          {metrics.high_issues + metrics.medium_issues + metrics.low_issues}
+          {metrics.high_issues + metrics.medium_issues + metrics.low_issues + metrics.informational_issues + metrics.optimization_issues}
         </p>
       </div>
     </div>

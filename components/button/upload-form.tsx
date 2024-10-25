@@ -121,6 +121,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
         closeUploadButton();
       }
     } catch (error) {
+      setIsScanning(false);
       console.error('Error:', error);
       if (axios.isAxiosError(error)) {
         if (error.code === 'ERR_NETWORK') {
@@ -217,7 +218,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
                       
                     ) : (
                       <div className="flex justify-between items-center">
-                        <p className='flex items-center text-[18px]'>{contractFile.name}<span className='ml-4 text-purple-600 flex gap-2'>{message && <span>{message}<FileCheck></FileCheck></span>} </span></p>
+                        <p className='flex items-center text-[18px]'>{contractFile.name}<span className='ml-4 text-purple-600 flex gap-2'>{message && <span className='flex gap-2'>{message}<FileCheck></FileCheck></span>} </span></p>
                         
                         <button onClick={removeFile}>
                           <X className="h-4 w-4" />

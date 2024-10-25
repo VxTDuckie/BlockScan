@@ -68,7 +68,7 @@ const DonutChart =  ({Optimization, Informational, Low, Medium, High}) => {
         callbacks: {
           label: function (tooltipItem) {
             const dataValue = tooltipItem.raw;
-            return `${tooltipItem.label}: ${dataValue}%`; // Use backticks for template literals
+            return `${tooltipItem.label}: ${dataValue}`; // Use backticks for template literals
           },
         },
       },

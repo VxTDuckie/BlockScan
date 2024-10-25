@@ -15,11 +15,5 @@ export const useScanning = () => {
     }, 800); 
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>, inputValue: string) => {
-    if (e.key === 'Enter') {
-      startScanning(inputValue); // Trigger scanning on Enter key press
-    }
-  };
-
-  return { isScanning, startScanning, handleKeyPress, setIsScanning };
+  return { isScanning, startScanning, setIsScanning };
 };

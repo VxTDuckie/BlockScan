@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
-import { RadarChart, DonutChart } from '@/components/index'
+import { RadarChart, DonutChart, CopyButton } from '@/components/index'
 
 interface AnalysisMetrics {
   id: string;
@@ -63,7 +63,11 @@ export const Overview = () => {
     <div className='flex justify-between bg-white p-6 gap-6 rounded-xl shadow-md'>
     <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2">
             <span>Project ID:</span>
-            <span className="font-bold text-blue-500">{metrics.id}</span>
+            <div className='gap-1'>
+              <span className="font-bold bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 text-transparent bg-clip-text">{metrics.id}</span>
+              <span><CopyButton textToCopy={metrics.id}/></span>
+            </div>
+           
           </div>
     <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2">
             <span>Created at:</span>
