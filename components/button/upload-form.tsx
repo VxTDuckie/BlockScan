@@ -109,9 +109,11 @@ const UploadForm = ({style, title}: UploadFormProps) => {
       });
 
       if (analyzeResponse.data.status === 'success') {
+        const metricsId = analyzeResponse.data.data.id;
+
+        localStorage.setItem('metricsId', metricsId);
         setMessage('Upload successful! The scan has started.');
         startScanning(analyzeResponse.data.data);
-        
         // Clear form
         setProjectName('');
         setContractFile(null);

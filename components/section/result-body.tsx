@@ -2,8 +2,30 @@ import React, { useState } from 'react';
 import {Vulnerability, Overview} from '@/components/index';
 
 
+interface AnalysisMetrics {
+  id: string;
+  project_name: string;
+  created_at: string;
+  total_contracts: number;
+  source_lines: number;
+  assembly_lines: number;
+  scan_duration: number;
+  optimization_issues: number;
+  informational_issues: number;
+  low_issues: number;
+  medium_issues: number;
+  high_issues: number;
+  ercs: string;
+}
+interface AnalysisVulns {
+  vulnerability: string;
+}
+interface ResultBodyProps {
+  metrics: AnalysisMetrics | null;
+  vulns: AnalysisVulns[] | null;
+}
 //Component for displaying contract safety check results
-const SafetyCheck: React.FC = () => {
+const ResultBody : React.FC<ResultBodyProps> = ({metrics, vulns}) => {
   // State quản lý tab đang được chọn (Token Detector hoặc General Detector)
   const [isChosen, setIsChosen] = useState(true); 
   
@@ -33,10 +55,10 @@ const SafetyCheck: React.FC = () => {
       </div>
       
       <div>
-        {isChosen ? <Overview/> : <Vulnerability/>} 
+        {isChosen ? <Overview metrics={metrics}/> : <Vulnerability vulnList={vulns}/>} 
       </div>
     </main>
   );
 };
 
-export default SafetyCheck;
+export default ResultBody;

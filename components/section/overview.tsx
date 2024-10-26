@@ -1,7 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
-import { createClient } from '@supabase/supabase-js';
-import { RadarChart, DonutChart, CopyButton } from '@/components/index'
+import { DonutChart, CopyButton } from '@/components/index'
 
 interface AnalysisMetrics {
   id: string;
@@ -16,39 +14,12 @@ interface AnalysisMetrics {
   high_issues: number;
   ercs: string;
 }
+interface OverviewProps {
+  metrics: AnalysisMetrics | null;
+}
 
-export const Overview = () => {
-  const [metrics, setMetrics] = useState<AnalysisMetrics | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export const Overview: React.FC<OverviewProps>= ({metrics}) => {
 
-  useEffect(() => {
-    const fetchResults = async () => {
-      try {
-        const supabase = createClient(
-          process.env.NEXT_PUBLIC_SUPABASE_URL!,
-          process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-        );
-
-        const { data, error } = await supabase
-          .from('slither_metrics')
-          .select('*')
-          .order('created_at', { ascending: false })
-          .limit(1)
-          .single();
-
-        if (error) throw error;
-        setMetrics(data);
-      } catch (error) {
-        console.error('Error fetching metrics:', error);
-        setError(error instanceof Error ? error.message : 'Failed to fetch analysis results');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchResults();
-  }, []);
 
   if (!metrics) {
     return (
