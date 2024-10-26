@@ -6,7 +6,6 @@ import { useScanning, ScanningNotification } from '@/components/index'; // Custo
 //Navigation bar
 const Navbar: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false); // State to track if the user has scrolled
-    const [inputValue, setInputValue] = useState(''); // State to hold the value of the search input
     const { isScanning } = useScanning(); // Destructuring scanning state and key press handler from custom hook
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
