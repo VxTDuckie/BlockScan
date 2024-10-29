@@ -238,141 +238,112 @@ function parseSlitherVulns(slitherVulns) {
         .map(line => line.trim())
         .filter(line => line.length > 0);
 
-        const vulnerabilityTypes = {
-          'abiencoderv2-array': 'Storage ABIEncoderV2 Array',
-          'arbitrary-send-erc20': 'Arbitrary from in transferFrom',
-          'array-by-reference': 'Modifying storage array by value',
-          'encode-packed-collision': 'ABI encodePacked Collision',
-          'incorrect-shift': 'ABI encodePacked Collision',
-          'multiple-constructors': 'Multiple constructor schemes',
-          'name-reused': 'Name reused',
-          'protected-vars': 'Protected Variables',
-          'public-mappings-nested': 'Public mappings with nested variables',
-          'rtlo': 'Right-to-Left-Override character',
-          'shadowing-state': 'State variable shadowing',
-          'suicidal': 'Suicidal',
-          'uninitialized-state': 'Uninitialized state variables',
-          'uninitialized-storage': 'Uninitialized storage variables',
-          'unprotected-upgrade': 'Unprotected upgradeable contract',
-          'codex': 'Codex',
-          'arbitrary-send-erc20-permit': 'Arbitrary from in transferFrom used with permit',
-          'arbitrary-send-eth': 'Functions that send Ether to arbitrary destinations',
-          'controlled-array-length': 'Array Length Assignment',
-          'controlled-delegatecall': 'Controlled Delegatecall',
-          'delegatecall-loop': 'Payable functions using delegatecall inside a loop',
-          'incorrect-exp': 'Incorrect exponentiation',
-          'incorrect-return': 'Incorrect return in assembly',
-          'msg-value-loop': 'msg value loop',
-          'reentrancy-eth': 'reentrancy eth',
-          'return-leave': 'return leave',
-          'storage-array': 'storage array',
-          'unchecked-transfer': 'unchecked transfer',
-          'weak-prng': 'weak prng',
-          'domain-separator-collision': 'domain separator collision',
-          'enum-conversion': 'enum conversion',
-          'erc20-interface': 'erc20 interface',
-          'erc721-interface': 'erc721 interface',
-          'incorrect-equality': 'incorrect equality',
-          'locked-ether': 'locked ether',
-          'mapping-deletion': 'mapping deletion',
-          'shadowing-abstract': 'shadowing abstract',
-          'tautological-compare': 'tautological compare',
-          'tautology': 'tautology',
-          'write-after-write': 'write after write',
-          'boolean-cst': 'boolean cst',
-          'constant-function-asm': 'constant function asm',
-          'constant-function-state': 'constant function state',
-          'divide-before-multiply': 'divide before multiply',
-          'out-of-order-retryable': 'out of order retryable',
-          'reentrancy-no-eth': 'reentrancy no eth',
-          'reused-constructor': 'reused constructor',
-          'tx-origin': 'tx origin',
-          'unchecked-lowlevel': 'unchecked lowlevel',
-          'unchecked-send': 'unchecked send',
-          'uninitialized-local': 'uninitialized local',
-          'incorrect-modifier': 'incorrect modifier',
-          'shadowing-builtin': 'shadowing builtin',
-          'shadowing-local': 'shadowing local',
-          'uninitialized-fptr-cst': 'uninitialized fptr cst',
-          'variable-scope': 'variable scope',
-          'void-cst': 'void cst',
-          'calls-loop': 'calls loop',
-          'events-maths': 'events maths',
-          'incorrect-unary': 'incorrect unary',
-          'reentrancy-benign': 'reentrancy benign',
-          'return-bomb': 'return bomb',
-          'assert-state-change': 'assert state change',
-          'boolean-equal': 'boolean equal',
-          'cyclomatic-complexity': 'cyclomatic complexity',
-          'deprecated-standards': 'deprecated standards',
-          'erc20-indexed': 'erc20 indexed',
-          'function-init-state': 'function init state',
-          'incorrect-using-for': 'incorrect using for',
-          'low-level-calls': 'Low-level calls',
-          'missing-inheritance': 'missing inheritance',
-          'conformance-to-solidity-naming-convention': 'Conformance to Solidity naming conventions',
-          'pragma': 'pragma',
-          'redundant-statements': 'redundant statements',
-          'incorrect-version': 'Incorrect versions of Solidity',
-          'unimplemented-functions': 'unimplemented functions',
-          'unused-import': 'Unused Import',
-          'unused-state': 'Unused state variable',
-          'costly-loop': 'costly loop',
-          'dead-code': 'dead code',
-          'reentrancy-vulnerabilities-4': 'Reentrancy vulnerabilities',
-          'too-many-digits': 'too many digits',
-          'cache-array-length': 'cache array length',
-          'constable-states': 'constable states',
-          'external-function': 'external function',
-          'immutable-states': 'immutable states',
-          'var-read-using-this': 'var read using this',
-          'unused-return': 'Unused Return Value',
-            'missing-events-access-control': 'Missing Events Access Control',
-            'missing-zero-address-validation': 'Missing Zero Address Validation',
-            'reentrancy-vulnerabilities-3': 'Reentrancy Vulnerabilities',
-            'block-timestamp': 'Block timestamp',
-            'assembly-usage': 'Assembly usage',
-            'dead-code': 'Dead-code',
-        };
-        
+        const vulnerabilityTypes = [
+            { id: 'abiencoderv2-array', name: 'Storage abiencoderv2 array', severity: 'High', recommendation: 'Use a compiler >= 0.5.10.' },
+            { id: 'arbitrary-send-erc20', name: 'transferFrom uses arbitrary from', severity: 'High', recommendation: 'Use msg.sender as from in transferFrom.'},
+            { id: 'array-by-reference', name: 'Modifying storage array by value', severity: 'High', recommendation:'Ensure the correct usage of memory and storage in the function parameters. Make all the locations explicit.' },
+            { id: 'encode-packed-collision', name: 'ABI encodePacked Collision', severity: 'High', recommendation:'Do not use more than one dynamic type in abi.encodePacked() (see the Solidity documentation). Use abi.encode(), preferably.' },
+            { id: 'incorrect-shift', name: 'The order of parameters in a shift instruction is incorrect.', severity: 'High', recommendation:'Swap the order of parameters.' },
+            { id: 'multiple-constructors', name: 'Multiple constructor schemes', severity: 'High', recommendation:'Only declare one constructor, preferably using the new scheme constructor(...) instead of function <contractName>(...).'},
+            { id: 'name-reused', name: 'Contract\'s name reused', severity: 'High', recommendation:'Rename the contract.' },
+            { id: 'protected-vars', name: 'Detected unprotected variables', severity: 'High', recommendation:'Add access controls to the vulnerable function' },
+            { id: 'public-mappings-nested', name: 'Public mappings with nested variables', severity: 'High', recommendation:'Do not use public mapping with nested structures.' },
+            { id: 'rtlo', name: 'Right-To-Left-Override control character is used', severity: 'High', recommendation:'Special control characters must not be allowed.' },
+            { id: 'shadowing-state', name: 'State variables shadowing', severity: 'High', recommendation:'Remove the state variable shadowing.' },
+            { id: 'suicidal', name: 'Functions allowing anyone to destruct the contract', severity: 'High', recommendation:'Protect access to all sensitive functions.' },
+            { id: 'uninitialized-state', name: 'Uninitialized state variables', severity: 'High', recommendation:'Initialize all the variables. If a variable is meant to be initialized to zero, explicitly set it to zero to improve code readability.' },
+            { id: 'uninitialized-storage', name: 'Uninitialized storage variables', severity: 'High', recommendation:'Initialize all storage variables.' },
+            { id: 'unprotected-upgrade', name: 'Unprotected upgradeable contract', severity: 'High', recommendation:'Add a constructor to ensure initialize cannot be called on the logic contract.'},
+            { id: 'codex', name: 'Use Codex to find vulnerabilities.', severity: 'High', recommendation:'Review codexs message.' },
+            { id: 'arbitrary-send-erc20-permit', name: 'transferFrom uses arbitrary from with permit', severity: 'High', recommendation:'Ensure that the underlying ERC20 token correctly implements a permit function.'},
+            { id: 'arbitrary-send-eth', name: 'Functions that send Ether to arbitrary destinations', severity: 'High', recommendation:'Ensure that an arbitrary user cannot withdraw unauthorized funds.' },
+            { id: 'controlled-array-length', name: 'Array Length Assignment', severity: 'High', recommendation:'Do not allow array lengths to be set directly set; instead, opt to add values as needed. Otherwise, thoroughly review the contract to ensure a user-controlled variable cannot reach an array length assignment.' },
+            { id: 'controlled-delegatecall', name: 'Controlled Delegatecall', severity: 'High', recommendation:'Avoid using delegatecall. Use only trusted destinations.'},
+            { id: 'delegatecall-loop', name: 'Payable functions using delegatecall inside a loop', severity: 'High', recommendation:'Carefully check that the function called by delegatecall is not payable/doesnt use msg.value.'},
+            { id: 'incorrect-exp', name: 'Incorrect exponentiation', severity: 'High', recommendation:'Use the correct operator ** for exponentiation.' },
+            { id: 'incorrect-return', name: 'Incorrect return in assembly', severity: 'High', recommendation:'Use the leave statement.' },
+            { id: 'msg-value-loop', name: 'msg.value inside a loop', severity: 'High', recommendation:'Provide an explicit array of amounts alongside the receivers array, and check that the sum of all amounts matches msg.value.'},
+            { id: 'return-leave', name: 'If a return is used instead of a leave.', severity: 'High', recommendation:'Use the leave statement.'},
+            { id: 'storage-array', name: 'Signed storage integer array compiler bug', severity: 'High', recommendation:'Use a compiler version >= 0.5.10.'},
+            { id: 'unchecked-transfer', name: 'Unchecked tokens transfer', severity: 'High', recommendation:'Use SafeERC20, or ensure that the transfer/transferFrom return value is checked.'},
+            { id: 'weak-prng', name: 'Weak PRNG', severity: 'High', recommendation:'Do not use block.timestamp, now or blockhash as a source of randomness' },
+            { id: 'domain-separator-collision', name: 'Domain separator collision', severity: 'Medium', recommendation: 'Remove or rename the function that collides with DOMAIN_SEPARATOR().' },
+            { id: 'enum-conversion', name: 'Detect dangerous enum conversion', severity: 'Medium', recommendation:'Use a recent compiler version. If solc <0.4.5 is required, check the enum conversion range.' },
+            { id: 'erc20-interface', name: 'Incorrect ERC20 interfaces', severity: 'Medium', recommendation: 'Set the appropriate return values and types for the defined ERC20 functions.' },
+            { id: 'erc721-interface', name: 'Incorrect ERC721 interfaces', severity: 'Medium', recommendation:'Set the appropriate return values and vtypes for the defined ERC721 functions.' },
+            { id: 'incorrect-equality', name: 'Dangerous strict equalities', severity: 'Medium', recommendation:'Do not use strict equality to determine if an account has enough Ether or tokens.' },
+            { id: 'contracts-that-lock-ether', name: 'Contracts that lock ether', severity: 'Medium', recommendation: 'Remove the payable attribute or add a withdraw function.' },
+            { id: 'mapping-deletion', name: 'Deletion on mapping containing a structure', severity: 'Medium', recommendation:'Use a lock mechanism instead of a deletion to disable structure containing a mapping.' },
+            { id: 'shadowing-abstract', name: 'State variables shadowing from abstract contracts', severity: 'Medium', recommendation:'Remove the state variable shadowing.' },
+            { id: 'tautological-compare', name: 'Comparing a variable to itself always returns true or false', severity: 'Medium', recommendation:'Remove comparison or compare to different value.' },
+            { id: 'tautology', name: 'Tautology or contradiction', severity: 'Medium', recommendation:'Fix the incorrect comparison by changing the value type or the comparison.' },
+            { id: 'write-after-write', name: 'Unused write', severity: 'Medium', recommendation:'Fix or remove the writes' },
+            { id: 'boolean-cst', name: 'Misuse of Boolean constant', severity: 'Medium', recommendation:'Verify and simplify the condition.' },
+            { id: 'constant-function-asm', name: 'Constant functions using assembly code', severity: 'Medium', recommendation:'Ensure the attributes of contracts compiled prior to Solidity 0.5.0 are correct.' },
+            { id: 'constant-function-state', name: 'Constant functions changing the state', severity: 'Medium', recommendation:'Ensure that attributes of contracts compiled prior to Solidity 0.5.0 are correct.' },
+            { id: 'divide-before-multiply', name: 'Imprecise arithmetic operations order', severity: 'Medium', recommendation:'Consider ordering multiplication before division.' },
+            { id: 'out-of-order-retryable', name: 'Out-of-order retryable transactions', severity: 'Medium', recommendation:'Do not rely on the order or successful execution of retryable tickets.' },
+            { id: 'reentrancy-vulnerabilities-1', name: 'Reentrancy vulnerabilities (no theft of ethers)', severity: 'Medium', recommendation:'Apply the check-effects-interactions pattern.' },
+            { id: 'reused-constructor', name: 'Reused base constructor', severity: 'Medium', recommendation: 'Remove the duplicate constructor call.' },
+            { id: 'tx-origin', name: 'Dangerous usage of tx.origin', severity: 'Medium', recommendation:'Do not use tx.origin for authorization.' },
+            { id: 'unchecked-low-level-calls', name: 'Unchecked low-level calls', severity: 'Medium', recommendation:'Ensure that the return value of a low-level call is checked or logged.' },
+            { id: 'unchecked-send', name: 'Unchecked send', severity: 'Medium', recommendation:'Ensure that the return value of send is checked or logged.' },
+            { id: 'uninitialized-local', name: 'Uninitialized local variables', severity: 'Medium', recommendation:'Ensure that the return value of send is checked or logged.' },
+            { id: 'unused-return', name: 'Unused Return Value', severity: 'Medium', recommendation:'Ensure that the return value of send is checked or logged.' },
+            { id: 'shadowing-builtin', name: 'Builtin Symbol Shadowing', severity: 'Low', recommendation:'Rename the local variables, state variables, functions, modifiers, and events that shadow a builtin symbol.' },
+            { id: 'missing-events-access-control', name: 'Missing Events Access Control', severity: 'Low', recommendation:'Emit an event for critical parameter changes.' },
+            { id: 'events-maths', name: 'Missing events arithmetic', severity: 'Low', recommendation:'Emit an event for critical parameter changes.' },
+            { id: 'calls-loop', name: 'Calls inside a loop', severity: 'Low', recommendation:'Favor pull over push strategy for external calls.' },
+            { id: 'void-cst', name: 'Void constructor', severity: 'Low', recommendation:'Remove the constructor call.' },
+            { id: 'variable-scope', name: 'Pre-declaration usage of local variables', severity: 'Low', recommendation:'Move all variable declarations prior to any usage of the variable, and ensure that reaching a variable declaration does not depend on some conditional if it is used unconditionally.'},
+            { id: 'shadowing-local', name: 'Local variable shadowing', severity: 'Low', recommendation:'Rename the local variables that shadow another component.' },
+            { id: 'uninitialized-fptr-cst', name: 'Uninitialized function pointers in constructors', severity: 'Low', recommendation:'Initialize function pointers before calling. Avoid function pointers if possible.' },
+            { id: 'incorrect-unary', name: 'Dangerous unary expressions', severity: 'Low', recommendation:'Remove the unary expression.' },
+            { id: 'missing-zero-address-validation', name: 'Missing Zero Address Validation', severity: 'Low', recommendation:'Check that the address is not zero.' },
+            { id: 'reentrancy-vulnerabilities-2', name: 'Reentrancy Vulnerabilities (benign reentrancy)', severity: 'Low', recommendation:'Apply the check-effects-interactions pattern.' },
+            { id: 'reentrancy-vulnerabilities-3', name: 'Reentrancy Vulnerabilities (events emitted incorrectly)', severity: 'Low', recommendation:'Apply the check-effects-interactions pattern.' },
+            { id: 'return-bomb', name: 'Return Bomb', severity: 'Low', recommendation:'Avoid unlimited implicit decoding of returndata.' },
+            { id: 'block-timestamp', name: 'Block timestamp', severity: 'Low', recommendation:'Avoid relying on block.timestamp.' },
+            { id: 'incorrect-modifier', name: 'Incorrect modifier', severity: 'Low', recommendation:'All the paths in a modifier must execute _ or revert.' },
+            { id: 'assembly-usage', name: 'Assembly usage', severity: 'Informational', recommendation:'Do not use evm assembly.' },
+            { id: 'assert-state-change', name: 'Assert state change', severity: 'Informational', recommendation:'Use require for invariants modifying the state.' },
+            { id: 'boolean-equal', name: 'Comparison to boolean constant', severity: 'Informational', recommendation:'Remove the equality to the boolean constant.' },
+            { id: 'cyclomatic-complexity', name: 'High cyclomatic complexity', severity: 'Informational', recommendation:'Reduce cyclomatic complexity by splitting the function into several smaller subroutines.' },
+            { id: 'deprecated-standards', name: 'Deprecated Solidity Standards', severity: 'Informational', recommendation:'Replace all uses of deprecated symbols.' },
+            { id: 'erc20-indexed', name: 'Un-indexed ERC20 event parameters', severity: 'Informational', recommendation:'Add the indexed keyword to event parameters that should include it, according to the ERC20 specification.' },
+            { id: 'function-init-state', name: 'Function initializing state variables', severity: 'Informational', recommendation:'Remove any initialization of state variables via non-constant state variables or function calls. If variables must be set upon contract deployment, locate initialization in the constructor instead.' },
+            { id: 'incorrect-using-for', name: 'Incorrect using-for statement', severity: 'Informational', recommendation:'Make sure that the libraries used in using-for statements have at least one function matching a type used in these statements.' },
+            { id: 'low-level-calls', name: 'Low-level calls', severity: 'Informational', recommendation:'Avoid low-level calls. Check the call success. If the call is meant for a contract, check for code existence.' },
+            { id: 'missing-inheritance', name: 'Missing inheritance', severity: 'Informational', recommendation:'Inherit from the missing interface or contract.' },
+            { id: 'pragma', name: 'Different pragma directives are used', severity: 'Informational', recommendation:'Use one Solidity version.' },
+            { id: 'redundant-statements', name: 'Redundant statements', severity: 'Informational', recommendation:'Remove redundant statements if they congest code but offer no value.' },
+            { id: 'incorrect-version', name: 'Incorrect versions of Solidity', severity: 'Informational', recommendation:'Deploy with a recent version of Solidity (at least 0.8.0) with no known severe issues. Use a simple pragma version that allows any of these versions. Consider using the latest version of Solidity for testing.' },
+            { id: 'unimplemented-functions', name: 'Unimplemented functions', severity: 'Informational', recommendation:'Implement all unimplemented functions in any contract you intend to use directly (not simply inherit from).' },
+            { id: 'unused-import', name: 'Unused Import', severity: 'Informational', recommendation:'Remove the unused import. If the import is needed later, it can be added back.' },
+            { id: 'unused-state', name: 'Unused state variable', severity: 'Informational', recommendation:'Remove unused state variables.' },
+            { id: 'costly-loop', name: 'Costly operations in a loop', severity: 'Informational', recommendation:'Use a local variable to hold the loop computation result.' },
+            { id: 'dead-code', name: 'Dead code', severity: 'Informational', recommendation:'Remove unused functions.' },
+            { id: 'similar-names', name: 'Variable names too similar', severity: 'Informational', recommendation:'Prevent variables from having similar names.' },
+            { id: 'reentrancy-vulnerabilities-4', name: 'Reentrancy vulnerabilities (unlimited gas)', severity: 'Informational', recommendation:'Apply the check-effects-interactions pattern.' },
+            { id: 'too-many-digits', name: 'Too many digits', severity: 'Informational', recommendation:'Use: Ether suffix, Time suffix, or The scientific notation' },
+            { id: 'cache-array-length', name: 'Cache array length', severity: 'Optimization', recommendation:'Cache the lengths of storage arrays if they are used and not modified in for loops' },
+            { id: 'constable-states', name: 'State variables that could be declared constant', severity: 'Optimization', recommendation:'Add the constant attribute to state variables that never change.' },
+            { id: 'external-function', name: 'Public function that could be declared external', severity: 'Optimization', recommendation:'Use the external attribute for functions never called from the contract, and change the location of immutable parameters to calldata to save gas.' },
+            { id: 'immutable-states', name: 'State variables that could be declared immutable', severity: 'Optimization', recommendation:'Add the immutable attribute to state variables that never change or are set only in the constructor.' },
+            { id: 'var-read-using-this', name: 'Contract reads its own variable using this', severity: 'Optimization', recommendation:'Read the variable directly from storage instead of calling the contract.' },
+            { id: 'conformance-to-solidity-naming-convention', name: 'Conformance to Solidity naming conventions', severity: 'Informational', recommendation:'Follow the Solidity naming convention.' },
+            { id: 'reentrancy-vulnerabilities', name: 'Reentrancy vulnerabilities (theft of ethers)', severity: 'High', recommendation:'Apply the check-effects-interactions pattern.' },
+        ];
 
-    lines.forEach(line => {
-        Object.entries(vulnerabilityTypes).forEach(([key, value]) => {
-            if (line.includes(key)) {
-              vulnsArray.push(value);
+        lines.forEach(line => {
+            const found = vulnerabilityTypes.find(vuln => line.includes(vuln.id));
+            if (found) {
+                vulnsArray.push([found.name, found.severity, found.recommendation]);
             }
         });
-    });
-
     return vulnsArray;
 }
 
-// Database operations
-async function saveVulnerabilities(supabase, metricsId, vulnsArray) {
-    try {
-        const vulnsData = await Promise.all(
-          vulnsArray
-                .filter(vuln => vuln)
-                .map(async (vuln) => {
-                    const { data, error } = await supabase
-                        .from('vulnerabilities')
-                        .insert([{
-                            metrics_id: metricsId,
-                            vulnerability: vuln
-                        }])
-                        .select();
-
-                    if (error) throw error;
-                    return data[0];
-                })
-        );
-
-        return vulnsData.filter(data => data !== null);
-    } catch (error) {
-        console.error('Error saving vulnerabilities:', error);
-        throw error;
-    }
-}
 
 // Main application setup
 async function setupApplication() {
@@ -476,7 +447,9 @@ async function setupApplication() {
               if (vulnerabilities.length > 0) {
                   const vulnRecords = vulnerabilities.map(vuln => ({
                       metrics_id: metricsData[0].id,
-                      vulnerability: vuln
+                      vulnerability: vuln[0],
+                      severity: vuln[1],
+                      recommendation: vuln[2],
                   }));
       
                   const { error: vulnsError } = await supabase
@@ -512,7 +485,7 @@ async function setupApplication() {
                               high: metrics.high_issues,
                           },
                       },
-                      vulnerabilities: vulnerabilities,
+                      vulnerabilities: vulnerabilities, //here I return the array of Vulnerabilities including names and severity
                       timestamp: new Date().toISOString(),
                       id: metricsData[0].id
                   }
@@ -533,6 +506,8 @@ async function setupApplication() {
               });
           }
       });
+
+
         // Start server
         const PORT = process.env.PORT || 5000;
         app.listen(PORT, () => {

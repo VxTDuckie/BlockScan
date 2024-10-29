@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useScanning, ScanningNotification } from '@/components/index'; // Custom hook for scanning functionality
+import { LogIn, Zap } from 'lucide-react';
 
 
 //Navigation bar
@@ -8,7 +9,6 @@ const Navbar: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false); // State to track if the user has scrolled
     const { isScanning } = useScanning(); // Destructuring scanning state and key press handler from custom hook
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
     // Function to handle scroll events, setting isScrolled based on scroll position
     const handleScroll = () => {
         setIsScrolled(window.scrollY > 10);
@@ -29,17 +29,26 @@ const Navbar: React.FC = () => {
             {/* Navbar container with conditional styling based on scroll state */}
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center py-4">
-                    <Link href={"/"} className="flex items-center gap-2 sm:gap-4">
+                    <Link href={"/"}>
                         {/* Link to the homepage */}
-                        <img src="/images/logo.png" alt="logo" className="h-8 w-8 sm:h-12 sm:w-12" />
-                        <p className="bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 text-transparent bg-clip-text font-semibold text-xl sm:text-2xl">
-                            BlockScan
-                        </p>
+                        <div className='flex  items-center'>
+                          <div className='flex items-center gap-2'>
+                          <img src="/images/logo.png" alt="logo" className="h-8 w-8 sm:h-11 sm:w-11" />
+                          <p className="bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text font-semibold text-xl sm:text-[20px]">
+                              BlockScan
+                          </p>
+                          </div>
+                          <div className="h-8 mx-4 border-l border-subtitle__grey"></div>
+                          <div>
+                            <p className='text-subtitle__grey text-[12px]'>Powered by</p>
+                            <img src='/images/swinburne-univeristy-logo.webp' alt='swin logo' className='w-[70px] '/>                          
+                          </div>
+                        </div>
+
+
                     </Link>
 
-                    <div className="hidden sm:block relative w-48 md:w-72">
-
-                    </div>
+                      
                     <button 
             className="sm:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}

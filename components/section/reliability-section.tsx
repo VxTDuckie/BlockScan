@@ -52,7 +52,7 @@ const ReliabilitySection = () => {
                     className="flex justify-center smp:justify-end xl:justify-start items-center my-auto pb-4 xl:pb-6"
                     transition={{duration: 0.5, delay:0.6}}
                     variants={fadeUp}>
-                        <p className="font-bold text-purple-600 text-5xl sm:text-7xl xl:text-8xl text-shadow-glow-red" style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.5))' }}>+3,000</p>
+                        <p className="font-bold text-pink-600 text-5xl sm:text-7xl xl:text-8xl text-shadow-glow-red" style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.5))' }}>+3,000</p>
                         <p className="text-white text-[18px] xl:text-3xl sm:text-[27px] font-semibold ml-4">smart contracts analyzed.</p>
                     </motion.div>
 

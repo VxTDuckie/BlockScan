@@ -21,6 +21,8 @@ interface AnalysisMetrics {
 
 interface AnalysisVulns {
   vulnerability: string;
+  severity: string;
+  recommendation: string;
 }
 
 interface CircularProgressProps {
@@ -75,19 +77,26 @@ const CircularProgress: React.FC<CircularProgressProps> = ({
 const calculateSafetyScore = (metrics: AnalysisMetrics): number => {
   if (!metrics) return 0;
   
-  const maxScore = 100;
+  const baseScore = 100;
   const deductions = {
-    high: 6,
+    high: 5,
     medium: 2,
-    low: 1
+    low: 1,
+    informational: 0.2,
+    optimization: 0.1
   };
+  const totalIssues = metrics.high_issues + metrics.medium_issues + 
+  metrics.low_issues + metrics.informational_issues + 
+  metrics.optimization_issues;
 
   const totalDeduction = 
     (metrics.high_issues * deductions.high) +
     (metrics.medium_issues * deductions.medium) +
     (metrics.low_issues * deductions.low);
+    (metrics.informational_issues * deductions.informational) +
+    (metrics.optimization_issues * deductions.optimization);
 
-  return Math.max(0, Math.min(100, maxScore - totalDeduction));
+  return Math.max(0, Math.min(100, baseScore - totalDeduction - (100*2.5*totalIssues/metrics.source_lines)));
 };
 
 // Main Component
@@ -127,7 +136,7 @@ const ContractScanResult: React.FC = () => {
           // Fetch vulnerabilities
           const { data: vulnsData, error: vulnsError } = await supabase
             .from('vulnerabilities')
-            .select('metrics_id, vulnerability')
+            .select('metrics_id, vulnerability, severity, recommendation')
             .eq('metrics_id', metricsData.id)
             .limit(93);
 
@@ -196,7 +205,7 @@ const ContractScanResult: React.FC = () => {
                 />
               </div>
               <div>
-                <h1 className="text-2xl font-bold">{metrics.project_name}</h1>
+                <h1 className="text-2xl font-bold ">{metrics.project_name}</h1>
                 <p className="text-gray-500">File Scan</p>
               </div>
             </div>
@@ -279,7 +288,7 @@ const ContractScanResult: React.FC = () => {
         {/* Main content area */}
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-[5] lg:w-1/3">
-            <ResultBody metrics={metrics} vulns={vulns} />
+            <ResultBody metrics={metrics} vulns={vulns} score={safetyScore}/>
           </div>
         </div>
       </div>

@@ -17,26 +17,35 @@ const DonutChart =  ({Optimization, Informational, Low, Medium, High}) => {
           '#3b82f6',    // blue-500
           '#6b7280',    // gray-500
           '#22c55e',   // green-500
-          '#eab308',  // yellow-500
-          '#dc2626'      // red-600
+          '#facc15',  // yellow-400
+          '#e73606'      // primary-red
         ],
-        borderColor: '#f7f8f7',
-        borderWidth: 8,
-        borderRadius: 14,
+        borderColor: '#F9FAFB',
+        hoverBorderColor: '#F9FAFB',
+        borderWidth: 4,
+        borderRadius: 0,
         hoverBackgroundColor: [
-          '#2563eb',    // blue-600
-          '#4b5563',    // gray-600
-          '#16a34a',   // green-600
-          '#ca8a04',  // yellow-600
-          '#b91c1c'      // red-700
+          '#60a5fa',    // blue-600
+          '#9ca3af',    // gray-600
+          '#4ade80',   // green-600
+          '#fde047',  // yellow-600
+          '#eb4f27'      // primary-red
         ],
+        hoverOffset: 25,  // Makes segments pop out on hover
       },
     ],
   };
 
   const options = {
+    cutout:'0%',
     responsive: true,
     maintainAspectRatio: false,
+    layout: {
+      padding: {
+        top: 20,
+        bottom: 20
+      }
+    },
     plugins: {
       legend: {
         position: 'right',
@@ -54,14 +63,13 @@ const DonutChart =  ({Optimization, Informational, Low, Medium, High}) => {
               };
             });
           },
-          boxWidth: 15,
+          boxWidth: 55,
           padding: 20,
           font: {
             family: 'Outfit',
             size: 14,
             weight: '400',
           },
-          color: '#000',
         },
       },
       tooltip: {
@@ -77,24 +85,13 @@ const DonutChart =  ({Optimization, Informational, Low, Medium, High}) => {
 
   return (
     <div
-      className="w-full p-6 mb-7"
+      className="w-full"
     >
 
 
       <div
-        className="rounded-xl p-6 w-full bg-gray-50"
-        style={{
-          borderRadius: '12px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-
-
-
-        <div style={{ width: '100%', height: '300px' }}> {/* Set height to ensure chart fits */}
+        className="rounded-xl p-6 w-full bg-gray-50 flex, items-center, justify-center">
+        <div className="w-full h-[300px]"> {/* Set height to ensure chart fits */}
           <Doughnut data={data} options={options} />
         </div>
       </div>

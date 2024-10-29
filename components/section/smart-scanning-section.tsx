@@ -27,7 +27,7 @@ const SmartScanning = () => {
             </div>
             <div>
               {/* Upload button for uploading contract file */}
-              <UploadForm title='Upload' style='rounded-xl p-2 px-8  border-2 border-white shadow-weak-ass-glow bg-black text-white transition-all duration-300 ease-in-out transform hover:scale-y-105 sm:hover:scale-y-110'/>
+              <UploadForm title='Create a project' style='rounded-xl p-2 px-8  border-2 border-white shadow-weak-ass-glow bg-black text-white transition-all duration-300 ease-in-out transform hover:scale-105 sm:hover:scale-y-110'/>
             </div>
           </div>
         </div>

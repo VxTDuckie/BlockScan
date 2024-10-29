@@ -23,37 +23,58 @@ export const Overview: React.FC<OverviewProps>= ({metrics}) => {
 
   if (!metrics) {
     return (
-      <div className='flex bg-white p-6 rounded-xl shadow-md'>
+      <div className='flex bg-white p-6 rounded-xl shadow-sm'>
         <div className="text-gray-500">No metrics data available</div>
       </div>
     );
   }
 
   return (
-    <div className='flex flex-col gap-6'>
-    <div className='flex justify-between bg-white p-6 gap-6 rounded-xl shadow-md'>
-    <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2">
+    <div className='flex flex-col gap-6'>  
+      <div className='flex flex-col bg-white p-6 rounded-xl shadow-sm gap-6'>
+        {/* Header */}
+        <h3 className="text-xl font-bold">Contract Metrics</h3>
+
+        {/* Metrics Container */}
+        <div className='flex justify-between gap-6'>
+          {/* Project ID */}
+          <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2">
             <span>Project ID:</span>
-            <div className='gap-1'>
-              <span className="font-bold bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 text-transparent bg-clip-text">{metrics.id}</span>
-              <span><CopyButton textToCopy={metrics.id}/></span>
+            <div className='flex items-center gap-1'>
+              <span className="font-bold bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text">
+                {metrics.id}
+              </span>
+              <CopyButton textToCopy={metrics.id}/>
             </div>
-           
           </div>
-    <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2">
+
+          {/* Created At */}
+          <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2">
             <span>Created at:</span>
-            <span className="font-bold text-blue-500">{metrics.created_at}</span>
+            <span className="font-bold bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text">
+              {metrics.created_at}
+            </span>
           </div>
+
+          {/* Total Contracts */}
           <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2">
             <span>Total contract:</span>
-            <span className="font-bold text-gray-500">{metrics.total_contracts}</span>
+            <span className="font-bold text-gray-500">
+              {metrics.total_contracts}
+            </span>
           </div>
+
+          {/* Assembly Lines */}
           <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2">
             <span>Assembly lines:</span>
-            <span className="font-bold text-gray-500">{metrics.assembly_lines}</span>
+            <span className="font-bold text-gray-500">
+              {metrics.assembly_lines}
+            </span>
           </div>
-    </div>
-    <div className='flex justify-between bg-white p-6 gap-6 rounded-xl shadow-md'>
+        </div>
+      </div>
+   
+    <div className='flex justify-between bg-white p-6 gap-6 rounded-xl shadow-sm'>
       <div className='flex-[2]'>
         <h3 className="text-xl font-bold mb-6">Contract Metrics</h3>
         <div className="space-y-4">
@@ -71,11 +92,11 @@ export const Overview: React.FC<OverviewProps>= ({metrics}) => {
           </div>
           <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
             <span>Medium Issues</span>
-            <span className="font-bold text-yellow-500">{metrics.medium_issues}</span>
+            <span className="font-bold text-yellow-400">{metrics.medium_issues}</span>
           </div>
           <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
             <span>High Issues</span>
-            <span className="font-bold text-red-600">{metrics.high_issues}</span>
+            <span className="font-bold text-red-500">{metrics.high_issues}</span>
           </div>
         </div>
       </div>

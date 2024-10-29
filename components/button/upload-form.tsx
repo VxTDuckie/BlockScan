@@ -231,9 +231,10 @@ const UploadForm = ({style, title}: UploadFormProps) => {
                   <button
                       type="submit"
                       className="py-4 w-full bg-gradient-to-r 
-                        from-primary-red via-pink-500 to-purple-600 
-                        hover:from-red-700 hover:via-pink-700 hover:to-purple-800
-                        rounded-xl text-2xl text-white"                  >
+                        from-primary-red to-pink-600 
+                        hover:from-red-700 hover:to-pink-800
+                        rounded-xl text-2xl text-white duration-300"   
+                        >
                       Start Scan
                     </button>
                   </form>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import {Vulnerability, Overview} from '@/components/index';
-
+import {Vulnerability, Overview, DonutChartForSecureScore} from '@/components/index';
+import { MoveRight, MoveRightIcon } from 'lucide-react';
 
 interface AnalysisMetrics {
   id: string;
@@ -19,17 +19,23 @@ interface AnalysisMetrics {
 }
 interface AnalysisVulns {
   vulnerability: string;
+  severity: string;
+  recommendation: string;
 }
 interface ResultBodyProps {
   metrics: AnalysisMetrics | null;
   vulns: AnalysisVulns[] | null;
+  score: number;
 }
 //Component for displaying contract safety check results
-const ResultBody : React.FC<ResultBodyProps> = ({metrics, vulns}) => {
+const ResultBody : React.FC<ResultBodyProps> = ({metrics, vulns, score}) => {
   // State quản lý tab đang được chọn (Token Detector hoặc General Detector)
   const [isChosen, setIsChosen] = useState(true); 
   
-
+  const scrollToTop = (): void => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
   return (
     <main>
       {/* Nút chọn giữa hai tab: Token Detector và General Detector */}
@@ -55,7 +61,58 @@ const ResultBody : React.FC<ResultBodyProps> = ({metrics, vulns}) => {
       </div>
       
       <div>
-        {isChosen ? <Overview metrics={metrics}/> : <Vulnerability vulnList={vulns}/>} 
+        {isChosen ? 
+        <div className='flex flex-col gap-6'>
+          <div>
+            <Overview metrics={metrics}/> 
+          </div>
+          <div className='flex gap-6'>
+          <div className='flex-[1] bg-white rounded-xl p-6 shadow-sm '>
+            <p className='text-xl font-bold mb-2 bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text'>Want to learn more?</p>
+            <p className='text-gray-500'>To explore detailed explanations, recommendations, and further insights on how to address the issues found, please refer to our comprehensive documentation.</p>
+            <div className='mt-6 bg-gradient-to-r from-primary-red to-pink-600 w-fit p-3 rounded-full gap-2 text-white'>
+              <a href='https://github.com/crytic/slither/wiki/Detector-Documentation' target='_blank'  className="inline-flex items-center gap-2 hover:gap-6 duration-300">
+              View the full documentation
+              <MoveRightIcon/>
+              </a>
+            </div>
+          </div>
+          <div className='bg-white rounded-xl p-6 shadow-sm flex flex-[2] items-center'>
+            <DonutChartForSecureScore score={score}/>
+            <div className='rounded-xl flex flex-col justify-between bg-gray-50 p-4'>
+              <div>
+                <div className='flex'>
+                <p className='text-xl mr-2 mb-2'>Your Security score is</p>
+                <p className='text-xl font-bold'>{score >=95 ? <p className='text-green-500'>OUTSTANDING</p> 
+                : score >= 80 ? <p className='text-yellow-400'>GREAT</p> 
+                : score >= 50 ? <p className='text-primary-red'>ACCEPTABLE</p> 
+                : score >= 20 ? <p className='text-red-800'>BAD</p> 
+                : <p className='text-purple-950'>AWFUL</p>}</p>        
+                </div>
+                <p className='text-gray-500 mb-6'>
+                At BlockScan, 
+                the security score is determined by analyzing the lines of code and applying weights to each issue based on their severity level. 
+                To enhance your score, you can review the detailed analysis and apply the suggested fixes provided in the report.
+                </p>
+              </div>
+
+              <div className='flex justify-end'>
+                <button className='mr-0 hover:mr-2 flex items-center bg-gradient-to-r from-primary-red to-pink-500 text-transparent bg-clip-text w-auto rounded-xl hover:text-primary-red duration-300 transition-all' 
+                onClick={() => {
+                  setIsChosen(false);
+                  window.scrollTo({ top: 400, behavior: 'smooth' });
+                }}>
+                  <p className='mr-2'>View the vulnerabilities</p>
+                  <MoveRight/>
+                </button> 
+              </div>
+              
+            </div>
+          </div>
+          </div>
+
+        </div>
+        : <Vulnerability vulnList={vulns}/>} 
       </div>
     </main>
   );

@@ -12,6 +12,7 @@ import Video from './section/full-screen-video-section';
 import PdfViewer from './section/pdf-display-section';
 import SmartScanning from './section/smart-scanning-section';
 import DonutChart from './chart/DonutChart';
+import DonutChartForSecureScore from './chart/DonutChartForSecureScore';
 import RadarChart from './chart/RadarChart';
 import FAQ from './section/frequently-asked-question-section';
 import {useScanning} from './utils/useScanning';
@@ -37,7 +38,7 @@ export {
     Video,
     PdfViewer,
     SmartScanning,
-    DonutChart, RadarChart,
+    DonutChart, RadarChart, DonutChartForSecureScore,
     FAQ,
     useScanning,
     CopyButton,
