@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useScanning, ScanningNotification } from '@/components/index'; // Custom hook for scanning functionality
-import { LogIn, Zap } from 'lucide-react';
 
 
 //Navigation bar

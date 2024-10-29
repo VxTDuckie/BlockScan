@@ -32,10 +32,7 @@ const ResultBody : React.FC<ResultBodyProps> = ({metrics, vulns, score}) => {
   // State quản lý tab đang được chọn (Token Detector hoặc General Detector)
   const [isChosen, setIsChosen] = useState(true); 
   
-  const scrollToTop = (): void => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-  
+
   return (
     <main>
       {/* Nút chọn giữa hai tab: Token Detector và General Detector */}
