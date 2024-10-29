@@ -92,7 +92,7 @@ const calculateSafetyScore = (metrics: AnalysisMetrics): number => {
   const totalDeduction = 
     (metrics.high_issues * deductions.high) +
     (metrics.medium_issues * deductions.medium) +
-    (metrics.low_issues * deductions.low);
+    (metrics.low_issues * deductions.low) +
     (metrics.informational_issues * deductions.informational) +
     (metrics.optimization_issues * deductions.optimization);
 
