@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import {CustomCursor, Footer, Navbar} from '@/components/index';
-
+import { Footer, Navbar} from '@/components/index';
+import { SessionProvider } from "./session_provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -18,7 +19,6 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "BlockScan",
   description: "An effective scanner for you.",
- 
 };
 
 export default function RootLayout({
@@ -30,11 +30,12 @@ export default function RootLayout({
     <html lang="en">      
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
-      >      
-        <CustomCursor/>
-        <Navbar/>
-        {children}
-        <Footer/>
+      > 
+        <SessionProvider>     
+          <Navbar/>
+          {children}
+          <Footer/>
+        </SessionProvider>     
       </body>
     </html>
   );

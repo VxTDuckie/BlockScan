@@ -17,7 +17,9 @@ interface AnalysisMetrics {
   medium_issues: number;
   high_issues: number;
   ercs: string;
+  markdown_content: string;
 }
+
 
 interface AnalysisVulns {
   vulnerability: string;
@@ -98,6 +100,26 @@ const calculateSafetyScore = (metrics: AnalysisMetrics): number => {
 
   return Math.max(0, Math.min(100, baseScore - totalDeduction - (100*2.5*totalIssues/metrics.source_lines)));
 };
+// At the top of your file, create a Supabase client with proper config
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false
+    },
+    global: {
+      headers: {
+        'apikey': process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!}`,
+        'Content-Type': 'application/json',
+        'Accept': '*/*'
+      }
+    }
+  }
+);
 
 // Main Component
 const ContractScanResult: React.FC = () => {
@@ -105,25 +127,23 @@ const ContractScanResult: React.FC = () => {
   const [vulns, setVulns] = useState<AnalysisVulns[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+  const [rawMarkdownContent, setRawMarkdownContent] = useState('');
   useEffect(() => {
     let isMounted = true;
 
     const fetchResults = async () => {
+     const sessionId = localStorage.getItem('sessionId');
+
       try {
         setLoading(true);
         setError(null);
 
-        const supabase = createClient(
-          process.env.NEXT_PUBLIC_SUPABASE_URL!,
-          process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-        );
-
         // Fetch metrics
         const { data: metricsData, error: metricsError } = await supabase
           .from('slither_metrics')
-          .select('*')
+          .select('*, markdown_content')
           .order('created_at', { ascending: false })
+          .eq('session_id', sessionId)
           .limit(1)
           .single();
 
@@ -132,7 +152,7 @@ const ContractScanResult: React.FC = () => {
 
         if (isMounted) {
           setMetrics(metricsData);
-
+          setRawMarkdownContent(metricsData.markdown_content || '');
           // Fetch vulnerabilities
           const { data: vulnsData, error: vulnsError } = await supabase
             .from('vulnerabilities')
@@ -288,7 +308,7 @@ const ContractScanResult: React.FC = () => {
         {/* Main content area */}
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-[5] lg:w-1/3">
-            <ResultBody metrics={metrics} vulns={vulns} score={safetyScore}/>
+            <ResultBody metrics={metrics} vulns={vulns} score={safetyScore} raw_markdown_content={rawMarkdownContent}/>
           </div>
         </div>
       </div>

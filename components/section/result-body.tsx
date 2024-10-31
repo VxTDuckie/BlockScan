@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Vulnerability, Overview, DonutChartForSecureScore} from '@/components/index';
+import {VulnerabilityList, Overview, DonutChartForSecureScore} from '@/components/index';
 import { MoveRight, MoveRightIcon } from 'lucide-react';
 
 interface AnalysisMetrics {
@@ -26,9 +26,10 @@ interface ResultBodyProps {
   metrics: AnalysisMetrics | null;
   vulns: AnalysisVulns[] | null;
   score: number;
+  raw_markdown_content: string;
 }
 //Component for displaying contract safety check results
-const ResultBody : React.FC<ResultBodyProps> = ({metrics, vulns, score}) => {
+const ResultBody : React.FC<ResultBodyProps> = ({metrics, vulns, score, raw_markdown_content}) => {
   // State quản lý tab đang được chọn (Token Detector hoặc General Detector)
   const [isChosen, setIsChosen] = useState(true); 
   
@@ -109,7 +110,7 @@ const ResultBody : React.FC<ResultBodyProps> = ({metrics, vulns, score}) => {
           </div>
 
         </div>
-        : <Vulnerability vulnList={vulns}/>} 
+        : <VulnerabilityList vulnList={vulns} markdownContent={raw_markdown_content}/>} 
       </div>
     </main>
   );

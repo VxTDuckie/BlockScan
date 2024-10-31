@@ -22,7 +22,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
   const [messageName, setMessageName] = useState<string>('');  
   const {isScanning, startScanning, setIsScanning} = useScanning(); // Destructuring scanning state and key press handler from custom hook
   const [openUpload, setOpenUpload] = useState(false);
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000' || 'http://localhost:5001';
   const handleProjectNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectName(event.target.value); // Update project name
   };
@@ -70,7 +70,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    
+    const sessionId = localStorage.getItem('sessionId');
     if (!projectName.trim()) {
       setMessageName('Please enter a project name before uploading.');
       return;
@@ -91,6 +91,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
       const uploadResponse = await axios.post(`${API_URL}/contract-upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          'X-Session-Id': sessionId || '', 
         },
       });
 
@@ -105,6 +106,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
       }, {
         headers: {
           'Content-Type': 'application/json',
+          'X-Session-Id': sessionId || ''
         },
       });
 

@@ -312,4 +312,20 @@ background: linear-gradient(45deg,#9333ea, #e70606);
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
 }
+.markdown-content {
+  padding: 1em;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.markdown-content h2, .markdown-content h3, .markdown-content li, .markdown-content p {
+  color: #000000;
+}
+
+.markdown-content a {
+  color: rgb(231, 54, 6);
+  text-decoration: underline;
+  pointer-events: none;
+}
+
 /* END: search manufacturer styles */

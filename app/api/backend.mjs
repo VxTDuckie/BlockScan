@@ -42,7 +42,19 @@ function initializeSupabase() {
         throw new Error('Missing Supabase credentials');
     }
 
-    return createClient(supabaseUrl, supabaseKey);
+    return createClient(supabaseUrl, supabaseKey, {
+        auth: {
+            persistSession: false,
+        },
+        global: {
+            headers: {
+                'apikey': supabaseKey,  // Add this
+                'Authorization': `Bearer ${supabaseKey}`,  // And this
+                'Content-Type': 'application/json',
+                'Accept': '*/*'
+            }
+        }
+    });
 }
 
 // Initialize Express and middleware
@@ -55,7 +67,6 @@ function initializeExpress() {
     const corsOptions = {
         origin: ['http://localhost:3000', 'http://localhost:3001', 'https://blockscan-swin.vercel.app'],
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Authorization'],
         credentials: true
     };
     app.use(cors(corsOptions));
@@ -344,7 +355,24 @@ function parseSlitherVulns(slitherVulns) {
     return vulnsArray;
 }
 
-
+async function getMarkdownContent(filePath) {
+    try {
+        // Generate the markdown file
+        const resultPath = path.join(process.cwd(), 'app', 'api', 'result.md');
+        
+        try {
+            const { stdout, stderr } = await execAsync(`slither "${filePath}" --checklist`);
+            // Return the output directly instead of writing to file
+            return stdout || '';
+        } catch (execError) {
+            // Even if there's an error, we might have useful output
+            return execError.stdout || execError.stderr || '';
+        }
+    } catch (error) {
+        console.error('Error generating markdown content:', error);
+        throw error;
+    }
+}
 // Main application setup
 async function setupApplication() {
     try {
@@ -386,7 +414,8 @@ async function setupApplication() {
 
         // Contract analysis endpoint
         app.post('/contract-analyze', async (req, res) => {
-          const timer = new Timer();
+            const sessionId = req.headers['x-session-id'];  // Get from request header
+            const timer = new Timer();
           timer.start();
           let filePath;
       
@@ -419,27 +448,29 @@ async function setupApplication() {
               const scanDuration = timer.stop();
               const metrics = parseSlitherOutput(analysisResult.overview, scanDuration);
               const vulnerabilities = parseSlitherVulns(analysisResult.vulns);
-      
+              const markdownContent = await getMarkdownContent(filePath);
               // Convert all numeric values explicitly for database
-              const dbMetrics = {
-                  project_name: projectName,
-                  total_contracts: parseInt(metrics.total_contracts) || 0,
-                  source_lines: parseInt(metrics.source_lines) || 0,
-                  assembly_lines: parseInt(metrics.assembly_lines) || 0,
-                  scan_duration: scanDuration,
-                  optimization_issues: parseInt(metrics.optimization_issues) || 0,
-                  informational_issues: parseInt(metrics.informational_issues) || 0,
-                  low_issues: parseInt(metrics.low_issues) || 0,
-                  medium_issues: parseInt(metrics.medium_issues) || 0,
-                  high_issues: parseInt(metrics.high_issues) || 0,
-                  ercs: metrics.ercs || 'None'
-              };
+
       
               // Save to database
-              const { data: metricsData, error: metricsError } = await supabase
-                  .from('slither_metrics')
-                  .insert([dbMetrics])
-                  .select();
+            const { data: metricsData, error: metricsError } = await supabase
+                .from('slither_metrics')
+                .insert([{
+                    project_name: projectName,
+                    session_id: sessionId,
+                    total_contracts: Number(metrics.total_contracts) || 0,
+                    source_lines: Number(metrics.source_lines) || 0,
+                    assembly_lines: Number(metrics.assembly_lines) || 0,
+                    scan_duration: Number(scanDuration) || 0,
+                    optimization_issues: Number(metrics.optimization_issues) || 0,
+                    informational_issues: Number(metrics.informational_issues) || 0,
+                    low_issues: Number(metrics.low_issues) || 0,
+                    medium_issues: Number(metrics.medium_issues) || 0,
+                    high_issues: Number(metrics.high_issues) || 0,
+                    ercs: String(metrics.ercs || 'None'),
+                    markdown_content: markdownContent || 'None',
+                }])
+                .select();
       
               if (metricsError) throw metricsError;
       
@@ -487,7 +518,8 @@ async function setupApplication() {
                       },
                       vulnerabilities: vulnerabilities, //here I return the array of Vulnerabilities including names and severity
                       timestamp: new Date().toISOString(),
-                      id: metricsData[0].id
+                      id: metricsData[0].id,
+                      markdown_content: markdownContent,
                   }
               });
       
