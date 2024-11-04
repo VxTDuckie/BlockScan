@@ -28,36 +28,38 @@ const Navbar: React.FC = () => {
             {/* Navbar container with conditional styling based on scroll state */}
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center py-4">
-                    <Link href={"/"}>
-                        {/* Link to the homepage */}
-                        <div className='flex  items-center'>
-                          <div className='flex items-center gap-2'>
-                          <img src="/images/logo.png" alt="logo" className="h-8 w-8 sm:h-11 sm:w-11" />
-                          <p className="bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text font-semibold text-xl sm:text-[20px]">
-                              BlockScan
-                          </p>
-                          </div>
-                          <div className="h-8 mx-4 border-l border-subtitle__grey"></div>
-                          <div>
-                            <p className='text-subtitle__grey text-[12px]'>Powered by</p>
-                            <img src='/images/swinburne-univeristy-logo.webp' alt='swin logo' className='w-[70px] '/>                          
-                          </div>
+                  <Link href={"/"}>
+                      {/* Link to the homepage */}
+                      <div className='flex  items-center'>
+                        <div className='flex items-center gap-2'>
+                        <img src="/images/logo.png" alt="logo" className="h-8 w-8 sm:h-11 sm:w-11" />
+                        <p className="bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text font-semibold text-xl sm:text-[20px]">
+                            BlockScan
+                        </p>
                         </div>
-
-
-                    </Link>
-
-                      
-                    <button 
-            className="sm:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          </button>
-        </div>
-
+                        <div className="h-8 mx-4 border-l border-subtitle__gray"></div>
+                        <div>
+                          <p className='text-gray-300 text-[12px]'>Powered by</p>
+                          <img src='/images/swinburne-univeristy-logo.webp' alt='swin logo' className='w-[70px] '/>                          
+                        </div>
+                      </div>
+                  </Link>
+                  <div className='white'>
+                    <div className='flex gap-12'>
+                      <a href='/projects'>Projects</a>
+                      <a href='https://docs.google.com/forms/d/e/1FAIpQLSd4P-PJ7yR1Eol75cZW3-9d8JtTOwqQv6hDm6cmoNg90LUHrA/viewform?usp=sf_link' target='_blank'>Contact Support</a>
+                    </div>
+                  </div>
+                    
+                  <button 
+                    className="sm:hidden text-white"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                  </button>
+                </div>
         {isMenuOpen && (
           <div className="sm:hidden mt-4 pb-4">
             <span className="absolute left-7 top-[6.2rem] transform -translate-y-1/2 text-white">

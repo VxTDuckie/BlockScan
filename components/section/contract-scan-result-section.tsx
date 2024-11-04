@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { CustomButton, ResultBody } from '@/components/index';
+import { CustomButton, ResultBody, NoContractFound } from '@/components/index';
 import { createClient } from '@supabase/supabase-js';
+import { useParams } from 'next/navigation';
 
 // Types and Interfaces
 interface AnalysisMetrics {
@@ -113,9 +114,7 @@ const supabase = createClient(
     global: {
       headers: {
         'apikey': process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!}`,
-        'Content-Type': 'application/json',
-        'Accept': '*/*'
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!}`
       }
     }
   }
@@ -123,64 +122,55 @@ const supabase = createClient(
 
 // Main Component
 const ContractScanResult: React.FC = () => {
+  const params = useParams();
   const [metrics, setMetrics] = useState<AnalysisMetrics | null>(null);
   const [vulns, setVulns] = useState<AnalysisVulns[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [rawMarkdownContent, setRawMarkdownContent] = useState('');
   useEffect(() => {
-    let isMounted = true;
-
     const fetchResults = async () => {
      const sessionId = localStorage.getItem('sessionId');
 
       try {
         setLoading(true);
-        setError(null);
 
         // Fetch metrics
-        const { data: metricsData, error: metricsError } = await supabase
-          .from('slither_metrics')
-          .select('*, markdown_content')
-          .order('created_at', { ascending: false })
-          .eq('session_id', sessionId)
-          .limit(1)
-          .single();
-
-        if (metricsError) throw metricsError;
-        if (!metricsData) throw new Error('No metrics data found');
-
-        if (isMounted) {
-          setMetrics(metricsData);
-          setRawMarkdownContent(metricsData.markdown_content || '');
-          // Fetch vulnerabilities
-          const { data: vulnsData, error: vulnsError } = await supabase
+        const [metricsResponse, vulnsResponse] = await Promise.all([
+          supabase
+            .from('slither_metrics')
+            .select('*, markdown_content')
+            .order('created_at', { ascending: false })
+            .eq('id', params.id)
+            .eq('session_id', sessionId)
+            .single(),
+          
+          supabase
             .from('vulnerabilities')
             .select('metrics_id, vulnerability, severity, recommendation')
-            .eq('metrics_id', metricsData.id)
-            .limit(93);
-
-          if (vulnsError) throw vulnsError;
-          setVulns(vulnsData || []);
+            .eq('metrics_id', params.id)
+            .limit(93)
+        ]);
+    
+        if (metricsResponse.error || !metricsResponse.data) {
+          throw new Error('No metrics data found');
         }
+    
+        setMetrics(metricsResponse.data);
+        setVulns(vulnsResponse.data || []);
+        setRawMarkdownContent(metricsResponse.data.markdown_content || '');
       } catch (error) {
-        if (isMounted) {
-          console.error('Error fetching data:', error);
-          setError(error instanceof Error ? error.message : 'An error occurred');
-        }
+        setError(`The contract ${params.id} does not exist`);
       } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
+        setLoading(false);
       }
     };
+    
 
-    fetchResults();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+    if (params.id) {
+      fetchResults();
+    }
+  }, [params.id]);
 
   const handleRedirectToPdf = () => {
     window.open('/contract/scanresult', '_blank');
@@ -195,13 +185,12 @@ const ContractScanResult: React.FC = () => {
   }
 
   if (error || !metrics) {
+    const contractId = params?.id?.toString() || '';
     return (
-      <div className="min-h-screen bg-white__bg flex items-center justify-center">
-        <div className="text-red-500">
-          {error || 'Failed to load analysis results'}
-        </div>
+      <div>
+        <NoContractFound error={contractId}/>
       </div>
-    );
+    )
   }
 
   const safetyScore = calculateSafetyScore(metrics);

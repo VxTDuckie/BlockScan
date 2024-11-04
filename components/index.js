@@ -23,6 +23,8 @@ import TokenBasicInfo from './section/token-basic-info';
 import UploadForm from './button/upload-form';
 import { Overview } from './section/overview';
 import VulnerabilityList from './section/vulnerability-list'
+import NoContractFound from './section/no-contract-found';
+import AllProjects from './section/all-projects';
 export {
     Hero,
     Navbar,
@@ -46,5 +48,6 @@ export {
     UploadForm,
     VulnerabilityList,
     Overview,
-    
+    NoContractFound,
+    AllProjects
 }

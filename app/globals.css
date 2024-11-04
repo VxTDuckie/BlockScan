@@ -318,8 +318,22 @@ background: linear-gradient(45deg,#9333ea, #e70606);
   line-height: 1.6;
 }
 
-.markdown-content h2, .markdown-content h3, .markdown-content li, .markdown-content p {
+.markdown-content h2 {
   color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 20px;
+  text-transform: capitalize;
+}
+.markdown-content ul li input[type="checkbox"] {
+  appearance: none;
+  display: block;
+}
+
+ .markdown-content h3, .markdown-content li {
+  color: #494949;
+  display: block;
+
 }
 
 .markdown-content a {
@@ -327,5 +341,8 @@ background: linear-gradient(45deg,#9333ea, #e70606);
   text-decoration: underline;
   pointer-events: none;
 }
-
-/* END: search manufacturer styles */
+.markdown-content p {
+  font-weight: bold;
+  color: #494949;
+}
+/*end*/

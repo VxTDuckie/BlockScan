@@ -8,7 +8,7 @@ import  {motion} from "framer-motion"; // Animation library
 
 interface UploadFormProps {
     style?:string
-    title:string
+    title: React.ReactNode | string
 }
 
 const UploadForm = ({style, title}: UploadFormProps) => {
@@ -115,7 +115,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
 
         localStorage.setItem('metricsId', metricsId);
         setMessage('Upload successful! The scan has started.');
-        startScanning(analyzeResponse.data.data);
+        startScanning(metricsId);
         // Clear form
         setProjectName('');
         setContractFile(null);
@@ -147,7 +147,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
       <CustomButton
         handleClick={handleUploadButton}
         style={`${style}`}
-        title={`${title}`}
+        title={title}
       />
 
       {openUpload && (

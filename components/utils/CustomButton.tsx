@@ -1,6 +1,18 @@
 "use client";
 import React from 'react'
-import { CustomButtonProps } from '@/types';
+import { MouseEventHandler, ReactNode  } from "react";
+
+interface CustomButtonProps {
+  title: React.ReactNode | string;
+  containerStyles?: string;
+  handleClick?:
+  MouseEventHandler<HTMLButtonElement>;
+  icon?: ReactNode;
+  href?:{};
+  download?: string;
+  style?:{};
+}
+
 const CustomButton = ({title, containerStyles, style, handleClick, icon}: CustomButtonProps) => {
   return (
     <button        

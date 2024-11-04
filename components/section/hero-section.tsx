@@ -7,9 +7,9 @@ import ParticlesComponent from '@/components/utils/particles';
 
 
 
-const heading1 = 'Your Trusted Scanner';
-const heading2 = ' for Fast and Safe Blockchain Transactions';
-const subtitle = 'Built all-in-one, BlockScan helps you get used to cryptocurrency.';
+const heading1 = 'Your Trusted Solution';
+const heading2 = ' for Fast and Secure Smart Contract Scanning';
+const subtitle = 'An advanced smart contract scanning website designed to uncover vulnerabilities within your code.';
 const charVariants = {
     hidden: {opacity: 0},
     reveal: {opacity: 1},
@@ -79,7 +79,7 @@ const Hero = () => {
                             <Link href='/contract'>
                             <p className='border-2 border-white p-3 xl:p-[14px] rounded-xl text-base sm:text-lg xl:text-[20px] font-normal px-3 xl:px-4 hover:bg-white
                              text-white hover:text-pink-500 transition-colors duration-300 w-full sm:w-auto text-center'>
-                                Explore more in Contract list
+                                View your projects
                             </p>
                             </Link>
                         </button>
