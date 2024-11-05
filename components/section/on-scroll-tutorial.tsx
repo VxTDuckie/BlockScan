@@ -33,7 +33,7 @@ const OnScrollSection = () => {
   return (
     <main>
     <div className=' text-center bg-gradient-to-t from-white to-black pt-[300px]'>
-      <h2 className='text-4xl font-semibold mb-4'>Empowering <span className='text-primary-red'>Smart Contract</span> with Cutting-edge Features</h2>
+      <h2 className='text-4xl font-semibold mb-4'>Empowering <span className='text-primary-red underline'>Smart Contract</span> with Cutting-edge Features</h2>
       <p className='text-subtitle__gray max-w-2xl mx-auto'>Our advanced scanning platform integrates multiple
          security frameworks to detect vulnerabilities and common attack vectors in Smart Contracts,
           safeguarding projects across the entire web3 ecosystem.</p>
@@ -72,7 +72,7 @@ const OnScrollSection = () => {
         {/* Non-sticky text sections */}
         <div className='absolute top-0 right-0 w-1/4 z-50'>
           <div className='min-h-screen flex items-center'>
-            <div className='relative'>
+            <div className='relative animation-block'>
               <h2 className='font-bold text-3xl mb-4'>
                 What is smart contracts?
               </h2>
@@ -83,7 +83,7 @@ const OnScrollSection = () => {
             </div>
           </div>
           <div className='min-h-screen flex items-center'>
-            <div>
+            <div className='animation-block'>
             <h2 className='font-bold text-3xl mb-4'>
             Secure and Reliable Blockchain Solution
             </h2>
@@ -93,7 +93,7 @@ const OnScrollSection = () => {
             </div>
           </div>  
           <div className='min-h-screen flex items-center'>
-            <div>
+            <div className='animation-block'>
               <h2 className='font-bold text-3xl mb-4'>
                 BlockScan modern analyzing tool
               </h2>
@@ -106,7 +106,7 @@ const OnScrollSection = () => {
           </div>
 
           <div className='min-h-screen flex items-center'>
-            <div>
+            <div className='animation-block'>
               <h2 className='font-bold text-3xl mb-4'>
                 Meet Our Contributors
               </h2>

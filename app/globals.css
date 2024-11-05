@@ -345,4 +345,23 @@ background: linear-gradient(45deg,#9333ea, #e70606);
   font-weight: bold;
   color: #494949;
 }
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale:0.5;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    scale:1;
+    transform: translateX(0px);
+  }
+
+}
+.animation-block {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 35%;
+}
 /*end*/
