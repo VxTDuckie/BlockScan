@@ -6,7 +6,6 @@ import { useScanning, ScanningNotification } from '../index';
 import {FileCheck} from 'lucide-react'
 import  {motion} from "framer-motion"; // Animation library
 
-//@ts-ignore
 interface UploadFormProps {
     style?:string
     title: React.ReactNode

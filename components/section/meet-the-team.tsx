@@ -5,7 +5,7 @@ const MeetTheTeam = () => {
     <main className='bg-black min-h-[70vh] text-white'>
     <div className='text-center py-14'>
         <h2 className='white font-bold text-4xl'>Meet the <span className='text-primary-red underline'>Team</span></h2>
-        <p className='text-xl text-subtitle__gray'>We're always willing to listen to everyone.</p>
+        <p className='text-xl text-subtitle__gray'>We are always willing to listen to everyone.</p>
     </div>
     <div className='max-w-7xl py-20 flex justify-between mx-auto'>
         <div className='flex justify-center text-center gap-12 items-start'>
