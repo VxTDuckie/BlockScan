@@ -15,37 +15,38 @@ const ReliabilitySection = () => {
         <div className='dot hidden lg:flex'></div>
         <div className='dot2 hidden lg:flex'></div>
             {/* Section for media content */}
-            <section className="max-w-7xl mx-auto flex flex-col smp:flex-row items-between justify-between gap-12  px-4 sm:px-6 lg:px-8 z-50" >
+            <section className="max-w-full mx-auto flex flex-col smp:flex-row gap-12  px-4 sm:px-6 lg:px-8 z-50" >
                 <motion.div 
-                className="flex gap-12 justify-center  xl:mb-0"
+                className="flex gap-20 justify-center items-start xl:mb-0"
                 initial='hidden'
                 whileInView='reveal'
                 transition={{ staggerChildren: 0.2 }}
                 >
 
                     <motion.div 
-                    className="flex-col justify-center smp:justify-end xl:justify-start items-center my-auto pb-4 xl:pb-6"
+                    className="flex-col flex-[1] smp:justify-end xl:justify-start items-center pb-4 xl:pb-6 text-center"
                     transition={{duration: 0.5, delay:0.2}}
                     variants={fadeUp}>
-                        <p className="font-bold text-primary-red text-5xl sm:text-7xl xl:text-8xl text-shadow-glow-red" style={{ filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.6))' }}>+15,000</p>
-                        <p className="text-black text-[18px] xl:text-3xl sm:text-[27px] font-semibold ml-4">daily active users.</p>
+                        <p className="font-bold text-primary-red text-5xl sm:text-7xl xl:text-8xl text-shadow-glow-red mb-4" style={{ filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.6))' }}>+15,000</p>
+                        <p className="text-black text-[18px] xl:text-4xl sm:text-[27px] font-semibold ml-4">daily active users.</p>
                     </motion.div>
 
                     <motion.div 
-                    className="flex-col justify-center smp:justify-end xl:justify-start items-center my-auto pb-4 xl:pb-6"
+                    className="flex-col flex-[1] justify-center smp:justify-end xl:justify-start items-center my-auto pb-4 xl:pb-6 text-center"
                     transition={{duration: 0.5, delay:0.4}}
                     variants={fadeUp}>
-                        <p className="font-bold text-pink-500 text-5xl sm:text-7xl xl:text-8xl" style={{ filter: 'drop-shadow(0 0 10px rgba(236, 72, 153, 0.6))' }}>+1,500</p>
-                        <p className="text-black text-[18px] xl:text-3xl sm:text-[27px] font-semibold ml-4">unique tokens tracked.</p>
+                        <p className="font-bold text-pink-500 text-5xl sm:text-7xl xl:text-8xl mb-4" style={{ filter: 'drop-shadow(0 0 10px rgba(236, 72, 153, 0.6))' }}>+90</p>
+                        <p className="text-black text-[18px] xl:text-4xl sm:text-[27px] font-semibold ml-4">Slither authorized detectors.</p>
+                        
                     </motion.div>
 
 
                     <motion.div 
-                    className="flex-col justify-center smp:justify-end xl:justify-start items-center my-auto pb-4 xl:pb-6"
+                    className="flex-col flex-[1] justify-center smp:justify-end xl:justify-start items-center pb-4 xl:pb-6 text-center"
                     transition={{duration: 0.5, delay:0.6}}
                     variants={fadeUp}>
-                        <p className="font-bold text-pink-600 text-5xl sm:text-7xl xl:text-8xl text-shadow-glow-red" style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.5))' }}>+3,000</p>
-                        <p className="text-black text-[18px] xl:text-3xl sm:text-[27px] font-semibold ml-4">smart contracts analyzed.</p>
+                        <p className="font-bold text-pink-600 text-5xl sm:text-7xl xl:text-8xl text-shadow-glow-red mb-4" style={{ filter: 'drop-shadow(0 0 10px rgba(147, 51, 234, 0.5))' }}>+3,000</p>
+                        <p className="text-black text-[18px] xl:text-4xl sm:text-[27px] font-semibold ml-4">smart contracts analyzed.</p>
                     </motion.div>
 
 

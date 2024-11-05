@@ -48,17 +48,17 @@ const OnScrollSection = () => {
                 <img src='/images/code_example.png' className='rounded-xl h-1/2 w-auto shadow-glow-purple animation-block-2'/>
               )}
               {(scrollY > firstTransitionPoint && scrollY < secondTransitionPoint) && (
-                <div className='flex gap-6 items-center py-auto'>
-                  <RiliabilitySection/>
+                <div className='flex items-center w-full py-auto'>
+                  <div className='w-full'>
+                    <RiliabilitySection/>
+                  </div>
                 </div>
               )}
               {(scrollY > secondTransitionPoint && scrollY < thirdTransitionPoint) && (
-                <img src='/images/pages_example.png' className='rounded-xl h-1/2 w-auto'
-                />
+                <img src='/images/pages_example.png' className='rounded-xl h-1/2 w-auto'/>
               )} 
               {(scrollY > thirdTransitionPoint) && (
-              <img src='/images/spon_example.png' className='rounded-xl h-1/2 w-auto'
-              />
+              <img src='/images/spon_example.png' className='rounded-xl h-1/2 w-auto'/>
               )}
             </div>
           </div>
