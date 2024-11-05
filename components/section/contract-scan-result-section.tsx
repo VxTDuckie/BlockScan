@@ -159,7 +159,7 @@ const ContractScanResult: React.FC = () => {
         setMetrics(metricsResponse.data);
         setVulns(vulnsResponse.data || []);
         setRawMarkdownContent(metricsResponse.data.markdown_content || '');
-      } catch (error) {
+      } catch {
         setError(`The contract ${params.id} does not exist`);
       } finally {
         setLoading(false);

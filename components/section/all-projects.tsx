@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
-import { Search, FilePlus, Target} from 'lucide-react';
+import { Search, FilePlus} from 'lucide-react';
 import {UploadForm} from '@/components/index'
 
 interface AnalysisMetrics {

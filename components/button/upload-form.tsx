@@ -6,9 +6,10 @@ import { useScanning, ScanningNotification } from '../index';
 import {FileCheck} from 'lucide-react'
 import  {motion} from "framer-motion"; // Animation library
 
+//@ts-ignore
 interface UploadFormProps {
     style?:string
-    title: React.ReactNode | string
+    title: React.ReactNode
 }
 
 const UploadForm = ({style, title}: UploadFormProps) => {
@@ -22,7 +23,7 @@ const UploadForm = ({style, title}: UploadFormProps) => {
   const [messageName, setMessageName] = useState<string>('');  
   const {isScanning, startScanning, setIsScanning} = useScanning(); // Destructuring scanning state and key press handler from custom hook
   const [openUpload, setOpenUpload] = useState(false);
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000' || 'http://localhost:5001';
+  const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000';
   const handleProjectNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setProjectName(event.target.value); // Update project name
   };

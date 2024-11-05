@@ -108,12 +108,12 @@ const OnScrollSection = () => {
           <div className='min-h-screen flex items-center'>
             <div className='animation-block'>
               <h2 className='font-bold text-3xl mb-4'>
-                Meet Our Contributors
+                Our Contributors
               </h2>
               <p className='text-xl'>
-                A collaboration between Slither's security tools, 
-                Swinburne University's research, <span className='font-semibold mr-1'>Mr. Hieu PC - Cybersecurity specialist</span> 
-                and <span className='font-semibold'> BlockScan's audit experts</span>.
+                A collaboration between Slither&apos;s security tools, 
+                Swinburne University&apos;s research, <span className='font-semibold mr-1'>Mr. Hieu PC - Cybersecurity specialist</span> 
+                and <span className='font-semibold'> BlockScan&apos;s audit experts</span>.
               </p>
             </div>
           </div>

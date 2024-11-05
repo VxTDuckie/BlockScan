@@ -1,6 +1,6 @@
 "use client";
 
-import {Hero, Video, YTRefSection, RiliabilitySection, FAQ, OnScrollTutorial, MeetTheTeam } from '@/components/index';
+import {Hero, YTRefSection, FAQ, OnScrollTutorial, MeetTheTeam } from '@/components/index';
 
 export default function Page() {
     return (
