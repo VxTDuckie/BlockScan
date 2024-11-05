@@ -6,13 +6,12 @@ import { useScanning, ScanningNotification } from '../index';
 import {FileCheck} from 'lucide-react'
 import  {motion} from "framer-motion"; // Animation library
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface UploadFormProps {
   style?:string
   title?: React.ReactNode | string;
 }
 
-const UploadForm = ({style, title}: UploadFormProps): JSX.Element => {
+const UploadForm = ({style, title}: UploadFormProps) => {
   const fadeUp = {
     hidden: {opacity: 0, scale: 0.98},
     reveal: {opacity: 1, scale: 1},
