@@ -3,6 +3,7 @@
   "rules": {
     "@typescript-eslint/no-this-alias": "off",
     "no-unused-vars": ["warn"],
-    "@typescript-eslint/no-empty-interface": "off" // Add this to allow empty interfaces
+    "@typescript-eslint/no-empty-interface": "off", // Add this to allow empty interfaces
+    "@typescript-eslint/no-empty-object-type": "off"
   }
 }
