@@ -6,7 +6,7 @@ import { useScanning, ScanningNotification } from '../index';
 import {FileCheck} from 'lucide-react'
 import  {motion} from "framer-motion"; // Animation library
 
-// @typescript-eslint/no-empty-interface
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface UploadFormProps {
   style?:string
   title: React.ReactNode | string;
