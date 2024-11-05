@@ -7,11 +7,11 @@ import {FileCheck} from 'lucide-react'
 import  {motion} from "framer-motion"; // Animation library
 
 interface UploadFormProps {
-    style?:string
-    title: React.ReactNode
+  style?:string
+  title: React.ReactNode | string;
 }
 
-const UploadForm : React.FC<UploadFormProps> = ({style, title}) => {
+const UploadForm = ({style, title}: UploadFormProps): JSX.Element => {
   const fadeUp = {
     hidden: {opacity: 0, scale: 0.98},
     reveal: {opacity: 1, scale: 1},
