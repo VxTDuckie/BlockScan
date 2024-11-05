@@ -11,7 +11,7 @@ interface UploadFormProps {
     title: React.ReactNode
 }
 
-const UploadForm = ({style, title}: UploadFormProps) => {
+const UploadForm : React.FC<UploadFormProps> = ({style, title}) => {
   const fadeUp = {
     hidden: {opacity: 0, scale: 0.98},
     reveal: {opacity: 1, scale: 1},
