@@ -53,6 +53,7 @@ const AllProjects = () => {
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProjects, setFilteredProjects] = useState<AnalysisMetrics[]>([]);
+  const [isHover, setIsHover] = useState(false);
 
   const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -133,7 +134,7 @@ const AllProjects = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 pt-24">
       <div className="max-w-7xl mx-auto py-4 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-12">
           <h1 className="items-center flex gap-2 text-2xl font-bold bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text">PROJECTS</h1>
@@ -144,11 +145,14 @@ const AllProjects = () => {
               <input
                 type="text"
                 placeholder="Search by Project name"
-                className="pl-10 pr-4 py-2 border border-gray-300 rounded-xl w-[300px]"
+                className={`pl-10 pr-4 py-2 border rounded-xl w-[300px] placeholder-gray-400 focus:ring-0 focus:outline-2 transition-colors
+                duration-200 ${isHover ? 'border-black':'border-gray-300'}`}
                 value={searchTerm}
+                onFocus={() => setIsHover(true)}
+                onBlur={() => setIsHover(false)}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+              <Search className={`absolute left-3 top-2.5 h-5 w-5  duration-100 transition-colors  ${isHover ? 'text-black': 'text-gray-400'}`} />
             </div>
 
             <UploadForm style='py-2 px-3 justify-center text-white/80 rounded-xl text-base sm:text-[14px] xl:text-[18px] font-normal w-full sm:w-auto hover:bg-white hover:text-white
@@ -186,27 +190,27 @@ const AllProjects = () => {
                   <div>
                     <div className="font-medium">{project.high_issues}</div>
                     <div className="text-pri">High</div>
-                    <div className='border-b-[3px] w-1/2 mx-auto mt-2 border-red-600'></div>
+                    <div className='border-b-[4px] w-1/2 mx-auto mt-2 border-red-600'></div>
                   </div>
                   <div>
                     <div className="font-medium">{project.medium_issues}</div>
                     <div className="text-gray-500">Med</div>
-                    <div className='border-b-[3px] w-1/2 mx-auto mt-2 border-yellow-400'></div>
+                    <div className='border-b-[4px] w-1/2 mx-auto mt-2 border-yellow-400'></div>
                   </div>
                   <div>
                     <div className="font-medium">{project.low_issues}</div>
                     <div className="text-gray-500">Low</div>
-                    <div className='border-b-[3px] w-1/2 mx-auto mt-2 border-green-500'></div>
+                    <div className='border-b-[4px] w-1/2 mx-auto mt-2 border-green-500'></div>
                   </div>
                   <div>
                     <div className="font-medium">{project.informational_issues}</div>
                     <div className="text-gray-500">Info</div>
-                    <div className='border-b-[3px] w-1/2 mx-auto mt-2 border-gray-500'></div>
+                    <div className='border-b-[4px] w-1/2 mx-auto mt-2 border-gray-500'></div>
                   </div>
                   <div>
                     <div className="font-medium">{project.optimization_issues}</div>
                     <div className="text-gray-500">Opti</div>
-                    <div className='border-b-[3px] w-1/2 mx-auto mt-2 border-blue-500'></div>
+                    <div className='border-b-[4px] w-1/2 mx-auto mt-2 border-blue-500'></div>
                   </div>
                 </div>
               </div>

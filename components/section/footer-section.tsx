@@ -4,7 +4,7 @@ import { Github, Twitter, Facebook, Mail, Phone, MapPin } from 'lucide-react';
 //An appealing footer section
 export default function Footer() {
   return (
-    <footer className="bg-footer text-white border-t border-subsection__grey w-full relative">
+    <footer className="bg-footer text-white border-t border-subsection__gray w-full relative">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-12 py-12"> 
         {/* Grid with 4 columns */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full justify-items-center">

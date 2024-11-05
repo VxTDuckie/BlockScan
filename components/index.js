@@ -25,6 +25,8 @@ import { Overview } from './section/overview';
 import VulnerabilityList from './section/vulnerability-list'
 import NoContractFound from './section/no-contract-found';
 import AllProjects from './section/all-projects';
+import OnScrollTutorial from './section/on-scroll-tutorial';
+import MeetTheTeam from './section/meet-the-team';
 export {
     Hero,
     Navbar,
@@ -49,5 +51,7 @@ export {
     VulnerabilityList,
     Overview,
     NoContractFound,
-    AllProjects
+    AllProjects,
+    OnScrollTutorial,
+    MeetTheTeam
 }

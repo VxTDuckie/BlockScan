@@ -1,14 +1,14 @@
 "use client";
 
-import {Hero, Video, YTRefSection, RiliabilitySection, FAQ } from '@/components/index';
+import {Hero, Video, YTRefSection, RiliabilitySection, FAQ, OnScrollTutorial, MeetTheTeam } from '@/components/index';
 
 export default function Page() {
     return (
-        <main className="bg-cover overflow-x-hidden" >         
+        <main className="bg-cover" >         
             <Hero/>
-            <Video/>
-            <RiliabilitySection/>
+            <OnScrollTutorial/>
             <FAQ/>
+            <MeetTheTeam/>
             <YTRefSection/>
         </main>
     )

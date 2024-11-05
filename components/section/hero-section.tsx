@@ -25,7 +25,7 @@ const Hero = () => {
 
 
     return (
-        <div className="flex flex-col xl:flex-row max-w-7xl mx-auto gap-8 mb-16 xl:mb-28 min-h-[600px] xl:h-[800px] items-center px-4 sm:px-6 xl:px-0">
+        <div className="flex flex-col xl:flex-row max-w-7xl mx-auto gap-8 min-h-screen items-center px-4 sm:px-6 xl:px-0">
         <ParticlesComponent id='particles'/>
             {/* Text content */}
             <div className="flex-1 xl:flex-[2] flex items-center justify-center ">

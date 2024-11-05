@@ -33,6 +33,8 @@ const RadarChart = ({ labels, scores }) => {
         ticks: {
           stepSize: 20,
           color: '#000',
+
+
         },
         angleLines: {
           display: true,
@@ -70,7 +72,7 @@ const RadarChart = ({ labels, scores }) => {
         <h2 className="bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 text-transparent bg-clip-text text-2xl font-bold" style={{ fontFamily: "Outfit" }}>
           Score Breakdown
         </h2>
-        <p className="text-lg font-bold text-subtitle__grey">
+        <p className="text-lg font-bold text-subtitle__gray">
           Total Score: <span className='bg-gradient-to-r from-primary-red via-pink-500 to-purple-600 text-transparent bg-clip-text'>93/100</span>
         </p>
       </div>
