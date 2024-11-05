@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { RiliabilitySection } from '..';
-import {motion} from 'framer-motion'
 
 const OnScrollSection = () => {
   const [scrollY, setScrollY] = useState(0);
