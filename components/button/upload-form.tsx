@@ -9,7 +9,7 @@ import  {motion} from "framer-motion"; // Animation library
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface UploadFormProps {
   style?:string
-  title: React.ReactNode | string;
+  title?: React.ReactNode | string;
 }
 
 const UploadForm = ({style, title}: UploadFormProps): JSX.Element => {
