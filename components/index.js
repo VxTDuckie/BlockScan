@@ -15,7 +15,6 @@ import RadarChart from './chart/RadarChart';
 import FAQ from './section/frequently-asked-question-section';
 import {useScanning} from './utils/useScanning';
 import CopyButton from './button/copy-button';
-import ContractList from './section/contract-list-section';
 import ScanningNotification from './section/scanning-notification';
 import splitString from './utils/split-string'
 import TokenBasicInfo from './section/token-basic-info';
@@ -41,7 +40,6 @@ export {
     FAQ,
     useScanning,
     CopyButton,
-    ContractList,
     ScanningNotification,
     splitString,
     TokenBasicInfo,
