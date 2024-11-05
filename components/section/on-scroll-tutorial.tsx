@@ -45,26 +45,22 @@ const OnScrollSection = () => {
         <div className='sticky top-0 z-30'>
           <div className='grid grid-cols-4 gap-10 items-center p-12 min-h-screen'>
             <div className='col-span-3'>
-              {scrollY < firstTransitionPoint ? (
-                <img src='/images/code_example.png' className='rounded-xl h-1/2 w-auto shadow-glow-purple'/>
-              ) : scrollY > firstTransitionPoint && scrollY < secondTransitionPoint ? (
+              {scrollY < firstTransitionPoint && (
+                <img src='/images/code_example.png' className='rounded-xl h-1/2 w-auto shadow-glow-purple animation-block-2'/>
+              )}
+              {(scrollY > firstTransitionPoint && scrollY < secondTransitionPoint) && (
                 <div className='flex gap-6 items-center py-auto'>
                   <RiliabilitySection/>
                 </div>
-              ) : scrollY > secondTransitionPoint && scrollY < thirdTransitionPoint ? (
-                <motion.img src='/images/pages_example.png' className='rounded-xl h-1/2 w-auto'
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+              )}
+              {(scrollY > secondTransitionPoint && scrollY < thirdTransitionPoint) && (
+                <img src='/images/pages_example.png' className='rounded-xl h-1/2 w-auto'
                 />
-              ) : 
-              <motion.img src='/images/spon_example.png' className='rounded-xl h-1/2 w-auto'
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              
+              )} 
+              {(scrollY > thirdTransitionPoint) && (
+              <img src='/images/spon_example.png' className='rounded-xl h-1/2 w-auto'
               />
-              }
+              )}
             </div>
           </div>
         </div>
@@ -74,7 +70,7 @@ const OnScrollSection = () => {
           <div className='min-h-screen flex items-center'>
             <div className='relative animation-block'>
               <h2 className='font-bold text-3xl mb-4'>
-                What is smart contracts?
+                What are smart contracts?
               </h2>
               <p className='text-xl'>A smart contract is a self-executing program 
                 on a blockchain that automatically enforces agreement terms 
