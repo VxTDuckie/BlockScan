@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { RiliabilitySection } from '..';
+import { OurContributors, PagesExample, RiliabilitySection } from '..';
 
 const OnScrollSection = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -45,7 +45,7 @@ const OnScrollSection = () => {
           <div className='grid grid-cols-4 gap-10 items-center p-12 min-h-screen'>
             <div className='col-span-3'>
               {scrollY < firstTransitionPoint && (
-                <img src='/images/code_example.png' className='rounded-xl h-1/2 w-auto shadow-glow-purple animation-block-2'/>
+                <img src='/images/code_example.png' className='rounded-xl w-[95%] shadow-glow-purple animation-block-2'/>
               )}
               {(scrollY > firstTransitionPoint && scrollY < secondTransitionPoint) && (
                 <div className='flex items-center w-full py-auto'>
@@ -55,10 +55,10 @@ const OnScrollSection = () => {
                 </div>
               )}
               {(scrollY > secondTransitionPoint && scrollY < thirdTransitionPoint) && (
-                <img src='/images/pages_example.png' className='rounded-xl h-1/2 w-auto'/>
+                <PagesExample/>
               )} 
               {(scrollY > thirdTransitionPoint) && (
-              <img src='/images/spon_example.png' className='rounded-xl h-1/2 w-auto'/>
+                <OurContributors/>
               )}
             </div>
           </div>
@@ -68,7 +68,7 @@ const OnScrollSection = () => {
         <div className='absolute top-0 right-0 w-1/4 z-50'>
           <div className='min-h-screen flex items-center'>
             <div className='relative animation-block'>
-              <h2 className='font-bold text-3xl mb-4'>
+              <h2 className='text-purple-800 font-bold text-3xl mb-4'>
                 What are smart contracts?
               </h2>
               <p className='text-xl'>A smart contract is a self-executing program 
@@ -79,7 +79,7 @@ const OnScrollSection = () => {
           </div>
           <div className='min-h-screen flex items-center'>
             <div className='animation-block'>
-            <h2 className='font-bold text-3xl mb-4'>
+            <h2 className='text-pink-600 font-bold text-3xl mb-4'>
             Secure and Reliable Blockchain Solution
             </h2>
               <p className='text-xl'>
@@ -89,7 +89,7 @@ const OnScrollSection = () => {
           </div>  
           <div className='min-h-screen flex items-center'>
             <div className='animation-block'>
-              <h2 className='font-bold text-3xl mb-4'>
+              <h2 className='text-primary-red font-bold text-3xl mb-4'>
                 BlockScan modern analyzing tool
               </h2>
               <p className='text-xl'>
@@ -102,7 +102,7 @@ const OnScrollSection = () => {
 
           <div className='min-h-screen flex items-center'>
             <div className='animation-block'>
-              <h2 className='font-bold text-3xl mb-4'>
+              <h2 className='text-hard-red font-bold text-3xl mb-4'>
                 Our Contributors
               </h2>
               <p className='text-xl'>

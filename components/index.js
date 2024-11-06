@@ -3,7 +3,7 @@ import Hero from './section/hero-section';
 import Navbar from './section/navbar-section';
 import Footer from './section/footer-section';
 import CustomButton from './utils/CustomButton';
-import RiliabilitySection from './section/reliability-section';
+import RiliabilitySection from './section/on-scroll-components/reliability-section';
 import YTRefSection from './section/youtube-reference-section';
 import ContractScanResult from './section/contract-scan-result-section';
 import ResultBody from './section/result-body'; 
@@ -25,6 +25,8 @@ import NoContractFound from './section/no-contract-found';
 import AllProjects from './section/all-projects';
 import OnScrollTutorial from './section/on-scroll-tutorial';
 import MeetTheTeam from './section/meet-the-team';
+import OurContributors from './section/on-scroll-components/our-contributors';
+import PagesExample from './section/on-scroll-components/pages-example';
 export {
     Hero,
     Navbar,
@@ -49,5 +51,8 @@ export {
     NoContractFound,
     AllProjects,
     OnScrollTutorial,
-    MeetTheTeam
+    OurContributors,
+    MeetTheTeam,
+    PagesExample
+    
 }
