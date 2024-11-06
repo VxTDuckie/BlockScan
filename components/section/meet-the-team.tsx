@@ -22,7 +22,7 @@ const MeetTheTeam = () => {
                     </a>
                 </div>
                 <div className='pt-16'>
-                    <p className='italic text-subtitle__gray'>"Everything is possible as long as you're my rival"</p>
+                    <p className='italic text-subtitle__gray'>&quot;Everything is possible as long as you're my rival&quot;</p>
                 </div>
             </div>
            
@@ -43,7 +43,7 @@ const MeetTheTeam = () => {
                     </div>
                 </div>
                 <div className='pt-16'>
-                    <p className='italic text-subtitle__gray'>"Quack quack"</p>
+                    <p className='italic text-subtitle__gray'>&quot;Quack quack&quot;</p>
                 </div>
             </div>
         </div>
