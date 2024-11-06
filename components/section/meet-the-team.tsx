@@ -22,7 +22,7 @@ const MeetTheTeam = () => {
                     </a>
                 </div>
                 <div className='pt-16'>
-                    <p className='italic text-subtitle__gray'>&quot;Everything is possible as long as you're my rival&quot;</p>
+                    <p className='italic text-subtitle__gray'>&quot;Everything is possible as long as you&apos;re my rival&quot;</p>
                 </div>
             </div>
            
