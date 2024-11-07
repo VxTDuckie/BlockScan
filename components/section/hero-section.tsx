@@ -4,8 +4,6 @@ import Link from 'next/link';
 import  {motion} from "framer-motion";
 import {splitString, UploadForm} from '@/components/index';
 import ParticlesComponent from '@/components/utils/particles';
-import {MoveRight, Shield, Cpu} from 'lucide-react'
-
 
 const heading1 = 'Your Trusted Solution';
 const heading2 = ' for Fast and Secure Smart Contract Scanning';
