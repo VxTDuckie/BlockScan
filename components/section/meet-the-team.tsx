@@ -1,19 +1,36 @@
 import React from 'react'
 import {Facebook, Github} from 'lucide-react'
+import {motion} from 'framer-motion'
 const MeetTheTeam = () => {
+    const fadeUp = {
+        hidden: {opacity: 0, y: 100},
+        reveal: {opacity: 1, y: 0},
+    }
   return (
-    <main className='bg-black min-h-[70vh] text-white'>
-    <div className='text-center py-14'>
-        <h2 className='white font-bold text-4xl'>Meet the <span className='text-primary-red underline'>Team</span></h2>
-        <p className='text-xl text-subtitle__gray'>We are always willing to listen to everyone.</p>
+    <main className='overflow-hidden bg-white min-h-[800px] pt-[200px]'>
+            
+    <div className='text-center pb-10'>
+        <h2 className='text-gray-800 font-bold text-4xl mb-4'>Meet the <span className='bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text'>Team</span></h2>
+        <p className='text-xl text-subtitle__gray'>We are always willing to listen to everyone!</p>
     </div>
-    <div className='max-w-7xl py-20 flex justify-between mx-auto'>
-        <div className='flex w-1/2 justify-center text-center gap-12 items-start'>
-            <img src='/images/member_1.jpg' className='h-[200px] w-[200px] rounded-full mb-12 shadow-weak-ass-glow'/>
-            <div className='text-left'>
-                <p className='text-2xl font-semibold'>Nguyen Thien Phuoc</p>
-                <p className='text-xl text-subtitle__gray pb-4'>Founder & CEO</p>
-                <div className='flex gap-4 h-5'>
+    <section className="max-w-7xl py-20 mx-auto first-line:flex flex-col smp:flex-row gap-12  px-4 sm:px-6 lg:px-8 z-50" >
+        <motion.div 
+        className="flex gap-20 justify-center items-start xl:mb-0"
+        initial='hidden'
+        whileInView='reveal'
+        transition={{ staggerChildren: 0.2 }}>
+            <motion.div
+            className='flex flex-col items-center p-4 space-y-2'
+            transition={{duration: 0.5, delay: 0.1}}
+            variants={fadeUp}>
+                <div className='border-b-[6px] border-b-primary-red rounded-full shadow-xl mb-4'>
+                    <img src='/images/member_1.jpg' className='h-[170px] w-[170px] rounded-full shadow-weak-ass-glow'/>
+                </div>
+                <div className='text-center'>
+                    <p className='text-xl text-gray-800 font-semibold'>Nguyen Thien Phuoc</p>
+                    <p className='text-xl text-subtitle__gray'>Founder & CEO</p>
+                </div>
+                <div className='flex space-x-2 h-5 '>
                     <a href='https://www.facebook.com/profile.php?id=61566144360040' target='_blank'>
                     <Facebook className='text-subtitle__gray w-7 h-7'/>
                     </a>
@@ -21,34 +38,35 @@ const MeetTheTeam = () => {
                     <Github className='text-subtitle__gray w-7 h-7'/>
                     </a>
                 </div>
-                <div className='pt-16'>
-                    <p className='italic text-subtitle__gray'>&quot;Everything is possible as long as you&apos;re my rival&quot;</p>
+            </motion.div>
+            <motion.div
+            className='flex flex-col items-center p-4 space-y-2'
+            transition={{duration: 0.5, delay: 0.25}}
+            variants={fadeUp}>
+                <div className='border-b-[6px] border-b-primary-red rounded-full shadow-xl mb-4'>
+                    <img src='/images/member_2.jpg' className='h-[170px] w-[170px] rounded-full shadow-weak-ass-glow'/>
                 </div>
-            </div>
-           
-        </div>
-        <div className='flex w-1/2 justify-center text-center gap-12 items-start'>
-            <img src='/images/member_2.jpg' className='h-[200px] w-[200px] rounded-full mb-12 shadow-weak-ass-glow'/>
-            <div className='text-left gap-12 justify-between'>
-                <div>
-                    <p className='text-2xl font-semibold'>Viet Nguyen</p>
-                    <p className='text-xl text-subtitle__gray pb-4'>Co-Founder</p>
-                    <div className='flex gap-4 h-5'>
-                        <a href='https://www.facebook.com/vxtduckie' target='_blank'>
-                        <Facebook className='text-subtitle__gray w-7 h-7'/>
-                        </a>
-                        <a href='https://github.com/VxTDuckie' target='_blank'>
-                        <Github className='text-subtitle__gray w-7 h-7'/>
-                        </a>
-                    </div>
+                <div className='text-center'>
+                    <p className='text-xl text-gray-800 font-semibold'>Viet Nguyen</p>
+                    <p className='text-xl text-subtitle__gray'>Co-Founder</p>
                 </div>
-                <div className='pt-16'>
-                    <p className='italic text-subtitle__gray'>&quot;Quack quack&quot;</p>
+                <div className='flex space-x-2 h-5 '>
+                    <a href='https://www.facebook.com/vxtduckie' target='_blank'>
+                    <Facebook className='text-subtitle__gray w-7 h-7'/>
+                    </a>
+                    <a href='https://github.com/VxTDuckie/BlockScan' target='_blank'>
+                    <Github className='text-subtitle__gray w-7 h-7'/>
+                    </a>
                 </div>
-            </div>
-        </div>
-    </div>
-    </main>
+            </motion.div>
+        </motion.div> 
+    </section>
+    
+
+
+</main>
+
+
   )
 }
 

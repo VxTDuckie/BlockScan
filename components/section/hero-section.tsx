@@ -2,9 +2,9 @@
 import React from 'react';
 import Link from 'next/link';
 import  {motion} from "framer-motion";
-import {splitString, UploadForm } from '@/components/index';
+import {splitString, UploadForm, AuditReport, SeamlessIntegration, SlitherDetectors, ExpertsRecommendation } from '@/components/index';
 import ParticlesComponent from '@/components/utils/particles';
-
+import {MoveRight, Shield, Cpu} from 'lucide-react'
 
 
 const heading1 = 'Your Trusted Solution';
@@ -25,79 +25,103 @@ const Hero = () => {
 
 
     return (
-        <div className="flex flex-col xl:flex-row max-w-7xl mx-auto gap-8 min-h-screen items-center px-4 sm:px-6 xl:px-0">
-        <ParticlesComponent id='particles'/>
-            {/* Text content */}
-            <div className="flex-1 xl:flex-[2] flex items-center justify-center ">
-                <div>
-                    <motion.h1 
-                    className="hero__title text-4xl sm:text-5xl lg:text-6xl xl:text-[64px] leading-relaxed xl:leading-relaxed mb-4 xl:mb-6 animate-fadeUp"
-                    initial="hidden"
-                    whileInView="reveal"
-                    transition={{staggerChildren: 0.03}}
-                    
-                    >
-                        <span
-                        className=' text-primary-red '
-                        style={{filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.8))',}}>{splitHeading1.map(char =>
-                            <motion.span key={char} transition={{duration: 0.5}} variants={charVariants} >
-                                {char}
-                            </motion.span>
-                        )}</span>
-                        <span className="text-white" style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))',}}>
-                            {splitHeading2.map(char =>
-                                <motion.span key={char} transition={{duration:0.5}} variants={charVariants}>
+        <main className='max-w-full bg-gradient-to-bl from-primary-red/25 via-black to-black/70'>
+            <div className="flex flex-col xl:flex-row max-w-7xl mx-auto gap-8 min-h-screen items-center px-4 sm:px-6 xl:px-0">
+                <ParticlesComponent id='particles'/>
+                {/* Text content */}
+                <div className="flex-1 xl:flex-[2] flex items-center justify-center ">
+                    <div>
+                        <motion.h1
+                        className="hero__title text-4xl sm:text-5xl lg:text-6xl xl:text-[64px] leading-relaxed xl:leading-relaxed mb-4 xl:mb-6 animate-fadeUp"
+                        initial="hidden"
+                        whileInView="reveal"
+                        transition={{staggerChildren: 0.03}}
+                        
+                        >
+                            <span
+                            className=' text-primary-red '
+                            style={{filter: 'drop-shadow(0 0 10px rgba(231, 33, 6, 0.8))',}}>{splitHeading1.map(char =>
+                                <motion.span key={char} transition={{duration: 0.5}} variants={charVariants} >
+                                    {char}
+                                </motion.span>
+                            )}</span>
+                            <span className="text-white" style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))',}}>
+                                {splitHeading2.map(char =>
+                                    <motion.span key={char} transition={{duration:0.5}} variants={charVariants}>
+                                        {char}
+                                    </motion.span>
+                                )}
+                            </span>
+                        </motion.h1>
+                        <motion.p 
+                            className="hero__subtitle text-white text-lg sm:text-xl lg:text-2xl mb-8 xl:mb-16"
+                            initial='hidden'
+                            whileInView='reveal'
+                            transition={{
+                                staggerChildren: 0.01,
+                                delayChildren: 2,
+                            }}
+                        >
+                            {splitSubtitle.map( char =>
+                                <motion.span key={char} transition={{duration: 0.5}} variants={charVariants}>
                                     {char}
                                 </motion.span>
                             )}
-                        </span>
-                    </motion.h1>
-                    <motion.p 
-                        className="hero__subtitle text-white text-lg sm:text-xl lg:text-2xl mb-8 xl:mb-16"
-                        initial='hidden'
-                        whileInView='reveal'
-                        transition={{
-                            staggerChildren: 0.01,
-                            delayChildren: 2,
-                        }}
-                    >
-                        {splitSubtitle.map( char =>
-                            <motion.span key={char} transition={{duration: 0.5}} variants={charVariants}>
-                                {char}
-                            </motion.span>
-                        )}
-                    </motion.p>
+                        </motion.p>
 
-                   
-                    <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 xl:space-x-6 mt-8 xl:mt-14">
-                        <UploadForm style=' justify-center text-white/80 rounded-xl text-base sm:text-lg xl:text-[20px] font-normal p-3 xl:p-4 w-full sm:w-auto hover:bg-white hover:text-white
-                        bg-gradient-to-r from-primary-red to-pink-600 shadow-glow-slight-red  hover:shadow-glow-red
-                        hover:bg-gradient-to-r  hover:from-primary-red hover:to-primary-red transition-all duration-300'
-                        title="Create a project"/>
-                        <p className='text-xl sm:text-2xl xl:text-3xl white font-light px-2 xl:px-4'>or </p>
-                        <button>
-                            <Link href='/contract'>
-                            <p className='border-2 border-white p-3 xl:p-[14px] rounded-xl text-base sm:text-lg xl:text-[20px] font-normal px-3 xl:px-4 hover:bg-white
-                             text-white hover:text-pink-500 transition-colors duration-300 w-full sm:w-auto text-center'>
-                                View your projects
-                            </p>
-                            </Link>
-                        </button>
+                    
+                        <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 xl:space-x-6 mt-8 xl:mt-14">
+                            <UploadForm style=' justify-center text-white/80 rounded-xl text-base sm:text-lg xl:text-[20px] font-normal p-3 xl:p-4 w-full sm:w-auto hover:bg-white hover:text-white
+                            bg-gradient-to-r from-primary-red to-pink-600 shadow-glow-slight-red  hover:shadow-glow-red
+                            hover:bg-gradient-to-r  hover:from-primary-red hover:to-primary-red transition-all duration-300'
+                            title="Create a project"/>
+                            <p className='text-xl sm:text-2xl xl:text-3xl white font-light px-2 xl:px-4'>or </p>
+                            <button>
+                                <Link href='/contract'>
+                                <p className='border-2 border-white p-3 xl:p-[14px] rounded-xl text-base sm:text-lg xl:text-[20px] font-normal px-3 xl:px-4 hover:bg-white
+                                text-white hover:text-pink-500 transition-colors duration-300 w-full sm:w-auto text-center'>
+                                    View your projects
+                                </p>
+                                </Link>
+                            </button>
+                        </div>
                     </div>
+                </div>
+
+                {/* Video content */}
+                <div className="flex-1  flex items-center justify-center xl:justify-end mt-8 xl:mt-0">
+                    <video 
+                        autoPlay 
+                        loop 
+                        muted 
+                        src="/videos/video-6.mp4" 
+                        className="h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[700px] w-full xl:w-auto rounded-[50px] object-cover object-center"
+                    />   
                 </div>
             </div>
 
-            {/* Video content */}
-            <div className="flex-1  flex items-center justify-center xl:justify-end mt-8 xl:mt-0">
-                <video 
-                    autoPlay 
-                    loop 
-                    muted 
-                    src="/videos/video-6.mp4" 
-                    className="h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[700px] w-full xl:w-auto rounded-lg object-cover object-center"
-                />   
-            </div>
-        </div>
+            <div className='h-[600px]'>
+                <div className='max-w-7xl mx-auto flex  white px-4 sm:px-6 lg:px-8 justify-between pt-[150px]'>
+                    <div>
+                        <ExpertsRecommendation/>
+                        <p className='text-center text-[18px] font-semibold mt-2'>Swinburne Audit Experts</p>
+                    </div>
+                    <div>
+                        <SeamlessIntegration/>
+                        <p className='text-center text-[18px] font-semibold mt-2'>Seamless Integration</p>
+                    </div>
+                    <div>
+                        <SlitherDetectors/>
+                        <p className='text-center text-[18px] font-semibold mt-2'>93+ Slither Detectors</p>
+                    </div>
+                    <div>
+                        <AuditReport/>
+                        <p className='text-center text-[18px] font-semibold mt-2'>Generate Audit Reports</p>
+                    </div>
+ 
+                </div>
+            </div>        
+        </main>
     );
 };
 

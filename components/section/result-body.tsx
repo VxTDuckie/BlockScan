@@ -80,7 +80,7 @@ const ResultBody : React.FC<ResultBodyProps> = ({metrics, vulns, score, raw_mark
             <div className='rounded-xl flex flex-col justify-between bg-gray-50 p-4'>
               <div>
                 <div className='flex'>
-                <p className='text-xl mr-2 mb-2'>Your Security score is</p>
+                <p className='text-xl mr-2 mb-2 text-gray-800'>Your Security score is</p>
                 <p className='text-xl font-bold'>{score >=95 ? <p className='text-green-500'>OUTSTANDING</p> 
                 : score >= 80 ? <p className='text-yellow-400'>GREAT</p> 
                 : score >= 50 ? <p className='text-primary-red'>ACCEPTABLE</p> 

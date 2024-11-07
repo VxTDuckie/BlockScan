@@ -190,27 +190,27 @@ const AllProjects = () => {
                   <div>
                     <div className="font-medium">{project.high_issues}</div>
                     <div className="text-pri">High</div>
-                    <div className='border-b-[4px] w-1/2 mx-auto mt-2 border-red-600'></div>
+                    <div className='border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-red-600'></div>
                   </div>
                   <div>
                     <div className="font-medium">{project.medium_issues}</div>
                     <div className="text-gray-500">Med</div>
-                    <div className='border-b-[4px] w-1/2 mx-auto mt-2 border-yellow-400'></div>
+                    <div className='border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-yellow-400'></div>
                   </div>
                   <div>
                     <div className="font-medium">{project.low_issues}</div>
                     <div className="text-gray-500">Low</div>
-                    <div className='border-b-[4px] w-1/2 mx-auto mt-2 border-green-500'></div>
+                    <div className='border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-green-500'></div>
                   </div>
                   <div>
                     <div className="font-medium">{project.informational_issues}</div>
                     <div className="text-gray-500">Info</div>
-                    <div className='border-b-[4px] w-1/2 mx-auto mt-2 border-gray-500'></div>
+                    <div className='border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-gray-500'></div>
                   </div>
                   <div>
                     <div className="font-medium">{project.optimization_issues}</div>
                     <div className="text-gray-500">Opti</div>
-                    <div className='border-b-[4px] w-1/2 mx-auto mt-2 border-blue-500'></div>
+                    <div className='border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-blue-500'></div>
                   </div>
                 </div>
               </div>

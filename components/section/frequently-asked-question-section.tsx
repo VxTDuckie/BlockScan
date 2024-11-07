@@ -38,14 +38,13 @@ export default function FAQ() {
   }
 
   return (
-    // Container for the FAQ section with styling.
-    <div className="text-black h-[900px] flex items-center justify-center pb-[150px] bg-gradient-to-t from-black to-white">
-      <div className="max-w-7xl w-full  px-4 sm:px-6 lg:px-8 relative">
+    <main className='bg-white'>
+    <div className="max-w-7xl mx-auto rounded-xl text-gray-800 min-h-[920px] flex items-center justify-center bg-gradient-to-tr from-primary-red/40 via-white/80 to-pink-600/40">
+      <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 relative">
         {/* Heading for the FAQ section */}
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-16 text-center" style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'}}>
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-4xl font-bold mb-16 text-center" style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'}}>
           Frequently Asked Questions
         </h2>
-
         {/* Mapping through the FAQ data and rendering each question/answer */}
         <div className="space-y-10">
           {faqData.map((item, index) => (
@@ -59,14 +58,14 @@ export default function FAQ() {
                 <span className="text-[18px] sm:text-[22px] lg:text-[24px] xl:text-[26px] font-semibold pr-4">{item.question}</span>
                 {/* Toggle the chevron icon based on whether the question is open */}
                 {openIndex === index ? (
-                  <ChevronUp className="flex-shrink-0 h-8 w-8 text-black" />
+                  <ChevronUp className="flex-shrink-0 h-8 w-8 text-gray-800" />
                 ) : (
-                  <ChevronDown className="flex-shrink-0 h-8 w-8 text-black" />
+                  <ChevronDown className="flex-shrink-0 h-8 w-8 text-gray-800" />
                 )}
               </button>
               {/* Display the answer if the question is open */}
               {openIndex === index && (
-                <div className="p-6 text-[20px] text-white bg-transparent rounded-b-xl">
+                <div className="p-6 text-[20px] text-gray-800/90 bg-transparent rounded-b-xl">
                   <p>{item.answer}</p>
                 </div>
               )}
@@ -75,5 +74,6 @@ export default function FAQ() {
         </div>
       </div>
     </div>
+    </main>
   )
 }

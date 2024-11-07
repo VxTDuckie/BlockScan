@@ -1,43 +1,65 @@
-import React from 'react'
+import React from 'react';
 
-// Component for displaying YouTube video references
+const VideoCard = ({ embedId, title }: any) => (
+  <div className="w-full"> {/* Ensure full width of grid cell */}
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden h-full hover:scale-105 duration-300"> {/* Add h-full */}
+      <div className="relative pb-[56.25%] "> {/* 16:9 aspect ratio */}
+        <iframe
+          className="absolute top-0 left-0 w-full h-full rounded-t-xl "
+          src={`https://www.youtube.com/embed/${embedId}?rel=0&showinfo=0&modestbranding=1&controls=1`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      </div>
+      <div className="p-4">
+        <h3 className="text-lg font-semibold text-gray-800 line-clamp-2">{title}</h3>
+      </div>
+    </div>
+  </div>
+);
+
 const YTRefSection = () => {
+  const videos = [
+    {
+      embedId: 'p1iRYnamykw',
+      title: 'Understanding Smart Contract Security',
+    },
+    {
+      embedId: '7jgfMa8T8Zc',
+      title: 'Blockchain Development Fundamentals',
+    },
+    {
+      embedId: 'IxlG5gnwI0g',
+      title: 'Web3 Development Guide',
+    },
+  ];
+
   return (
-      <div className="w-full flex flex-col items-center justify-center px-4 pb-16 xl:py-16 bg-black">
-        <div className='relative'> {/* Added relative positioning */}
-          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-12 text-center">More of your interest.</h2>
-          <div className="flex flex-wrap justify-center gap-8 xl:gap-16">
-            <div className="w-full sm:w-80 md:w-96 xl:w-[500px] aspect-w-16 aspect-h-9">
-              <iframe
-                className="rounded-xl w-full h-[200px] sm:h-[250px] md:h-[300px] xl:h-[450px]"
-                src="https://www.youtube.com/embed/p1iRYnamykw?rel=0&showinfo=0&modestbranding=1&controls=1"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <div className="w-full sm:w-80 md:w-96 xl:w-[500px] aspect-w-16 aspect-h-9">
-              <iframe
-                className="rounded-xl w-full h-[200px] sm:h-[250px] md:h-[300px] xl:h-[450px]"
-                src="https://www.youtube.com/embed/7jgfMa8T8Zc?rel=0&showinfo=0&modestbranding=1&controls=1"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <div className="w-full sm:w-80 md:w-96 xl:w-[500px] aspect-w-16 aspect-h-9">
-              <iframe
-                className="rounded-xl w-full h-[200px] sm:h-[250px] md:h-[300px] xl:h-[450px]"
-                src="https://www.youtube.com/embed/IxlG5gnwI0g?rel=0&showinfo=0&modestbranding=1&controls=1"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
+    <section className="bg-gradient-to-b from-white to-gray-50 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            More of Your Interest
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Explore these curated videos to deepen your understanding of blockchain technology and smart contract development.
+          </p>
+        </div>
+
+        {/* Updated grid to ensure equal sizing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {videos.map((video, index) => (
+            <VideoCard
+              key={index}
+              embedId={video.embedId}
+              title={video.title}
+            />
+          ))}
         </div>
       </div>
-  )
-}
+    </section>
+  );
+};
 
-export default YTRefSection
+export default YTRefSection;

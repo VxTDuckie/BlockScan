@@ -28,6 +28,7 @@ module.exports = {
 		  'secondary-red': '#FF7F50',
 		  'hard-red': '#4b1304',
 		  'secondary-blue': '#06B6D4',
+		  'not-black': '#0e0e0e',
 		  'primary-blue': {
 			'100': '#F5F8FF',
 			DEFAULT: '#2B59FF',

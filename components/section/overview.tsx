@@ -33,12 +33,12 @@ export const Overview: React.FC<OverviewProps>= ({metrics}) => {
     <div className='flex flex-col gap-6'>  
       <div className='flex flex-col bg-white p-6 rounded-xl shadow-sm gap-6'>
         {/* Header */}
-        <h3 className="text-xl font-bold">Contract Metrics</h3>
+        <h3 className="text-xl font-bold text-gray-800">Contract Metrics</h3>
 
         {/* Metrics Container */}
         <div className='flex justify-between gap-6'>
           {/* Project ID */}
-          <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2">
+          <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2 text-gray-800">
             <span>Project ID:</span>
             <div className='flex items-center gap-1'>
               <span className="font-bold bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text">
@@ -49,7 +49,7 @@ export const Overview: React.FC<OverviewProps>= ({metrics}) => {
           </div>
 
           {/* Created At */}
-          <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2">
+          <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2 text-gray-800">
             <span>Created at:</span>
             <span className="font-bold bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text">
               {metrics.created_at}
@@ -57,7 +57,7 @@ export const Overview: React.FC<OverviewProps>= ({metrics}) => {
           </div>
 
           {/* Total Contracts */}
-          <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2">
+          <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2 text-gray-800">
             <span>Total contract:</span>
             <span className="font-bold text-gray-500">
               {metrics.total_contracts}
@@ -65,7 +65,7 @@ export const Overview: React.FC<OverviewProps>= ({metrics}) => {
           </div>
 
           {/* Assembly Lines */}
-          <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2">
+          <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl gap-2 text-gray-800">
             <span>Assembly lines:</span>
             <span className="font-bold text-gray-500">
               {metrics.assembly_lines}
@@ -76,8 +76,8 @@ export const Overview: React.FC<OverviewProps>= ({metrics}) => {
    
     <div className='flex justify-between bg-white p-6 gap-6 rounded-xl shadow-sm'>
       <div className='flex-[2]'>
-        <h3 className="text-xl font-bold mb-6">Contract Metrics</h3>
-        <div className="space-y-4">
+        <h3 className="text-xl font-bold mb-6 text-gray-800">Contract Metrics</h3>
+        <div className="space-y-4 text-gray-800">
           <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
             <span>Optimization Issues</span>
             <span className="font-bold text-blue-500">{metrics.optimization_issues}</span>
