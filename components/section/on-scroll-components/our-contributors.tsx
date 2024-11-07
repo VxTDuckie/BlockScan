@@ -43,7 +43,7 @@ const OurContributors = () => {
                     className="flex-col flex-[1] justify-center smp:justify-end xl:justify-start items-center pb-4 xl:pb-6 text-center"
                     transition={{duration: 0.5, delay:0.6}}
                     variants={fadeUp}>
-                        <img src='/images/blockscan.png'/>
+                        <img src='public\images\blockscan.png'/>
                     </motion.div>
 
 
