@@ -38,9 +38,9 @@ export default function FAQ() {
   }
 
   return (
-    <main className='bg-white'>
-    <div className="max-w-7xl mx-auto rounded-xl text-gray-800 min-h-[920px] flex items-center justify-center bg-gradient-to-tr from-primary-red/40 via-white/80 to-pink-600/40">
-      <div className="max-w-7xl w-full px-4 sm:px-6 lg:px-8 relative">
+    <main className='bg-gradient-to-tr from-primary-red/10 via-white to-pink-600/10 p-16'>
+    <div className="max-w-screen-2xl mx-auto py-12 rounded-xl text-gray-800 min-h-fit flex items-center justify-center ">
+      <div className="w-full relative">
         {/* Heading for the FAQ section */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-4xl font-bold mb-16 text-center" style={{filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))'}}>
           Frequently Asked Questions

@@ -1,8 +1,4 @@
-import React from 'react'
 
-export const SlitherDetectors = () => {
-  return (
-    <div>
 <svg width="200" height="196" viewBox="0 0 200 196" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask
   id="mask0_9122_13605"
@@ -145,9 +141,4 @@ export const SlitherDetectors = () => {
 </linearGradient>
 </defs>
 </svg>
-
-
-    </div>
-  )
-}
 

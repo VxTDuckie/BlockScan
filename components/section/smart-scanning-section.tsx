@@ -9,9 +9,9 @@ const SmartScanning = () => {
 
 
   return (
-    <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-black pt-24'>
+    <div className='w-full bg-black pt-24 px-16'>
 
-      <div className='flex flex-col mb-8'>
+      <div className='flex flex-col mb-8 max-w-screen-2xl mx-auto'>
         <div>
           {/*Section title*/}
           <h1 className='text-white text-3xl sm:text-4xl lg:text-6xl mt-4 lg:mt-8 font-bold text-shadow-weak-ass-glow' style={{ filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))' }}>

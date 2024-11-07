@@ -20,12 +20,12 @@ const Navbar = () => {
 
   return (
     <div className={`
-      fixed top-0 left-0 right-0 
-      duration-300 
+      fixed top-0 left-0 right-0 max-w-full px-16
+      duration-300
       ${isScrolled ? "bg-[rgba(5,4,4,0.5)] backdrop-blur-sm" : "bg-transparent"}
       z-50
     `}>
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-screen-2xl mx-auto">
         <div className="flex justify-between items-center py-2">
           <Link href="/">
             <div className='flex items-center'>
@@ -51,17 +51,17 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <div className='text-white'>
+          <div className='text-primary-red'>
             <div className='hidden sm:flex gap-12 font-semibold'>
-              <a href='/projects' className='hover:text-primary-red transition-colors'>
+              <a href='/projects' className='hover:text-pink-600 transition-colors'>
                 PROJECTS
               </a>
               <a 
                 href='https://docs.google.com/forms/d/e/1FAIpQLSd4P-PJ7yR1Eol75cZW3-9d8JtTOwqQv6hDm6cmoNg90LUHrA/viewform?usp=sf_link' 
                 target='_blank'
-                className='hover:text-primary-red transition-colors'
+                className='hover:text-pink-600 transition-colors'
               >
-                CONTACT SUPPORT
+                SUPPORT
               </a>
             </div>
           </div>

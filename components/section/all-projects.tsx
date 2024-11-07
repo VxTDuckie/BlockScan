@@ -134,8 +134,8 @@ const AllProjects = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 pt-24">
-      <div className="max-w-7xl mx-auto py-4 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 py-8 w-full pt-24 px-16">
+      <div className="max-w-screen-2xl mx-auto">
         <div className="flex justify-between items-center mb-12">
           <h1 className="items-center flex gap-2 text-2xl font-bold bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text">PROJECTS</h1>
           

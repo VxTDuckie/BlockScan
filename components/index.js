@@ -27,10 +27,6 @@ import OnScrollTutorial from './section/on-scroll-tutorial';
 import MeetTheTeam from './section/meet-the-team';
 import OurContributors from './section/on-scroll-components/our-contributors';
 import PagesExample from './section/on-scroll-components/pages-example';
-import { AuditReport } from './svgs/audit_report';
-import { SeamlessIntegration } from './svgs/seamless_integration';
-import {SlitherDetectors} from './svgs/slither_detectors'
-import { ExpertsRecommendation } from './svgs/experts_recommendation';
 
 export {
     Hero,
@@ -59,10 +55,7 @@ export {
     OurContributors,
     MeetTheTeam,
     PagesExample,
-    SeamlessIntegration,
-    AuditReport,
-    SlitherDetectors,
-    ExpertsRecommendation,
+
     
     
 }

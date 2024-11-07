@@ -10,7 +10,7 @@ const fadeUp = {
 const OurContributors = () => {
   return (
     <main className='overflow-hidden'>
-            <section className="max-w-full mx-auto flex flex-col smp:flex-row gap-12  px-4 sm:px-6 lg:px-8 z-50" >
+            <section >
                 <motion.div 
                 className="flex gap-20 justify-center items-start xl:mb-0"
                 initial='hidden'

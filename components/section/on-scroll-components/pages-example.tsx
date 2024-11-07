@@ -9,8 +9,8 @@ const fadeUp = {
 
 const PagesExample = () => {
   return (
-    <main className='overflow-hidden'>
-            <section className="max-w-full mx-auto flex flex-col smp:flex-row gap-12  px-4 sm:px-6 lg:px-8 z-50" >
+    <main className='overflow-hidden w-auto'>
+            <section>
                 <motion.div 
                 className="flex gap-20 justify-center items-start xl:mb-0"
                 initial='hidden'
@@ -20,7 +20,7 @@ const PagesExample = () => {
                     className='py-4'
                     transition={{duration: 0.5}}
                     variants={fadeUp}>
-                        <img src='/images/pages_example.png' className='py-4'/>
+                        <img src='/images/pages_example.png'/>
                     </motion.div>
                 </motion.div> 
             </section>

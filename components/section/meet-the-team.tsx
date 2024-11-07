@@ -7,13 +7,13 @@ const MeetTheTeam = () => {
         reveal: {opacity: 1, y: 0},
     }
   return (
-    <main className='overflow-hidden bg-white min-h-[800px] pt-[200px]'>
+    <main className='overflow-hidden bg-white min-h-fit w-full p-16'>
             
-    <div className='text-center pb-10'>
+    <div className='max-w-screen-2xl mx-auto text-center pb-10'>
         <h2 className='text-gray-800 font-bold text-4xl mb-4'>Meet the <span className='bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text'>Team</span></h2>
         <p className='text-xl text-subtitle__gray'>We are always willing to listen to everyone!</p>
     </div>
-    <section className="max-w-7xl py-20 mx-auto first-line:flex flex-col smp:flex-row gap-12  px-4 sm:px-6 lg:px-8 z-50" >
+    <section className="max-w-screen-2xl mx-auto py-20 first-line:flex flex-col smp:flex-row gap-12  z-50" >
         <motion.div 
         className="flex gap-20 justify-center items-start xl:mb-0"
         initial='hidden'
@@ -32,10 +32,10 @@ const MeetTheTeam = () => {
                 </div>
                 <div className='flex space-x-2 h-5 '>
                     <a href='https://www.facebook.com/profile.php?id=61566144360040' target='_blank'>
-                    <Facebook className='text-subtitle__gray w-7 h-7'/>
+                    <Facebook className='text-subtitle__gray w-7 h-7 hover:scale-105 duration-200 transition-all'/>
                     </a>
                     <a href='https://github.com/Levironexe' target='_blank'>
-                    <Github className='text-subtitle__gray w-7 h-7'/>
+                    <Github className='text-subtitle__gray w-7 h-7 hover:scale-105 duration-200 transition-all'/>
                     </a>
                 </div>
             </motion.div>
@@ -52,10 +52,10 @@ const MeetTheTeam = () => {
                 </div>
                 <div className='flex space-x-2 h-5 '>
                     <a href='https://www.facebook.com/vxtduckie' target='_blank'>
-                    <Facebook className='text-subtitle__gray w-7 h-7'/>
+                    <Facebook className='text-subtitle__gray w-7 h-7 hover:scale-105 duration-200 transition-all'/>
                     </a>
                     <a href='https://github.com/VxTDuckie/BlockScan' target='_blank'>
-                    <Github className='text-subtitle__gray w-7 h-7'/>
+                    <Github className='text-subtitle__gray w-7 h-7 hover:scale-105 duration-200 transition-all'/>
                     </a>
                 </div>
             </motion.div>

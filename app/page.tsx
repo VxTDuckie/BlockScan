@@ -1,15 +1,16 @@
 "use client";
 
-import {Hero, YTRefSection, FAQ, OnScrollTutorial, MeetTheTeam } from '@/components/index';
+import {Hero, YTRefSection, FAQ, OnScrollTutorial, MeetTheTeam, Footer } from '@/components/index';
 
 export default function Page() {
     return (
-        <main className="bg-cover" >         
+        <main className=''>         
             <Hero/>
             <OnScrollTutorial/>
             <FAQ/>
             <MeetTheTeam/>
             <YTRefSection/>
+            <Footer/>
         </main>
     )
 }

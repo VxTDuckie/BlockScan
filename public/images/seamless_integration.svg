@@ -1,8 +1,4 @@
-import React from 'react'
 
-export const  SeamlessIntegration = () => {
-  return (
-    <div>
         <svg width="200" height="196" viewBox="0 0 200 196" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M8.41016 51.7887H178.508V43.9688C178.508 40.7722 175.917 38.1809 172.72 38.1809H14.1981C11.0015 38.1809 8.41016 40.7722 8.41016 43.9688V51.7887Z" fill="#1F1E1E"/>
         <circle cx="23.2135" cy="44.9813" r="1.94398" fill="#888888"/>
@@ -59,7 +55,4 @@ export const  SeamlessIntegration = () => {
         </linearGradient>
         </defs>
         </svg>
-    </div>
-  )
-}
 

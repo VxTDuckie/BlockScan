@@ -30,15 +30,15 @@ const OnScrollSection = () => {
   const thirdTransitionPoint = windowHeight * 4 + 600;
 
   return (
-    <main className='bg-white max-w-full mx-auto"'>
-    <div className="max-w-[100rem] mx-auto">
+    <main className='bg-white px-16 w-full'>
+    <div className="max-w-screen-2xl mx-auto">
       <section className='pt-[300px] text-center max-w-7xl mx-auto'>
         <h2 className='text-gray-800 text-4xl font-bold mb-4'>Empowering <span className='bg-gradient-to-r from-primary-red to-pink-600 text-transparent bg-clip-text '>Smart Contract Security</span> with Cutting-Edge Features</h2>
         <p className='text-xl text-gray-800/80'>Built with cutting-edge security frameworks, our comprehensive scanning suite identifies potential vulnerabilities in Smart Contracts, providing robust protection for web3 projects of any scale.</p>
       </section>
-      <section className='relative h-[400vh] max-w-8xl mx-12'>
+      <section className='relative h-[400vh]'>
         {/* Sticky container for images */}
-        <div className='sticky top-0 z-30'>
+        <div className='sticky'>
           <div className='grid grid-cols-4 gap-10 items-center min-h-screen'>
             <div className='col-span-3'>
               {scrollY < firstTransitionPoint && (
@@ -62,7 +62,7 @@ const OnScrollSection = () => {
         </div>
   
         {/* Non-sticky text sections */}
-        <div className='absolute top-0 right-0 w-1/4 z-50'>
+        <div className='absolute top-0 right-0 w-1/4'>
           <div className='min-h-screen flex items-center'>
             <div className='relative animation-block'>
               <h2 className='text-purple-800 font-bold text-3xl mb-4'>

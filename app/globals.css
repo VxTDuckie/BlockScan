@@ -427,7 +427,4 @@ background: linear-gradient(45deg,#9333ea, #e70606);
   animation-range: entry 0% cover 15%;
 }
 
-.on-scroll-background {
-  background-image: linear-gradient(to top, #ffffff, #b9b9b9, #777777, #3b3b3b, #000000);
-}
 /*end*/

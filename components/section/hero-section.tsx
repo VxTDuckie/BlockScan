@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import  {motion} from "framer-motion";
-import {splitString, UploadForm, AuditReport, SeamlessIntegration, SlitherDetectors, ExpertsRecommendation } from '@/components/index';
+import {splitString, UploadForm} from '@/components/index';
 import ParticlesComponent from '@/components/utils/particles';
 import {MoveRight, Shield, Cpu} from 'lucide-react'
 
@@ -25,8 +25,8 @@ const Hero = () => {
 
 
     return (
-        <main className='max-w-full bg-gradient-to-bl from-primary-red/25 via-black to-black/70'>
-            <div className="flex flex-col xl:flex-row max-w-7xl mx-auto gap-8 min-h-screen items-center px-4 sm:px-6 xl:px-0">
+        <main className='max-w-full bg-gradient-to-bl from-black via-black/90 to-black/70 px-16'>
+            <div className="flex flex-col xl:flex-row  min-h-screen items-center max-w-screen-2xl mx-auto">
                 <ParticlesComponent id='particles'/>
                 {/* Text content */}
                 <div className="flex-1 xl:flex-[2] flex items-center justify-center ">
@@ -71,14 +71,14 @@ const Hero = () => {
 
                     
                         <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 xl:space-x-6 mt-8 xl:mt-14">
-                            <UploadForm style=' justify-center text-white/80 rounded-xl text-base sm:text-lg xl:text-[20px] font-normal p-3 xl:p-4 w-full sm:w-auto hover:bg-white hover:text-white
-                            bg-gradient-to-r from-primary-red to-pink-600 shadow-glow-slight-red  hover:shadow-glow-red
+                            <UploadForm style=' justify-center text-white/80 rounded-xl text-base sm:text-lg xl:text-[22px] font-normal p-[14px] xl:px-[42px] w-full sm:w-auto hover:bg-white hover:text-white
+                            bg-gradient-to-r from-primary-red to-pink-600 shadow-glow-red  hover:shadow-glow-red
                             hover:bg-gradient-to-r  hover:from-primary-red hover:to-primary-red transition-all duration-300'
                             title="Create a project"/>
                             <p className='text-xl sm:text-2xl xl:text-3xl white font-light px-2 xl:px-4'>or </p>
                             <button>
-                                <Link href='/contract'>
-                                <p className='border-2 border-white p-3 xl:p-[14px] rounded-xl text-base sm:text-lg xl:text-[20px] font-normal px-3 xl:px-4 hover:bg-white
+                                <Link href='/projects'>
+                                <p className='border-2 border-white py-3 px-5 xl:px-[40px] rounded-xl text-base sm:text-lg xl:text-[20px] font-normal hover:bg-white
                                 text-white hover:text-pink-500 transition-colors duration-300 w-full sm:w-auto text-center'>
                                     View your projects
                                 </p>
@@ -101,22 +101,22 @@ const Hero = () => {
             </div>
 
             <div className='h-[600px]'>
-                <div className='max-w-7xl mx-auto flex  white px-4 sm:px-6 lg:px-8 justify-between pt-[150px]'>
+                <div className='max-w-screen-2xl mx-auto flex  white justify-between pt-[150px]'>
                     <div>
-                        <ExpertsRecommendation/>
+                        <img src='/images/experts_recommendation.svg' alt='Swinburn audit experts'/>
                         <p className='text-center text-[18px] font-semibold mt-2'>Swinburne Audit Experts</p>
                     </div>
                     <div>
-                        <SeamlessIntegration/>
-                        <p className='text-center text-[18px] font-semibold mt-2'>Seamless Integration</p>
+                    <img src='/images/seamless_integration.svg' alt='Swinburn audit experts'/>
+                    <p className='text-center text-[18px] font-semibold mt-2'>Seamless Integration</p>
                     </div>
                     <div>
-                        <SlitherDetectors/>
-                        <p className='text-center text-[18px] font-semibold mt-2'>93+ Slither Detectors</p>
+                    <img src='/images/slither_detectors.svg' alt='Swinburn audit experts'/>
+                    <p className='text-center text-[18px] font-semibold mt-2'>93+ Slither Detectors</p>
                     </div>
                     <div>
-                        <AuditReport/>
-                        <p className='text-center text-[18px] font-semibold mt-2'>Generate Audit Reports</p>
+                    <img src='/images/audit_report.svg' alt='Swinburn audit experts'/>
+                    <p className='text-center text-[18px] font-semibold mt-2'>Generate Audit Reports</p>
                     </div>
  
                 </div>

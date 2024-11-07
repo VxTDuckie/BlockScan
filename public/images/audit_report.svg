@@ -1,8 +1,4 @@
-import React from 'react'
 
-export const AuditReport = () => {
-  return (
-    <div>
         <svg width="237" height="196" viewBox="0 0 237 196" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="11.416" y="52.1169" width="100.48" height="141.94" transform="rotate(-20.0385 11.416 52.1169)" fill="#2B2B2B"/>
         <rect x="53.8984" y="134.439" width="80.4813" height="10.2431" rx="1.4633" transform="rotate(-20.0385 53.8984 134.439)" fill="#757575"/>
@@ -87,6 +83,3 @@ export const AuditReport = () => {
         </linearGradient>
         </defs>
         </svg>
-    </div>
-  )
-}

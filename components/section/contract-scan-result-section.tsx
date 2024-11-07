@@ -199,8 +199,8 @@ const ContractScanResult: React.FC = () => {
                      metrics.optimization_issues;
 
   return (
-    <section className="bg-white__bg pb-20">
-      <div className="max-w-7xl mx-auto py-4 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
+    <section className="bg-white__bg pb-20 w-full  px-16">
+      <div className="max-w-screen-2xl mx-auto py-4 sm:py-6 lg:py-8">
         {/* Header section */}
         <div className="mb-12 bg-white rounded-xl p-6 shadow-sm">
           {/* Top section */}
