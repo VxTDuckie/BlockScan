@@ -1,6 +1,11 @@
 import React from 'react';
 
-const VideoCard = ({ embedId, title } : any) => (
+interface VideoCardProps {
+  embedId: string;
+  title: string;
+}
+
+const VideoCard = ({ embedId, title } : VideoCardProps) => (
   <div className="w-full"> {/* Ensure full width of grid cell */}
     <div className="bg-white rounded-xl shadow-lg overflow-hidden h-full hover:scale-105 duration-300"> {/* Add h-full */}
       <div className="relative pb-[56.25%] "> {/* 16:9 aspect ratio */}
