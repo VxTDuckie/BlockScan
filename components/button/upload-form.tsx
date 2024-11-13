@@ -4,7 +4,8 @@ import CustomButton from '../utils/CustomButton';
 import { X, Upload } from 'lucide-react';
 import { useScanning, ScanningNotification } from '../index';
 import {FileCheck} from 'lucide-react'
-import  {motion} from "framer-motion"; // Animation library
+import  {motion, AnimatePresence } from "framer-motion"; // Animation library
+import {useDropzone} from "react-dropzone"
 
 type UploadFormProps = {
   style?:string
@@ -23,8 +24,32 @@ const UploadForm = ({style, title}: UploadFormProps): JSX.Element => {
   const {isScanning, startScanning, setIsScanning} = useScanning(); // Destructuring scanning state and key press handler from custom hook
   const [openUpload, setOpenUpload] = useState(false);
   const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:5000';
+  const onDrop = async (acceptedFiles: File[]) => {
+    if (acceptedFiles.length === 1) {
+      const syntheticEvent = {
+        target: {
+          files: acceptedFiles
+        }
+      } as unknown as React.ChangeEvent<HTMLInputElement>;
+      
+      await handleFileChange(syntheticEvent);
+    }
+  };
+  const { getRootProps, getInputProps, isDragActive, fileRejections } = useDropzone({
+    onDrop,
+    onDropRejected: (fileRejections) => {
+      if (fileRejections.some(rejection => rejection.errors.some(error => error.code === 'too-many-files'))) {
+        setMessage('Please upload only one file at a time');
+        setContractFile(null);
+      }
+    },
+    accept: {
+      'text/solidity': ['.sol']
+    },
+    maxFiles: 1
+  });  
   const handleProjectNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setProjectName(event.target.value); // Update project name
+    setProjectName(event.target.value); // Update project name 
   };
 
   // Toggle Upload Modal Visibility
@@ -64,15 +89,17 @@ const UploadForm = ({style, title}: UploadFormProps): JSX.Element => {
       return;
     }
 
+
     setContractFile(selectedFile);
     setMessage('File selected successfully');
   };
+
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const sessionId = localStorage.getItem('sessionId');
     if (!projectName.trim()) {
-      setMessageName('Please enter a project name before uploading.');
+      setMessageName('Please enter a project name.');
       return;
     }
     setMessageName('');
@@ -193,42 +220,80 @@ const UploadForm = ({style, title}: UploadFormProps): JSX.Element => {
                       
                     
 
+                      <div>
                     {!contractFile ? (
                       <div>
-                        <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center">
-                        <Upload className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-                        <p className="text-gray-600 mb-2 text-[18px]">
-                          Drag and drop or{" "}
-                          <label className="text-hard-red cursor-pointer">
-                            Browse
-                            <input
-                              type="file"
-                              className="hidden"
-                              onChange={handleFileChange}
-                              accept=".sol"
-                            />
-                          </label>{" "}
-                          to upload.
-                        </p>
-                        <p className="text-sm text-gray-500 text-[16px]">
-                          You can upload only one .sol file. Max size: 10 MB.
-                        </p>
+                         <div {...getRootProps()} className="border-2 border-dashed border-gray-300 hover:border-black duration-300 transition-colors rounded-xl p-8">
+                        <input {...getInputProps()} />
+
+{/* Replace the existing conditional render with this */}
+<AnimatePresence mode="wait">
+  {isDragActive ? (
+    <motion.p
+      key="drag-active"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className="text-center text-gray-600 text-lg"
+    >
+      Drop the file here
+    </motion.p>
+  ) : (
+    <motion.div
+      key="drag-inactive"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className="text-center"
+    >
+      <Upload className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+      <p className="text-gray-600 mb-2 text-lg">
+        Drag and drop or{' '}
+        <label className="text-red-600 cursor-pointer">
+          Browse
+          <input
+            type="file"
+            className="hidden"
+            onChange={handleFileChange}
+            accept=".sol"
+          />
+        </label>{' '}
+        to upload.
+      </p>
+      <p className="text-sm text-gray-500">
+        You can upload only one .sol file. Max size: 10 MB.
+      </p>
+    </motion.div>
+  )}
+</AnimatePresence>
+                        </div>
+
+                        {message && (
+                          <p className="text-lg mt-2 text-purple-600 text-left">{message}</p>
+                        )}
+                      </div>
+                     
                         
-                      </div>
-                      {message && <p className='text-[18px] mt-2 text-purple-600 text-left'>{message}</p>}
-                      </div>
-
-
                       
                     ) : (
                       <div className="flex justify-between items-center">
-                        <p className='flex items-center text-[18px]'>{contractFile.name}<span className='ml-4 text-purple-600 flex gap-2'>{message && <span className='flex gap-2'>{message}<FileCheck></FileCheck></span>} </span></p>
-                        
+                        <p className="flex items-center text-lg">
+                          {contractFile.name}
+                          {message && (
+                            <span className="ml-4 text-purple-600 flex gap-2">
+                              {message}
+                              <FileCheck />
+                            </span>
+                          )}
+                        </p>
                         <button onClick={removeFile}>
                           <X className="h-4 w-4" />
                         </button>
                       </div>
                     )}
+                  </div>
                   <form onSubmit={handleSubmit} encType="multipart/form-data">
                   <button
                       type="submit"

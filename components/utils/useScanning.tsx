@@ -11,7 +11,7 @@ export const useScanning = () => {
     setTimeout(() => {
       setIsScanning(false);
       // After the scanning is done, navigate to the contract page
-      router.push(`/project/${id}`);
+      router.push(`/projects/${id}`);
     }, 800); 
   };
 

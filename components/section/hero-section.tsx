@@ -33,7 +33,7 @@ const Hero = () => {
                         className="hero__title text-4xl sm:text-5xl lg:text-6xl xl:text-[64px] leading-relaxed xl:leading-relaxed mb-4 xl:mb-6 animate-fadeUp"
                         initial="hidden"
                         whileInView="reveal"
-                        transition={{staggerChildren: 0.03}}
+                        transition={{staggerChildren: 0.02}}
                         
                         >
                             <span
@@ -57,7 +57,7 @@ const Hero = () => {
                             whileInView='reveal'
                             transition={{
                                 staggerChildren: 0.01,
-                                delayChildren: 2,
+                                delayChildren: 1.5,
                             }}
                         >
                             {splitSubtitle.map( char =>

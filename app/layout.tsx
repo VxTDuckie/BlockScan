@@ -18,7 +18,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "BlockScan",
-  description: "An effective scanner for you.",
+  description: "An effective smart contract scanner for you.",
 };
 
 export default function RootLayout({

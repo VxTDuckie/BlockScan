@@ -25,14 +25,13 @@ interface AnalysisVulns {
 interface ResultBodyProps {
   metrics: AnalysisMetrics | null;
   vulns: AnalysisVulns[] | null;
-  score: number;
+  riskScore: number;
   raw_markdown_content: string;
 }
 //Component for displaying contract safety check results
-const ResultBody : React.FC<ResultBodyProps> = ({metrics, vulns, score, raw_markdown_content}) => {
+const ResultBody : React.FC<ResultBodyProps> = ({metrics, vulns, riskScore, raw_markdown_content}) => {
   // State quản lý tab đang được chọn (Token Detector hoặc General Detector)
   const [isChosen, setIsChosen] = useState(true); 
-  
 
   return (
     <main>
@@ -76,21 +75,22 @@ const ResultBody : React.FC<ResultBodyProps> = ({metrics, vulns, score, raw_mark
             </div>
           </div>
           <div className='bg-white rounded-xl p-6 shadow-sm flex flex-[2] items-center'>
-            <DonutChartForSecureScore score={score}/>
+            <DonutChartForSecureScore score={riskScore}/>
             <div className='rounded-xl flex flex-col justify-between bg-gray-50 p-4'>
               <div>
                 <div className='flex'>
-                <p className='text-xl mr-2 mb-2 text-gray-800'>Your Security score is</p>
-                <p className='text-xl font-bold'>{score >=95 ? <p className='text-green-500'>OUTSTANDING</p> 
-                : score >= 80 ? <p className='text-yellow-400'>GREAT</p> 
-                : score >= 50 ? <p className='text-primary-red'>ACCEPTABLE</p> 
-                : score >= 20 ? <p className='text-red-800'>BAD</p> 
-                : <p className='text-purple-950'>AWFUL</p>}</p>        
+                <p className='text-xl mr-2 mb-2 text-gray-800'>Contract Risk Level:</p>
+                <p className='text-xl font-bold'>{riskScore >=80 ? <p className='text-purple-950'>CATASTROPHIC</p> 
+                : riskScore >= 60 ? <p className='text-red-800'>SIGNIFICANT</p> 
+                : riskScore >= 40 ? <p className='text-primary-red'>HIGH</p> 
+                : riskScore >= 20 ? <p className='text-yellow-400'>MODERATE</p> 
+                : riskScore >= 5 ? <p className='text-green-500'>LOW</p> 
+                : <p className='text-gray-500'>MINIMAL</p>}</p>        
                 </div>
                 <p className='text-gray-500 mb-6'>
-                At BlockScan, 
-                the security score is determined by analyzing the lines of code and applying weights to each issue based on their severity level. 
-                To enhance your score, you can review the detailed analysis and apply the suggested fixes provided in the report.
+                At BlockScan, the risk score is determined by analyzing the lines of code and applying weights
+                to each issue based on their severity level. A lower risk score indicates better security practices. 
+                To reduce your risk score, you can review the detailed analysis and apply the suggested fixes provided in the report.
                 </p>
               </div>
 

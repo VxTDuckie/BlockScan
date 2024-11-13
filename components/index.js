@@ -27,6 +27,7 @@ import OnScrollTutorial from './section/on-scroll-tutorial';
 import MeetTheTeam from './section/meet-the-team';
 import OurContributors from './section/on-scroll-components/our-contributors';
 import PagesExample from './section/on-scroll-components/pages-example';
+import { Meteors } from './utils/meteors';
 
 export {
     Hero,
@@ -55,7 +56,5 @@ export {
     OurContributors,
     MeetTheTeam,
     PagesExample,
-
-    
-    
+    Meteors,
 }

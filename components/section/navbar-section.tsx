@@ -61,7 +61,7 @@ const Navbar = () => {
                 target='_blank'
                 className='hover:text-pink-600 transition-colors'
               >
-                SUPPORT
+                FOR SUPPORT
               </a>
             </div>
           </div>

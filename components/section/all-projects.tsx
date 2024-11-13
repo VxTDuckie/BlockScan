@@ -4,6 +4,7 @@ import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
 import { Search, FilePlus} from 'lucide-react';
 import {UploadForm} from '@/components/index'
+import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 
 interface AnalysisMetrics {
   id: string;
@@ -168,52 +169,54 @@ const AllProjects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
           {filteredProjects.map((project) => (
-            <Link href={`/project/${project.id}`} key={project.id}>
-              <div className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h2 className="text-lg font-semibold text-gray-900 mb-1">{project.project_name}</h2>
-                    <p className="text-sm text-gray-500">
-                      Last scanned {new Date(project.created_at).toLocaleDateString()}
-                    </p>
+            <Link href={`/projects/${project.id}`} key={project.id} className="block h-full">
+              <CardContainer className="h-full w-full">
+                <CardBody className="bg-white rounded-xl shadow-sm p-6 hover:shadow-xl hover:border-2 hover:border-black transition-all duration-200">
+                  <div className="flex justify-between items-start mb-4">
+                    <CardItem translateZ="90">
+                      <h2 className="text-lg font-semibold text-gray-900 mb-1">{project.project_name}</h2>
+                      <p className="text-sm text-gray-500">
+                        Last scanned {new Date(project.created_at).toLocaleDateString()}
+                      </p>
+                    </CardItem>
+                    <CardItem translateZ="90" className='text-right'>
+                      <p className="text-right text-[20px] font-bold">{project.security_score}</p>
+                      <p className="text-sm text-gray-500">Security score</p>
+                    </CardItem>
                   </div>
-                  <div>
-                    <p className={`text-right text-[20px] font-bold `}>{project.security_score}</p>
-                    <p className='text-sm text-gray-500'>Security score</p>
-                  </div>
-                </div>
 
-                {/* Metrics */}
-                <div className="grid grid-cols-5 gap-2 text-center text-sm">
-                  <div>
-                    <div className="font-medium">{project.high_issues}</div>
-                    <div className="text-pri">High</div>
-                    <div className='border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-red-600'></div>
-                  </div>
-                  <div>
-                    <div className="font-medium">{project.medium_issues}</div>
-                    <div className="text-gray-500">Med</div>
-                    <div className='border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-yellow-400'></div>
-                  </div>
-                  <div>
-                    <div className="font-medium">{project.low_issues}</div>
-                    <div className="text-gray-500">Low</div>
-                    <div className='border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-green-500'></div>
-                  </div>
-                  <div>
-                    <div className="font-medium">{project.informational_issues}</div>
-                    <div className="text-gray-500">Info</div>
-                    <div className='border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-gray-500'></div>
-                  </div>
-                  <div>
-                    <div className="font-medium">{project.optimization_issues}</div>
-                    <div className="text-gray-500">Opti</div>
-                    <div className='border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-blue-500'></div>
-                  </div>
-                </div>
-              </div>
+                  {/* Metrics */}
+                  <CardItem translateZ="120" className="grid grid-cols-5 gap-2 text-center text-sm mt-8 bg-black/20 rounded-xl py-2">
+                    <div className="transform-style-3d">
+                      <div className="font-medium">{project.high_issues}</div>
+                      <div className="text-gray-500">High</div>
+                      <div className="border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-red-600"></div>
+                    </div>
+                    <div className="transform-style-3d">
+                      <div className="font-medium">{project.medium_issues}</div>
+                      <div className="text-gray-500">Med</div>
+                      <div className="border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-yellow-400"></div>
+                    </div>
+                    <div className="transform-style-3d">
+                      <div className="font-medium">{project.low_issues}</div>
+                      <div className="text-gray-500">Low</div>
+                      <div className="border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-green-500"></div>
+                    </div>
+                    <div className="transform-style-3d">
+                      <div className="font-medium">{project.informational_issues}</div>
+                      <div className="text-gray-500">Info</div>
+                      <div className="border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-gray-500"></div>
+                    </div>
+                    <div className="transform-style-3d">
+                      <div className="font-medium">{project.optimization_issues}</div>
+                      <div className="text-gray-500">Opti</div>
+                      <div className="border-b-[4px] rounded-full w-1/2 mx-auto mt-2 border-blue-500"></div>
+                    </div>
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
             </Link>
           ))}
         </div>

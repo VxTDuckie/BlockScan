@@ -427,4 +427,6 @@ background: linear-gradient(45deg,#9333ea, #e70606);
   animation-range: entry 0% cover 15%;
 }
 
+@layer base {img {display: initial;}}
+
 /*end*/

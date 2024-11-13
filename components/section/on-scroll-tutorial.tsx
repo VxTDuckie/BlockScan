@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { OurContributors, PagesExample, RiliabilitySection } from '..';
+import { OurContributors, PagesExample, RiliabilitySection } from '@/components/index';
 
 const OnScrollSection = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -28,6 +28,7 @@ const OnScrollSection = () => {
   const firstTransitionPoint = windowHeight * 2 + 600;
   const secondTransitionPoint = windowHeight * 3 + 600;
   const thirdTransitionPoint = windowHeight * 4 + 600;
+
 
   return (
     <main className='bg-white px-16 w-full'>
@@ -62,9 +63,9 @@ const OnScrollSection = () => {
         </div>
   
         {/* Non-sticky text sections */}
-        <div className='absolute top-0 right-0 w-1/4'>
+        <div className={`top-0 right-0 w-1/4 absolute`}>
           <div className='min-h-screen flex items-center'>
-            <div className='relative animation-block'>
+            <div className='animation-block'>
               <h2 className='text-purple-800 font-bold text-3xl mb-4'>
                 What are smart contracts?
               </h2>

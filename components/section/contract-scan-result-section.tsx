@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CustomButton, ResultBody, NoContractFound } from '@/components/index';
 import { createClient } from '@supabase/supabase-js';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
 // Types and Interfaces
 interface AnalysisMetrics {
@@ -88,6 +88,13 @@ const calculateSafetyScore = (metrics: AnalysisMetrics): number => {
     informational: 0.2,
     optimization: 0.1
   };
+  const addUp = {
+    high: 6,
+    medium: 3,
+    low: 1.5,
+    informational: 0.3,
+    optimization: 0.2
+  };
   const totalIssues = metrics.high_issues + metrics.medium_issues + 
   metrics.low_issues + metrics.informational_issues + 
   metrics.optimization_issues;
@@ -101,7 +108,30 @@ const calculateSafetyScore = (metrics: AnalysisMetrics): number => {
 
   return Math.max(0, Math.min(100, baseScore - totalDeduction - (100*2.5*totalIssues/metrics.source_lines)));
 };
-// At the top of your file, create a Supabase client with proper config
+const calculateRiskScore = (metrics: AnalysisMetrics): number => {
+  if (!metrics) return 0;
+  
+  const baseScore = 0;
+  const addUp = {
+    high: 6,
+    medium: 3,
+    low: 1.5,
+    informational: 0.3,
+    optimization: 0.2
+  };
+  const totalIssues = metrics.high_issues + metrics.medium_issues + 
+  metrics.low_issues + metrics.informational_issues + 
+  metrics.optimization_issues;
+
+  const totalAppUp = 
+    (metrics.high_issues * addUp.high) +
+    (metrics.medium_issues * addUp.medium) +
+    (metrics.low_issues * addUp.low) +
+    (metrics.informational_issues * addUp.informational) +
+    (metrics.optimization_issues * addUp.optimization);
+
+  return Math.max(0, Math.min(100, baseScore + totalAppUp + (100*2*totalIssues/metrics.source_lines)));
+};
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -128,6 +158,8 @@ const ContractScanResult: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [rawMarkdownContent, setRawMarkdownContent] = useState('');
+  const router = useRouter();
+
   useEffect(() => {
     const fetchResults = async () => {
      const sessionId = localStorage.getItem('sessionId');
@@ -172,9 +204,7 @@ const ContractScanResult: React.FC = () => {
     }
   }, [params.id]);
 
-  const handleRedirectToPdf = () => {
-    window.open('/contract/scanresult', '_blank');
-  };
+
 
   if (loading) {
     return (
@@ -194,10 +224,13 @@ const ContractScanResult: React.FC = () => {
   }
 
   const safetyScore = calculateSafetyScore(metrics);
+  const riskScore = calculateRiskScore(metrics);
   const totalIssues = metrics.high_issues + metrics.medium_issues + 
                      metrics.low_issues + metrics.informational_issues + 
                      metrics.optimization_issues;
 
+
+                 
   return (
     <section className="bg-white__bg pb-20 w-full  px-16">
       <div className="max-w-screen-2xl mx-auto py-4 sm:py-6 lg:py-8">
@@ -218,23 +251,6 @@ const ContractScanResult: React.FC = () => {
                 <p className="text-gray-500">File Scan</p>
               </div>
             </div>
-            
-            {/* Export button */}
-            <CustomButton
-              icon={
-                <svg className="w-8 h-8 white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
-                  />
-                </svg>
-              }
-              title="Generate report"
-              containerStyles="bg-primary-red text-white font-semibold rounded-full px-4 py-2 lg:py-3 shadow-glow-red transition-all duration-300 ease-in-out transform hover:scale-105"
-              handleClick={handleRedirectToPdf}
-            />
           </div>
 
           {/* Metrics grid */}
@@ -297,7 +313,7 @@ const ContractScanResult: React.FC = () => {
         {/* Main content area */}
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-[5] lg:w-1/3">
-            <ResultBody metrics={metrics} vulns={vulns} score={safetyScore} raw_markdown_content={rawMarkdownContent}/>
+            <ResultBody metrics={metrics} vulns={vulns} riskScore={riskScore} raw_markdown_content={rawMarkdownContent}/>
           </div>
         </div>
       </div>
