@@ -18,11 +18,11 @@ const SmartScanning = () => {
             Smart scanning
           </h1>
           <div className='flex flex-col sm:flex-row sm:flex-wrap justify-between items-end gap-2 sm:gap-4 text-subtitle__gray font-bold text-sm sm:text-base'>
-            <div>
+            <div className='flex items-center'>
               <span>Leverage advanced algorithms</span>
-              <span className='hidden sm:inline'>|</span>
+              <span className='hidden sm:inline px-1 text-2xl font-light'>|</span>
               <span>Identify key contract insights</span>
-              <span className='hidden sm:inline'>|</span>
+              <span className='hidden sm:inline px-1 text-2xl font-light'>|</span>
               <span>Optimize processes</span>
             </div>
             <div>
